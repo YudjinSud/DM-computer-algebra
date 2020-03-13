@@ -14,4 +14,4 @@ previous paragraph
 
 -5) Create new pull request within your branch from this site (github).
 
-Also, before start working, do not `git pull`
+Also, before start working, do not forget `git pull`
