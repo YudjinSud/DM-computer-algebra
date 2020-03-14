@@ -1,11 +1,8 @@
-#include "computeralgebra.h"
+#include <iostream>
 
-#include <QApplication>
+using namespace std;
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    ComputerAlgebra w;
-    w.show();
-    return a.exec();
+	cout << "Hello world!\n" << endl;
 }
