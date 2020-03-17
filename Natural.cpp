@@ -87,7 +87,6 @@ Natural ADD_NN_N(Natural a, Natural b) {
     int ost = 0;
     for (int i = a.n - 1; i - delta >= 0; i--) {
         c.dig.push_back((a.dig[i] + b.dig[i - delta] + ost) % 10);
-        cout << i - delta << '\n';
         ost = (a.dig[i] + b.dig[i - delta] + ost) / 10;
     }
     for (int i = delta - 1; i >= 0; i--) {
