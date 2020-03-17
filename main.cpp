@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Natural.hpp";
 
 using namespace std;
 
