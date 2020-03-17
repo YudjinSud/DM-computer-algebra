@@ -24,5 +24,3 @@ int main() {
     return 0;
 }
 
-
-//this is message for artyom
