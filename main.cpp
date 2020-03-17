@@ -10,17 +10,17 @@ void read_natural(Natural &a){
     }
 }
 
-void solve_SUB_NN_N(){
+void solve_MUL_Nk_N(){
     Natural a;int n;
     read_natural(a);
     cin >> n;
-    Natural c = MUL_ND_N(a,n);
+    Natural c = MUL_Nk_N(a,n);
     fore(i, 0, c.n) cout << c.dig[i];
     cout << '\n';
 }
 
 int main() {
-    solve_SUB_NN_N();
+    solve_MUL_Nk_N();
     return 0;
 }
 

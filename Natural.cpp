@@ -139,3 +139,9 @@ Natural MUL_ND_N(Natural a, int n){
     return a;
 }
 
+Natural MUL_Nk_N(Natural a, int k){
+    fore(i,0,k) a.dig.push_back(0);
+    a.n = (int)(a.dig.size());
+    return a;
+}
+
