@@ -1,6 +1,6 @@
 #include "Natural.h"
 
-//#include <bits/stdc++.h>
+#include <bits/stdc++.h>
 #pragma GCC optimize("O3")
 #define PI 2*asin(1)
 #define mod 1000000007
@@ -59,10 +59,11 @@ Natural ADD_1N_N(Natural &a){
     vector<int>B = a.dig;
     a.dig.push_back(0);
     a.dig[0] = 1;
-    fore(i,0,a.n) a.dig[i+1] = B[i];
+    fore(i, 0, a.n) a.dig[i+1] = B[i];
     a.n++;
     return a;
 }
+
 /*
 void solve_ADD_1N_N(){
     Natural a;
@@ -73,3 +74,41 @@ void solve_ADD_1N_N(){
     cout << '\n';
 }
 */
+
+Natural ADD_NN_N(Natural a, Natural b){
+    if(a.n < b.n){
+        Natural c;
+        int delta = -a.n + b.n;
+        int ost = 0;
+        for (int i = b.n - 1; i - delta >= 0; i--) {
+            c.dig.push_back((b.dig[i] + a.dig[i - delta] + ost) % 10);
+            ost = (b.dig[i] + a.dig[i - delta] + ost) / 10;
+        }
+        for (int i = delta - 1; i >= 0; i--) {
+            c.dig.push_back((ost + b.dig[i]) % 10);
+            ost = (ost + b.dig[i]) / 10;
+        }
+        if (ost != 0) c.dig.push_back(ost);
+        reverse(all(c.dig));
+        c.n = (int) (c.dig.size());
+        return c;
+    }else {
+        Natural c;
+        int delta = a.n - b.n;
+        int ost = 0;
+        for (int i = a.n - 1; i - delta >= 0; i--) {
+            c.dig.push_back((a.dig[i] + b.dig[i - delta] + ost) % 10);
+            cout << i - delta << '\n';
+            ost = (a.dig[i] + b.dig[i - delta] + ost) / 10;
+        }
+        for (int i = delta - 1; i >= 0; i--) {
+            c.dig.push_back((ost + a.dig[i]) % 10);
+            ost = (ost + a.dig[i]) / 10;
+        }
+        if (ost != 0) c.dig.push_back(ost);
+        reverse(all(c.dig));
+        c.n = (int) (c.dig.size());
+        return c;
+    }
+}
+
