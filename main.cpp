@@ -11,10 +11,10 @@ void read_natural(Natural &a){
 }
 
 void solve_SUB_NN_N(){
-    Natural a, b;
+    Natural a;int n;
     read_natural(a);
-    read_natural(b);
-    Natural c = SUB_NN_N(a,b);
+    cin >> n;
+    Natural c = MUL_ND_N(a,n);
     fore(i, 0, c.n) cout << c.dig[i];
     cout << '\n';
 }

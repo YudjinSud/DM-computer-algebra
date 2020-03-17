@@ -102,24 +102,40 @@ Natural SUB_NN_N(Natural a, Natural b) {
     if (COM_NN_D(a,b) == 1) {
         swap(a, b);
     }
-    Natural c;
-    int delta = a.n - b.n;
+    reverse(all(a.dig));reverse(all(b.dig));
     int ost = 0;
-    for (int i = a.n - 1; i - delta >= 0; i--) {
-        c.dig.push_back((a.dig[i] - b.dig[i - delta] + ost + 10) % 10);
-        if(a.dig[i] + ost < b.dig[i - delta]) ost = -1;
-        else ost = 0;
+    for(int i = 0; i < (int)(b.dig.size()) || ost; ++i) {
+        if(i < (int)(b.dig.size()))
+            a.dig[i] -= ost + b.dig[i];
+        else
+            a.dig[i] -= ost;
+        if(a.dig[i] < 0){
+            a.dig[i] += 10;
+            ost = 1;
+        }else ost = 0;
     }
-    for (int i = delta - 1; i >= 0; i--) {
-        c.dig.push_back((ost + a.dig[i]) % 10);
-        if(a.dig[i] + ost < 0) ost = -1;
-        else ost = 0;
+
+    while((int)(a.dig.size()) > 1 && a.dig.back() == 0)
+        a.dig.pop_back();
+    reverse(all(a.dig));
+    a.n = a.dig.size();
+    return a;
+}
+
+Natural MUL_ND_N(Natural a, int n){
+    int ost = 0;
+    reverse(all(a.dig));
+    for(int i = 0; i < (int)(a.dig.size()) || ost; ++i){
+        if(i == (int)(a.dig.size()))
+            a.dig.push_back(0);
+        long long b = ost + a.dig[i] * 1ll * n;
+        a.dig[i] = (int)(b % 10);
+        ost = (int)(b / 10);
     }
-    int k = 0;
-    for(int i = (int) (c.dig.size()) - 1; i >= 0 && c.dig[i] == 0; i--) k++;
-    c.dig.resize((int) (c.dig.size()) - k, k);
-    reverse(all(c.dig));
-    c.n = (int) (c.dig.size());
-    return c;
+    while((int)(a.dig.size()) > 1 && a.dig.back() == 0)
+        a.dig.pop_back();
+    reverse(all(a.dig));
+    a.n = a.dig.size();
+    return a;
 }
 
