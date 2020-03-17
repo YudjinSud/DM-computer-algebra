@@ -6,7 +6,7 @@ using namespace std;
 
 struct Natural{
     int n;
-    vector<int>digits;
+    vector<int>dig;
 };
 
 
@@ -16,7 +16,7 @@ int COM_NN_D(Natural &a, Natural &b);
 int NZER_N_B(Natural &a);
 //Проверка на ноль: если число не равно нулю, то «да» иначе «нет»
 
-Natural ADD_1N_N(Natural a);
+Natural ADD_1N_N(Natural &a);
 //Добавление 1 к натуральному числу
 
 Natural ADD_NN_N(Natural a, Natural b);
