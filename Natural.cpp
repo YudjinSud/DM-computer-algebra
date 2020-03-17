@@ -39,7 +39,6 @@ void solve_COM_NN_D(){
     cout << COM_NN_D(a,b) << '\n';
 }*/
 
-
 int NZER_N_B(Natural &a) {
     if (a.n == 1 && a.dig[0] == 0) return 1;
     else return 0;
@@ -94,6 +93,31 @@ Natural ADD_NN_N(Natural a, Natural b) {
         ost = (ost + a.dig[i]) / 10;
     }
     if (ost != 0) c.dig.push_back(ost);
+    reverse(all(c.dig));
+    c.n = (int) (c.dig.size());
+    return c;
+}
+
+Natural SUB_NN_N(Natural a, Natural b) {
+    if (COM_NN_D(a,b) == 1) {
+        swap(a, b);
+    }
+    Natural c;
+    int delta = a.n - b.n;
+    int ost = 0;
+    for (int i = a.n - 1; i - delta >= 0; i--) {
+        c.dig.push_back((a.dig[i] - b.dig[i - delta] + ost + 10) % 10);
+        if(a.dig[i] + ost < b.dig[i - delta]) ost = -1;
+        else ost = 0;
+    }
+    for (int i = delta - 1; i >= 0; i--) {
+        c.dig.push_back((ost + a.dig[i]) % 10);
+        if(a.dig[i] + ost < 0) ost = -1;
+        else ost = 0;
+    }
+    int k = 0;
+    for(int i = (int) (c.dig.size()) - 1; i >= 0 && c.dig[i] == 0; i--) k++;
+    c.dig.resize((int) (c.dig.size()) - k, k);
     reverse(all(c.dig));
     c.n = (int) (c.dig.size());
     return c;
