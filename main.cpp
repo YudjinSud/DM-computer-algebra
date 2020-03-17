@@ -5,6 +5,7 @@
 void read_natural(Natural &a){
     cin >> a.n;
     char c;
+    char t;
     fore(i, 0, a.n) {
         cin >> c;
         a.dig.push_back( int(c) - int('0'));
