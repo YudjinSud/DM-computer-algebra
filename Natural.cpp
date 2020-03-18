@@ -24,11 +24,10 @@ Natural ADD_1N_N(Natural a) {
         if (a.dig[i] != 10) return a;
         a.dig[i] = 0;
     }
-    vector<int> B = a.dig;
     a.dig.push_back(0);
+    a.n = int(a.dig.size());
+    for(int i = a.n - 1; i > 0; i--) a.dig[i] = a.dig[i-1];
     a.dig[0] = 1;
-    fore(i, 0, a.n) a.dig[i + 1] = B[i];
-    a.n++;
     return a;
 }
 

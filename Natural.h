@@ -2,7 +2,8 @@
 #define DM_COMPUTER_ALGEBRA_TEST_H_N
 
 #include <vector>
-#include <iostream>
+#include <iosfwd>
+//#include <iostream>
 #include <algorithm>
 using namespace std;
 

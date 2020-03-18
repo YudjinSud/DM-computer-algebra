@@ -61,6 +61,11 @@ void BTest::test_ADD_1N_N() {
     res.dig = {1,0,0,0};
     DO_CHECK(ADD_1N_N(a) == res);
 
+    a.n = 2;
+    a.dig = {8,9};
+    res.n = 2;
+    res.dig = {9,0};
+    DO_CHECK(ADD_1N_N(a) == res);
 }
 
 void BTest::test_ADD_NN_N() {

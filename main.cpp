@@ -1,5 +1,3 @@
-#include <iostream>
-#include "Natural.h"
 #include "Test.h"
 #include "Btest.h"
 
