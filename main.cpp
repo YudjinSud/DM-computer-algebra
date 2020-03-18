@@ -7,7 +7,7 @@ void read_natural(Natural &a){
     char c;
     fore(i, 0, a.n) {
         cin >> c;
-        a.dig.push_back( int(c) - int('0'));
+        a.dig.push_back(int(c) - int('0'));
     }
 }
 
