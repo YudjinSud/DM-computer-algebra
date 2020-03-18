@@ -13,26 +13,10 @@ int COM_NN_D(Natural &a, Natural &b) {
     return 0;
 }
 
-/*
-void solve_COM_NN_D(){
-    Natural a,b;
-    read_natural(a);
-    read_natural(b);
-    cout << COM_NN_D(a,b) << '\n';
-}*/
-
 int NZER_N_B(Natural &a) {
     if (a.n == 1 && a.dig[0] == 0) return 1;
     else return 0;
 }
-
-/*
-void solve_NZER_N_B() {
-    Natural a;
-    read_natural(a);
-    cout << NZER_N_B(a) << '\n';
-}
-*/
 
 Natural ADD_1N_N(Natural &a) {
     for (int i = a.n - 1; i >= 0; i--) {
@@ -47,17 +31,6 @@ Natural ADD_1N_N(Natural &a) {
     a.n++;
     return a;
 }
-
-/*
-void solve_ADD_1N_N(){
-    Natural a;
-    read_natural(a);
-    a = ADD_1N_N(a);
-    cout << a.n << '\n';
-    fore(i,0,a.n) cout << a.dig[i];
-    cout << '\n';
-}
-*/
 
 Natural ADD_NN_N(Natural a, Natural b) {
     if (a.n < b.n) {

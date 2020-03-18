@@ -1,3 +1,6 @@
+#ifndef DM_COMPUTER_ALGEBRA_TEST_H_N
+#define DM_COMPUTER_ALGEBRA_TEST_H_N
+
 #include <vector>
 #include <iostream>
 #include <algorithm>
@@ -68,3 +71,5 @@ Natural LCM_NATURAL(Natural a, Natural b);
 //@GCF_NN_N, @MUL_NN_N
 //НОК натуральных чисел
 
+
+#endif //DM_COMPUTER_ALGEBRA_BTEST_H
