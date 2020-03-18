@@ -3,7 +3,7 @@
 #define all(a) begin(a),end(a)
 #define fore(i, j, n) for(long long i = j; i < n; i++)
 
-int COM_NN_D(Natural &a, Natural &b) {
+int COM_NN_D(Natural a, Natural b) {
     if (a.n > b.n) return 2;
     if (a.n < b.n) return 1;
     fore(i, 0, a.n) {
@@ -13,12 +13,12 @@ int COM_NN_D(Natural &a, Natural &b) {
     return 0;
 }
 
-int NZER_N_B(Natural &a) {
+int NZER_N_B(Natural a) {
     if (a.n == 1 && a.dig[0] == 0) return 1;
     else return 0;
 }
 
-Natural ADD_1N_N(Natural &a) {
+Natural ADD_1N_N(Natural a) {
     for (int i = a.n - 1; i >= 0; i--) {
         a.dig[i]++;
         if (a.dig[i] != 10) return a;
@@ -101,3 +101,6 @@ Natural MUL_Nk_N(Natural a, int k) {
     return a;
 }
 
+bool Natural::operator==(const Natural &other) {
+    return n == other.n && dig == other.dig;
+}

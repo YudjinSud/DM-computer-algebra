@@ -10,16 +10,17 @@ using namespace std;
 struct Natural{
     int n;
     vector<int>dig;
+    bool operator == (const Natural & other);
 };
 
 
-int COM_NN_D(Natural &a, Natural &b);
+int COM_NN_D(Natural a, Natural b);
 //Сравнение натуральных чисел: 2 - если первое больше второго, 0, если равно, 1 иначе.
 
-int NZER_N_B(Natural &a);
+int NZER_N_B(Natural a);
 //Проверка на ноль: если число не равно нулю, то «да» иначе «нет»
 
-Natural ADD_1N_N(Natural &a);
+Natural ADD_1N_N(Natural a);
 //Добавление 1 к натуральному числу
 
 Natural ADD_NN_N(Natural a, Natural b);
