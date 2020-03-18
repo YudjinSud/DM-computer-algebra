@@ -1,4 +1,4 @@
-#include "BTest.h"
+#include "Btest.h"
 
 void BTest::runAllTests() {
     test_COM_NN_D();
