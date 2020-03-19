@@ -56,21 +56,17 @@ Natural DIV_NN_N(Natural a, Natural b);
 //Частное от деления большего натурального числа на меньшее или равное 
 // натуральное с остатком(делитель отличен от нуля)
 
-
 Natural MOD_NN_N(Natural a, Natural b);
 //@DIV_NN, @SUB_NDN_N
 //Остаток от деления большего натурального числа на меньшее или равное натуральное
 // с остатком(делитель отличен от нуля)
 
-
 Natural GCF_NN_N(Natural a, Natural b);
 //@MOD_NN_N, @COM__NN_D, @NZER_N_B
 //НОД натуральных чисел
 
-
 Natural LCM_NN_N(Natural a, Natural b);
 //@GCF_NN_N, @MUL_NN_N
 //НОК натуральных чисел
-
 
 #endif //DM_COMPUTER_ALGEBRA_BTEST_H

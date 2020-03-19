@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Btest.h"
 
+
 void BTest::runAllTests() {
     test_COM_NN_D();
     test_NZER_N_B();
@@ -16,6 +17,16 @@ void BTest::runAllTests() {
     test_MOD_NN_N();
     test_GCF_NN_N();
     test_LCM_NN_N();
+    test_ABS_Z_N();
+    test_POZ_Z_D();
+    test_MUL_ZM_Z();
+    test_TRANS_N_Z();
+    test_TRANS_Z_N();
+    test_ADD_ZZ_Z();
+    /*test_SUB_ZZ_Z();
+    test_MUL_ZZ_Z();
+    test_DIV_ZZ_Z();
+    test_MOD_ZZ_Z();*/
 }
 
 void BTest::test_COM_NN_D() {
@@ -316,3 +327,116 @@ void BTest::test_LCM_NN_N() {
     DO_CHECK(LCM_NN_N(a, b) == res);
 
 }
+
+void BTest::test_ABS_Z_N(){
+    Integ a,res;
+    a.b = 1;
+    a.n = 3;
+    a.dig = {1,1,4};
+    res.b = 0;
+    res.n = 3;
+    res.dig = {1,1,4};
+    DO_CHECK(ABS_Z_N(a) == res);
+}
+
+void BTest::test_POZ_Z_D(){
+    Integ a; int res;
+    a.b = 1;
+    a.n = 1;
+    a.dig = {0};
+    res = 0;
+    DO_CHECK(POZ_Z_D(a) == res);
+
+    a.b = 0;
+    a.n = 1;
+    a.dig = {0};
+    res = 0;
+    DO_CHECK(POZ_Z_D(a) == res);
+
+    a.b = 1;
+    a.n = 1;
+    a.dig = {1};
+    res = 1;
+    DO_CHECK(POZ_Z_D(a) == res);
+
+    a.b = 0;
+    a.n = 1;
+    a.dig = {1};
+    res = 2;
+    DO_CHECK(POZ_Z_D(a) == res);
+}
+
+void BTest::test_MUL_ZM_Z(){
+    Integ a,res;
+    a.b = 1;
+    a.n = 1;
+    a.dig = {0};
+    res.b = 0;
+    res.n = 1;
+    res.dig = {0};
+    DO_CHECK(MUL_ZM_Z(a) == res);
+}
+
+void BTest::test_TRANS_N_Z(){
+    Natural a; Integ res;
+    a.n = 3;
+    a.dig = {1,2,3};
+    res.b = 0;
+    res.n = 3;
+    res.dig = {1,2,3};
+    DO_CHECK(TRANS_N_Z(a) == res);
+}
+
+void BTest::test_TRANS_Z_N(){
+    Natural res; Integ a;
+    a.b = 0;
+    a.n = 3;
+    a.dig = {1,2,3};
+    res.n = 3;
+    res.dig = {1,2,3};
+    DO_CHECK(TRANS_Z_N(a) == res);
+}
+
+void BTest::test_ADD_ZZ_Z(){
+    Integ a,b,res;
+    a.b = 1;
+    a.n = 2;
+    a.dig = {2,5};
+    b.b = 0;
+    b.n = 2;
+    b.dig = {2,5};
+    res.b = 0;
+    res.n = 1;
+    res.dig = {0};
+    DO_CHECK(ADD_ZZ_Z(a,b) == res);
+
+    a.b = 1;
+    a.n = 2;
+    a.dig = {2,2};
+    b.b = 1;
+    b.n = 2;
+    b.dig = {2,5};
+    res.b = 1;
+    res.n = 2;
+    res.dig = {4,7};
+    DO_CHECK(ADD_ZZ_Z(a,b) == res);
+
+    a.b = 0;
+    a.n = 2;
+    a.dig = {2,2};
+    b.b = 1;
+    b.n = 2;
+    b.dig = {2,5};
+    res.b = 1;
+    res.n = 1;
+    res.dig = {3};
+    DO_CHECK(ADD_ZZ_Z(a,b) == res);
+}
+/*
+void BTest::test_SUB_ZZ_Z();
+
+void BTest::test_MUL_ZZ_Z();
+
+void BTest::test_DIV_ZZ_Z();
+
+void BTest::test_MOD_ZZ_Z();*/

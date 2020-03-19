@@ -16,11 +16,12 @@ public:
 
     virtual void runAllTests() = 0;
 
+    static void check(bool expr, const char *func, const char *filename, size_t lineNum);
+
 protected:
     static int failedNum;
     static int totalNum;
 
-    static void check(bool expr, const char *func, const char *filename, size_t lineNum);
 };
 
 #endif //DM_COMPUTER_ALGEBRA_TEST_H

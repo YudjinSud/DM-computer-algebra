@@ -3,6 +3,7 @@
 
 #include "Test.h"
 #include "Natural.h"
+#include "Integ.h"
 
 class BTest : public Test {
 public:
@@ -36,6 +37,26 @@ private:
     void test_GCF_NN_N();
 
     void test_LCM_NN_N();
+
+    void test_ABS_Z_N();
+
+    void test_POZ_Z_D();
+
+    void test_MUL_ZM_Z();
+
+    void test_TRANS_N_Z();
+
+    void test_TRANS_Z_N();
+
+    void test_ADD_ZZ_Z();
+
+    void test_SUB_ZZ_Z();
+
+    void test_MUL_ZZ_Z();
+
+    void test_DIV_ZZ_Z();
+
+    void test_MOD_ZZ_Z();
 };
 
 #endif //DM_COMPUTER_ALGEBRA_BTEST_H

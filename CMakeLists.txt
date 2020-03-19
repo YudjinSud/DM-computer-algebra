@@ -9,4 +9,4 @@ add_executable(DM_computer_algebra
         main.cpp
         Natural.cpp
         Natural.h
-        README.md Test.cpp Test.h BTest.cpp Btest.h)
+        README.md Test.cpp Test.h BTest.cpp Btest.h Integ.cpp Integ.h)

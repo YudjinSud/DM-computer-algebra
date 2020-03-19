@@ -4,8 +4,13 @@
 CMakeFiles/DM_computer_algebra.dir/BTest.cpp.obj
  C:/Users/xtkcb/DM-computer-algebra/BTest.cpp
  C:/Users/xtkcb/DM-computer-algebra/Btest.h
+ C:/Users/xtkcb/DM-computer-algebra/Integ.h
  C:/Users/xtkcb/DM-computer-algebra/Natural.h
  C:/Users/xtkcb/DM-computer-algebra/Test.h
+CMakeFiles/DM_computer_algebra.dir/Integ.cpp.obj
+ C:/Users/xtkcb/DM-computer-algebra/Integ.cpp
+ C:/Users/xtkcb/DM-computer-algebra/Integ.h
+ C:/Users/xtkcb/DM-computer-algebra/Natural.h
 CMakeFiles/DM_computer_algebra.dir/Natural.cpp.obj
  C:/Users/xtkcb/DM-computer-algebra/Natural.cpp
  C:/Users/xtkcb/DM-computer-algebra/Natural.h
@@ -14,6 +19,7 @@ CMakeFiles/DM_computer_algebra.dir/Test.cpp.obj
  C:/Users/xtkcb/DM-computer-algebra/Test.h
 CMakeFiles/DM_computer_algebra.dir/main.cpp.obj
  C:/Users/xtkcb/DM-computer-algebra/Btest.h
+ C:/Users/xtkcb/DM-computer-algebra/Integ.h
  C:/Users/xtkcb/DM-computer-algebra/Natural.h
  C:/Users/xtkcb/DM-computer-algebra/Test.h
  C:/Users/xtkcb/DM-computer-algebra/main.cpp
