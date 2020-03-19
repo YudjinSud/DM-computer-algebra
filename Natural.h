@@ -63,12 +63,12 @@ Natural MOD_NN_N(Natural a, Natural b);
 // с остатком(делитель отличен от нуля)
 
 
-Natural GCD_NATURAL(Natural a, Natural b);
+Natural GCF_NN_N(Natural a, Natural b);
 //@MOD_NN_N, @COM__NN_D, @NZER_N_B
 //НОД натуральных чисел
 
 
-Natural LCM_NATURAL(Natural a, Natural b);
+Natural LCM_NN_N(Natural a, Natural b);
 //@GCF_NN_N, @MUL_NN_N
 //НОК натуральных чисел
 

@@ -14,6 +14,8 @@ void BTest::runAllTests() {
     test_DIV_NN_Dk();
     test_DIV_NN_N();
     test_MOD_NN_N();
+    test_GCF_NN_N();
+    test_LCM_NN_N();
 }
 
 void BTest::test_COM_NN_D() {
@@ -177,11 +179,11 @@ void BTest::test_DIV_NN_Dk() {
 void BTest::test_DIV_NN_N() {
     Natural a, b, res;
     a.n = 3;
-    a.dig = {1, 2, 2};
-    b.n = 2;
-    b.dig = {3, 1};
-    res.n = 1;
-    res.dig = {3};
+    a.dig = {2, 0 , 4};
+    b.n = 1;
+    b.dig = {2};
+    res.n = 3;
+    res.dig = {1, 0, 2};
     DO_CHECK(DIV_NN_N(a, b) == res);
 
     a.n = 2;
@@ -215,6 +217,30 @@ void BTest::test_DIV_NN_N() {
     res.n = 1;
     res.dig = {4};
     DO_CHECK(DIV_NN_N(a, b) == res);
+
+    a.n = 3;
+    a.dig = {1, 1, 1};
+    b.n = 3;
+    b.dig = {1, 1, 0};
+    res.n = 1;
+    res.dig = {1};
+    DO_CHECK(DIV_NN_N(a, b) == res);
+
+    b.n = 3;
+    b.dig = {1,0,0};
+    a.n = 2;
+    a.dig = {1,0};
+    res.n = 2;
+    res.dig = {1,0};
+    DO_CHECK(DIV_NN_N(a, b) == res);
+
+    b.n = 3;
+    b.dig = {2,2,0};
+    a.n = 2;
+    a.dig = {2,0};
+    res.n = 2;
+    res.dig = {1,1};
+    DO_CHECK(DIV_NN_N(a, b) == res);
 }
 
 void BTest::test_MOD_NN_N() {
@@ -224,7 +250,7 @@ void BTest::test_MOD_NN_N() {
     b.n = 2;
     b.dig = {3, 1};
     res.n = 2;
-    res.dig = {2,9};
+    res.dig = {2, 9};
     DO_CHECK(MOD_NN_N(a, b) == res);
 
     a.n = 3;
@@ -234,4 +260,59 @@ void BTest::test_MOD_NN_N() {
     res.n = 1;
     res.dig = {1};
     DO_CHECK(MOD_NN_N(a, b) == res);
+}
+
+void BTest::test_GCF_NN_N() {
+    Natural a, b, res;
+    a.n = 3;
+    a.dig = {1, 2, 2};
+    b.n = 2;
+    b.dig = {3, 2};
+    res.n = 1;
+    res.dig = {2};
+    DO_CHECK(GCF_NN_N(a, b) == res);
+
+    a.n = 3;
+    a.dig = {1,4,3};
+    b.n = 4;
+    b.dig = {2,0,4,1};
+    res.n = 2;
+    res.dig = {1,3};
+    DO_CHECK(GCF_NN_N(a, b) == res);
+
+    b.n = 3;
+    b.dig = {1,0,0};
+    a.n = 2;
+    a.dig = {1,0};
+    res.n = 2;
+    res.dig = {1,0};
+    DO_CHECK(GCF_NN_N(a, b) == res);
+}
+
+void BTest::test_LCM_NN_N() {
+    Natural a, b, res;
+    a.n = 2;
+    a.dig = {1, 2};
+    b.n = 2;
+    b.dig = {3, 2};
+    res.n = 2;
+    res.dig = {9, 6};
+    DO_CHECK(LCM_NN_N(a, b) == res);
+
+    b.n = 3;
+    b.dig = {2, 0, 4};
+    a.n = 3;
+    a.dig = {1, 4, 6};
+    res.n = 5;
+    res.dig = {1,4,8,9,2};
+    DO_CHECK(LCM_NN_N(a, b) == res);
+
+    b.n = 3;
+    b.dig = {1,0,0};
+    a.n = 2;
+    a.dig = {1,0};
+    res.n = 3;
+    res.dig = {1,0,0};
+    DO_CHECK(LCM_NN_N(a, b) == res);
+
 }

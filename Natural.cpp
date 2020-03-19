@@ -133,19 +133,24 @@ int DIV_NN_Dk(Natural a, Natural b) {
             return (i - 1);
         }
     }
+    return 0;
 }
 
 Natural DIV_NN_N(Natural a, Natural b) {
     if (COM_NN_D(a, b) == 1)
         swap(a, b);
     Natural c;
-    while(COM_NN_D(a,b) == 2) {
+    while (COM_NN_D(a, b) != 1 ) {
         int x = DIV_NN_Dk(a, b);
         c.dig.push_back(x);
         int k = a.n - b.n;
-        if (a.dig[0] < b.dig[0])
+        if (a.dig[0] < b.dig[0]) {
             k--;
-        a = SUB_NN_N(a, MUL_ND_N(MUL_Nk_N(b, k),x));
+        }
+        int h = a.n - 1;
+        a = SUB_NN_N(a, MUL_ND_N(MUL_Nk_N(b, k), x));
+        h -= a.n;
+        for(int i = 0; i < h && k != 0; i++) c.dig.push_back(0);
     }
     c.n = int(c.dig.size());
     return c;
@@ -154,7 +159,22 @@ Natural DIV_NN_N(Natural a, Natural b) {
 Natural MOD_NN_N(Natural a, Natural b) {
     if (COM_NN_D(a, b) == 1)
         swap(a, b);
-    return SUB_NN_N(a, MUL_NN_N(DIV_NN_N(a,b),b));
+    return SUB_NN_N(a, MUL_NN_N(DIV_NN_N(a, b), b));
+}
+
+Natural GCF_NN_N(Natural a, Natural b) {
+    if (COM_NN_D(a, b) == 1)
+        swap(a, b);
+    if (NZER_N_B(b))
+        return a;
+    else
+        return GCF_NN_N(b, MOD_NN_N(a, b));
+}
+
+Natural LCM_NN_N(Natural a, Natural b) {
+    if (COM_NN_D(a, b) == 1)
+        swap(a, b);
+    return MUL_NN_N(DIV_NN_N(a, GCF_NN_N(a, b)), b);
 }
 
 bool Natural::operator==(const Natural &other) {

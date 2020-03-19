@@ -32,6 +32,10 @@ private:
     void test_DIV_NN_N();
 
     void test_MOD_NN_N();
+
+    void test_GCF_NN_N();
+
+    void test_LCM_NN_N();
 };
 
 #endif //DM_COMPUTER_ALGEBRA_BTEST_H
