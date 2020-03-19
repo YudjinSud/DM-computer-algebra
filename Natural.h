@@ -5,13 +5,15 @@
 #include <iosfwd>
 //#include <iostream>
 #include <algorithm>
+
 using namespace std;
 
 
-struct Natural{
+struct Natural {
     int n;
-    vector<int>dig;
-    bool operator == (const Natural & other);
+    vector<int> dig;
+
+    bool operator==(const Natural &other);
 };
 
 
@@ -50,7 +52,7 @@ Natural SUB_NDN_N(Natural a, Natural b, int n);
 Natural DIV_NN_Dk(Natural a, Natural b, int n);
 //@MUL_Nk_N, @COM_NN_D
 //Вычисление первой цифры деления большего натурального на меньшее,
-// домноженное на 10^k,где k - номер позиции этой цифры (номер считается с нуля)
+// домноженное на 10^k,где k - номер позиции этой цифры  (номер считается с нуля)
 
 Natural DIV_NN_N(Natural a, Natural b);
 //@DIV__NN_Dk, @SUB_NDN_N

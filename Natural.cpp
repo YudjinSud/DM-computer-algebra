@@ -26,7 +26,7 @@ Natural ADD_1N_N(Natural a) {
     }
     a.dig.push_back(0);
     a.n = int(a.dig.size());
-    for(int i = a.n - 1; i > 0; i--) a.dig[i] = a.dig[i-1];
+    for (int i = a.n - 1; i > 0; i--) a.dig[i] = a.dig[i - 1];
     a.dig[0] = 1;
     return a;
 }
@@ -98,6 +98,25 @@ Natural MUL_Nk_N(Natural a, int k) {
     fore(i, 0, k) a.dig.push_back(0);
     a.n = (int) (a.dig.size());
     return a;
+}
+
+Natural MUL_NN_N(Natural a, Natural b){
+    Natural result;
+    result.n = 1;
+    result.dig = {0};
+    if (a.n < b.n)
+        swap(a, b);
+    for (int i = 0; i < b.n; i++)
+        result = ADD_NN_N(result, MUL_ND_N(MUL_Nk_N(a, b.n - i - 1), b.dig[i]));
+    return result;
+}
+
+Natural SUB_NDN_N(Natural a, Natural b, int n)
+{
+    if (COM_NN_D(a, b) == 1)
+        swap(a,b);
+    b = MUL_ND_N(b, n);
+    return (SUB_NN_N(a, b));
 }
 
 bool Natural::operator==(const Natural &other) {
