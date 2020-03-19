@@ -1,6 +1,7 @@
+#include <iostream>
 #include "Natural.h"
 
-#define all(a) begin(a),end(a)
+#define all(a) begin(a), end(a)
 #define fore(i, j, n) for(long long i = j; i < n; i++)
 
 int COM_NN_D(Natural a, Natural b) {
@@ -100,7 +101,7 @@ Natural MUL_Nk_N(Natural a, int k) {
     return a;
 }
 
-Natural MUL_NN_N(Natural a, Natural b){
+Natural MUL_NN_N(Natural a, Natural b) {
     Natural result;
     result.n = 1;
     result.dig = {0};
@@ -111,12 +112,47 @@ Natural MUL_NN_N(Natural a, Natural b){
     return result;
 }
 
-Natural SUB_NDN_N(Natural a, Natural b, int n)
-{
+Natural SUB_NDN_N(Natural a, Natural b, int n) {
     if (COM_NN_D(a, b) == 1)
-        swap(a,b);
+        swap(a, b);
     b = MUL_ND_N(b, n);
     return (SUB_NN_N(a, b));
+}
+
+int DIV_NN_Dk(Natural a, Natural b) {
+    if (COM_NN_D(a, b) == 1) // чтобы в а лежало большее
+        swap(a, b);
+    int k = a.n - b.n;;
+    if (a.dig[0] < b.dig[0])
+        k--;
+    b = MUL_Nk_N(b, k); // умножаем b на 10^k
+    fore(i, 1, 10) { // for(int i = 1; i < 10; i++)
+        if (COM_NN_D(a, MUL_ND_N(b, i)) == 0) {
+            return i;
+        } else if (COM_NN_D(a, MUL_ND_N(b, i)) == 1) {
+            return (i - 1);
+        }
+    }
+}
+
+Natural DIV_NN_N(Natural a, Natural b) {
+    if (COM_NN_D(a, b) == 1) // чтобы в а лежало большее
+        swap(a, b);
+    Natural c;
+    while(COM_NN_D(a,b) == 2) {
+        int x = DIV_NN_Dk(a, b);
+        c.dig.push_back(DIV_NN_Dk(a, b));
+        int k = a.n - b.n;
+        if (a.dig[0] < b.dig[0])
+            k--;
+        a = SUB_NN_N(a, MUL_ND_N(MUL_Nk_N(b, k),x));
+    }
+    c.n = int(c.dig.size());
+    if(c.dig.empty()) {
+        c.n = 1;
+        c.dig = {0};
+    }
+    return c;
 }
 
 bool Natural::operator==(const Natural &other) {

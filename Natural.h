@@ -3,11 +3,9 @@
 
 #include <vector>
 #include <iosfwd>
-//#include <iostream>
 #include <algorithm>
 
 using namespace std;
-
 
 struct Natural {
     int n;
@@ -15,7 +13,6 @@ struct Natural {
 
     bool operator==(const Natural &other);
 };
-
 
 int COM_NN_D(Natural a, Natural b);
 //Сравнение натуральных чисел: 2 - если первое больше второго, 0, если равно, 1 иначе.
@@ -49,7 +46,7 @@ Natural SUB_NDN_N(Natural a, Natural b, int n);
 //Вычитание из натурального другого натурального, умноженного на
 // цифру для случая с неотрицательным результатом
 
-Natural DIV_NN_Dk(Natural a, Natural b, int n);
+int DIV_NN_Dk(Natural a, Natural b);
 //@MUL_Nk_N, @COM_NN_D
 //Вычисление первой цифры деления большего натурального на меньшее,
 // домноженное на 10^k,где k - номер позиции этой цифры  (номер считается с нуля)

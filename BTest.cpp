@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Btest.h"
 
 void BTest::runAllTests() {
@@ -10,6 +11,8 @@ void BTest::runAllTests() {
     test_MUL_Nk_N();
     test_MUL_NN_N();
     test_SUB_NDN_N();
+    test_DIV_NN_Dk();
+    test_DIV_NN_N();
 }
 
 void BTest::test_COM_NN_D() {
@@ -147,4 +150,61 @@ void BTest::test_SUB_NDN_N() {
     res.n = 4;
     res.dig = {9, 6, 0, 5};
     DO_CHECK(SUB_NDN_N(a, b, n) == res);
+}
+
+void BTest::test_DIV_NN_Dk() {
+    Natural a, b;
+    a.n = 2;
+    a.dig = {9, 9};
+    b.n = 3;
+    b.dig = {3, 2, 9};
+    DO_CHECK(DIV_NN_Dk(a, b) == 3);
+
+    a.n = 4;
+    a.dig = {1, 8, 1, 2};
+    b.n = 2;
+    b.dig = {9, 7};
+    DO_CHECK(DIV_NN_Dk(a, b) == 1);
+
+    a.n = 3;
+    a.dig = {1, 2, 2};
+    b.n = 2;
+    b.dig = {3, 1};
+    DO_CHECK(DIV_NN_Dk(a, b) == 3);
+}
+
+void BTest::test_DIV_NN_N() {
+    Natural a, b, res;
+    a.n = 3;
+    a.dig = {1, 2, 2};
+    b.n = 2;
+    b.dig = {3, 1};
+    res.n = 1;
+    res.dig = {3};
+    DO_CHECK(DIV_NN_N(a, b) == res);
+
+    a.n = 2;
+    a.dig = {9, 9};
+    b.n = 3;
+    b.dig = {3, 2, 9};
+    res.n = 1;
+    res.dig = {3};
+    DO_CHECK(DIV_NN_N(a, b) == res);
+
+    a.n = 4;
+    a.dig = {1, 0, 0, 2};
+    b.n = 1;
+    b.dig = {9};
+    res.n = 3;
+    res.dig = {1, 1, 1};
+    DO_CHECK(DIV_NN_N(a, b) == res);
+
+    a.n = 3;
+    a.dig = {1, 2, 4};
+    b.n = 2;
+    b.dig = {3, 1};
+    res.n = 1;
+    res.dig = {4};
+    DO_CHECK(DIV_NN_N(a, b) == res);
+
 }

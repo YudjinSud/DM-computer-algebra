@@ -1,7 +1,3 @@
-//
-// Created by xtkcb on 18-Mar-20.
-//
-
 #ifndef DM_COMPUTER_ALGEBRA_BTEST_H
 #define DM_COMPUTER_ALGEBRA_BTEST_H
 
@@ -30,6 +26,10 @@ private:
     void test_MUL_NN_N();
 
     void test_SUB_NDN_N();
+
+    void test_DIV_NN_Dk();
+
+    void test_DIV_NN_N();
 };
 
 #endif //DM_COMPUTER_ALGEBRA_BTEST_H
