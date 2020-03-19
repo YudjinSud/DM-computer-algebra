@@ -1,4 +1,3 @@
-#include <iostream>
 #include "Natural.h"
 
 #define all(a) begin(a), end(a)
