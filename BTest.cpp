@@ -13,6 +13,7 @@ void BTest::runAllTests() {
     test_SUB_NDN_N();
     test_DIV_NN_Dk();
     test_DIV_NN_N();
+    test_MOD_NN_N();
 }
 
 void BTest::test_COM_NN_D() {
@@ -207,4 +208,30 @@ void BTest::test_DIV_NN_N() {
     res.dig = {4};
     DO_CHECK(DIV_NN_N(a, b) == res);
 
+    a.n = 3;
+    a.dig = {1, 2, 4};
+    b.n = 2;
+    b.dig = {3, 1};
+    res.n = 1;
+    res.dig = {4};
+    DO_CHECK(DIV_NN_N(a, b) == res);
+}
+
+void BTest::test_MOD_NN_N() {
+    Natural a, b, res;
+    a.n = 3;
+    a.dig = {1, 2, 2};
+    b.n = 2;
+    b.dig = {3, 1};
+    res.n = 2;
+    res.dig = {2,9};
+    DO_CHECK(MOD_NN_N(a, b) == res);
+
+    a.n = 3;
+    a.dig = {1, 1, 1};
+    b.n = 3;
+    b.dig = {1, 1, 0};
+    res.n = 1;
+    res.dig = {1};
+    DO_CHECK(MOD_NN_N(a, b) == res);
 }

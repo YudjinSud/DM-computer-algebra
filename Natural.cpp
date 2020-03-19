@@ -120,13 +120,13 @@ Natural SUB_NDN_N(Natural a, Natural b, int n) {
 }
 
 int DIV_NN_Dk(Natural a, Natural b) {
-    if (COM_NN_D(a, b) == 1) // чтобы в а лежало большее
+    if (COM_NN_D(a, b) == 1)
         swap(a, b);
     int k = a.n - b.n;;
     if (a.dig[0] < b.dig[0])
         k--;
-    b = MUL_Nk_N(b, k); // умножаем b на 10^k
-    fore(i, 1, 10) { // for(int i = 1; i < 10; i++)
+    b = MUL_Nk_N(b, k);
+    fore(i, 1, 10) {
         if (COM_NN_D(a, MUL_ND_N(b, i)) == 0) {
             return i;
         } else if (COM_NN_D(a, MUL_ND_N(b, i)) == 1) {
@@ -136,23 +136,25 @@ int DIV_NN_Dk(Natural a, Natural b) {
 }
 
 Natural DIV_NN_N(Natural a, Natural b) {
-    if (COM_NN_D(a, b) == 1) // чтобы в а лежало большее
+    if (COM_NN_D(a, b) == 1)
         swap(a, b);
     Natural c;
     while(COM_NN_D(a,b) == 2) {
         int x = DIV_NN_Dk(a, b);
-        c.dig.push_back(DIV_NN_Dk(a, b));
+        c.dig.push_back(x);
         int k = a.n - b.n;
         if (a.dig[0] < b.dig[0])
             k--;
         a = SUB_NN_N(a, MUL_ND_N(MUL_Nk_N(b, k),x));
     }
     c.n = int(c.dig.size());
-    if(c.dig.empty()) {
-        c.n = 1;
-        c.dig = {0};
-    }
     return c;
+}
+
+Natural MOD_NN_N(Natural a, Natural b) {
+    if (COM_NN_D(a, b) == 1)
+        swap(a, b);
+    return SUB_NN_N(a, MUL_NN_N(DIV_NN_N(a,b),b));
 }
 
 bool Natural::operator==(const Natural &other) {
