@@ -28,7 +28,7 @@ Integ TRANS_Q_Z(Frac a);
 
 Frac ADD_QQ_Q(Frac a, Frac b);
 
-Frac ADD_QQ_Q(Frac a, Frac b);
+Frac SUB_QQ_Q(Frac a, Frac b);
 
 Frac MUL_QQ_Q(Frac a, Frac b);
 
