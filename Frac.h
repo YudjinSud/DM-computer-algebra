@@ -34,4 +34,6 @@ Frac MUL_QQ_Q(Frac a, Frac b);
 
 Frac DIV_QQ_Q(Frac a, Frac b);
 
+//dfghu
+
 #endif //DM_COMPUTER_ALGEBRA_FRAC_H
