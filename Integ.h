@@ -43,10 +43,10 @@ Integ SUB_ZZ_Z(Integ a, Integ b);
 Integ MUL_ZZ_Z(Integ a, Integ b);
 //Вычитание целых чисел
 
-Integ DIV_ZZ_Z(Integ a, Integ b);
+Integ DIV_ZZ_Z(Integ a, Natural b);
 //Частное от деления большего целого числа на меньшее или равное натуральное с остатком(делитель отличен от нуля)
 
-Integ MOD_ZZ_Z(Integ a, Integ b);
+Integ MOD_ZZ_Z(Integ a, Natural b);
 //Частное от деления большего целого числа на меньшее или равное натуральное с остатком(делитель отличен от нуля)
 
 #endif //DM_COMPUTER_ALGEBRA_INTEG_H

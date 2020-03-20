@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Natural.h"
 #include "Integ.h"
 
@@ -49,23 +50,46 @@ Integ ADD_ZZ_Z(Integ a, Integ b){
     a.b = 0;
     return a;
 }
-/*
-Integ SUB_ZZ_Z(Integ a, Integ b){
 
+Integ SUB_ZZ_Z(Integ a, Integ b){
+    b.b = 1 - b.b;
+    return ADD_ZZ_Z(a, b);
 }
 
 Integ MUL_ZZ_Z(Integ a, Integ b){
-
+    Natural a1 = TRANS_Z_N(a);
+    Natural b1 = TRANS_Z_N(b);
+    a1 = MUL_NN_N(a1,b1);
+    a.b = (a.b + b.b) % 2;
+    a.n = a1.n;
+    a.dig = a1.dig;
+    return a;
 }
 
-Integ DIV_ZZ_Z(Integ a, Integ b){
-
+Integ DIV_ZZ_Z(Integ a, Natural b){
+    /*Natural a1 = TRANS_Z_N(a);
+    Natural b1 = TRANS_Z_N(b);
+    a1 = DIV_NN_N(a1,b1);
+    a.b = (a.b + b.b) % 2;
+    a.n = a1.n;
+    a.dig = a1.dig;
+    return a;*/
+    Natural a1 = TRANS_Z_N(a);
+    Natural x;
+    x.n = 1;
+    x.dig = {1};
+    if(a.b == 1) a1 = ADD_NN_N(a1,SUB_NN_N(b,x));
+    a1 = DIV_NN_N(a1,b);
+    a.n = a1.n;
+    a.dig = a1.dig;
+    return a;
 }
 
-Integ MOD_ZZ_Z(Integ a, Integ b){
-
+Integ MOD_ZZ_Z(Integ a, Natural b){
+    a = SUB_ZZ_Z(a, MUL_ZZ_Z(DIV_ZZ_Z(a,b), TRANS_N_Z(b)));
+    return a;
 }
-*/
+
 bool Integ::operator==(const Integ &other) {
     return n == other.n && dig == other.dig && b == other.b;
 }
