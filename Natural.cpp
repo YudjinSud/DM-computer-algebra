@@ -95,6 +95,8 @@ Natural MUL_ND_N(Natural a, int n) {
 }
 
 Natural MUL_Nk_N(Natural a, int k) {
+    if (!k)
+        return a;
     fore(i, 0, k) a.dig.push_back(0);
     a.n = (int) (a.dig.size());
     return a;
