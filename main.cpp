@@ -1,11 +1,12 @@
-#include "computeralgebra.h"
+#include "Test.h"
+#include "Btest.h"
 
-#include <QApplication>
+#define fore(i, j, n) for(long long i = j; i < n; i++)
 
-int main(int argc, char *argv[])
-{
-    QApplication a(argc, argv);
-    ComputerAlgebra w;
-    w.show();
-    return a.exec();
+int main() {
+    BTest bt;
+    bt.runAllTests();
+    Test::showFinalResult();
+    return 0;
 }
+
