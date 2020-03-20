@@ -4,6 +4,7 @@
 #include <vector>
 #include <iosfwd>
 #include <algorithm>
+#include <iostream>
 
 using namespace std;
 

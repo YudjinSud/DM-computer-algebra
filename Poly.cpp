@@ -68,5 +68,43 @@ Frac LED_P_Q(Poly a) // P-5 возвращает старший коэффициент многочлена
 
 int DEG_P_N(Poly a) // P-6 возвращает степень многочлена
 {
-	return a.m;
+	int i = a.m;
+	Frac nul;
+	while ((a.C[i] == nul)&&(i>0))
+    {
+	    i--;
+    }
+	return i;
 }
+
+Poly FAC_P_Q(Poly a) // P-7 Вынесение из многочлена НОК знаменателей коэффициентов и НОД числителей
+{
+    Natural NOD, NOK;
+    if (a.m > 0) // если <= 0, то 1 или 0 чисел в многочлене и нечего выносить
+    {
+        NOD = GCF_NN_N(TRANS_Z_N(a.C[0].p),TRANS_Z_N(a.C[1].p));
+        NOK = LCM_NN_N(a.C[0].q, a.C[1].q);
+    }
+    for (int i = 2; i <= a.m; i++)
+    {
+        NOD = GCF_NN_N(NOD, TRANS_Z_N(a.C[i].p));
+        NOK = LCM_NN_N(NOK, a.C[i].q);
+    }
+    for (int i = 0; i <= a.m; i++)
+    {
+        a.C[i].p = TRANS_N_Z(DIV_NN_N(TRANS_Z_N(a.C[i].p), NOD));
+        a.C[i].q = DIV_NN_N(a.C[i].q, NOK);
+    }
+    return a;
+}
+
+Poly MUL_PP_P(Poly a, Poly b) // P-8 перемножение многочленов
+{
+    if (a.m < b.m)
+        swap(a, b);
+    Poly c = MUL_PQ_P(a, TRANS_Z_Q(b.C[0].p));
+    for (int i = 1; i <= b.m; i++)
+        c = ADD_PP_P(c, ADD_PP_P(MUL_PQ_P(a, TRANS_Z_Q(b.C[i].p)),  MUL_Pxk_P(a, i)));
+    return c;
+}
+

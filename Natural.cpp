@@ -95,6 +95,7 @@ Natural MUL_ND_N(Natural a, int n) {
 }
 
 Natural MUL_Nk_N(Natural a, int k) {
+    if(NZER_N_B(a)) return a;
     fore(i, 0, k) a.dig.push_back(0);
     a.n = (int) (a.dig.size());
     return a;
@@ -122,7 +123,7 @@ int DIV_NN_Dk(Natural a, Natural b) {
     if (COM_NN_D(a, b) == 1)
         swap(a, b);
     int k = a.n - b.n;;
-    if (a.dig[0] < b.dig[0])
+    if (COM_NN_D(a, MUL_Nk_N(b, k)) == 1)
         k--;
     b = MUL_Nk_N(b, k);
     fore(i, 1, 10) {
@@ -136,22 +137,47 @@ int DIV_NN_Dk(Natural a, Natural b) {
 }
 
 Natural DIV_NN_N(Natural a, Natural b) {
+//    if (COM_NN_D(a, b) == 1)
+//        swap(a, b);
+//    Natural c;
+//    while (COM_NN_D(a, b) != 1 ) {
+//        int x = DIV_NN_Dk(a, b);
+//        c.dig.push_back(x);
+//        int k = a.n - b.n;
+//        if (a.dig[0] < b.dig[0]) {
+//            k--;
+//        }
+//        int h = a.n - 1;
+//        a = SUB_NN_N(a, MUL_ND_N(MUL_Nk_N(b, k), x));
+//        h -= a.n;
+//        for(int i = 0; i < h && k != 0; i++) c.dig.push_back(0);
+//    }
+//    c.n = int(c.dig.size());
+
     if (COM_NN_D(a, b) == 1)
         swap(a, b);
     Natural c;
-    while (COM_NN_D(a, b) != 1 ) {
-        int x = DIV_NN_Dk(a, b);
-        c.dig.push_back(x);
-        int k = a.n - b.n;
-        if (a.dig[0] < b.dig[0]) {
+    c.n = 0;
+    int k = a.n - b.n;
+    // нашли k - степень 10
+    while (k >= 0) {
+        c.dig.push_back(DIV_NN_Dk(a, b)); // вписали первую цифру результата
+        c.n++;
+        if (COM_NN_D(a, MUL_Nk_N(b, k)) == 1)
+            k--;
+        a = SUB_NN_N(a, MUL_Nk_N(MUL_ND_N(b, DIV_NN_Dk(a, b)), k)); // a = a - первая цифра * b * 10^k
+        k--;
+        for (int i = 0; (i < k); i++)  {
+            c.dig.push_back(0);
+            c.n++;
             k--;
         }
-        int h = a.n - 1;
-        a = SUB_NN_N(a, MUL_ND_N(MUL_Nk_N(b, k), x));
-        h -= a.n;
-        for(int i = 0; i < h && k != 0; i++) c.dig.push_back(0);
+        while (COM_NN_D(a, MUL_Nk_N(b, k+1)) == 2) {
+            k++;
+            c.dig.pop_back();
+            c.n--;
+        }
     }
-    c.n = int(c.dig.size());
     return c;
 }
 

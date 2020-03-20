@@ -13,7 +13,7 @@ using namespace std;
 
 struct Poly { // P/Q
 	int m; // max степень в полиноме
-	vector<Frac>C; // массив коэффициентов
+	vector<Frac> C; // массив коэффициентов
 
 
 	Poly() // C[0] - единицы, С[1] - иксы, С[2] - иксы в квадрате...
