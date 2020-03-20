@@ -91,6 +91,12 @@
 		<Unit filename="C:/Users/xtkcb/DM-computer-algebra/Btest.h">
 			<Option target="DM_computer_algebra"/>
 		</Unit>
+		<Unit filename="C:/Users/xtkcb/DM-computer-algebra/Frac.cpp">
+			<Option target="DM_computer_algebra"/>
+		</Unit>
+		<Unit filename="C:/Users/xtkcb/DM-computer-algebra/Frac.h">
+			<Option target="DM_computer_algebra"/>
+		</Unit>
 		<Unit filename="C:/Users/xtkcb/DM-computer-algebra/Integ.cpp">
 			<Option target="DM_computer_algebra"/>
 		</Unit>

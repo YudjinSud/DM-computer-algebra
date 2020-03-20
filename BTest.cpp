@@ -519,8 +519,8 @@ void BTest::test_DIV_ZZ_Z() {
     res.b = 0;
     res.n = 1;
     res.dig = {1};
-    Integ c = DIV_ZZ_Z(a,b);
-    DO_CHECK(DIV_ZZ_Z(a,b) == res);
+    Integ c = DIV_ZZ_Z(a, b);
+    DO_CHECK(DIV_ZZ_Z(a, b) == res);
 }
 
 void BTest::test_MOD_ZZ_Z() {
@@ -533,6 +533,6 @@ void BTest::test_MOD_ZZ_Z() {
     b.dig = {2, 2};
     res.b = 0;
     res.n = 2;
-    res.dig = {1,9};
-    DO_CHECK(MOD_ZZ_Z(a,b) == res);
+    res.dig = {1, 9};
+    DO_CHECK(MOD_ZZ_Z(a, b) == res);
 }
