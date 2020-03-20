@@ -4,8 +4,10 @@
 CMakeFiles/DM_computer_algebra.dir/BTest.cpp.obj
  C:/Users/varka/DM_kollok/DM-computer-algebra/BTest.cpp
  C:/Users/varka/DM_kollok/DM-computer-algebra/Btest.h
+ C:/Users/varka/DM_kollok/DM-computer-algebra/Frac.h
  C:/Users/varka/DM_kollok/DM-computer-algebra/Integ.h
  C:/Users/varka/DM_kollok/DM-computer-algebra/Natural.h
+ C:/Users/varka/DM_kollok/DM-computer-algebra/Poly.h
  C:/Users/varka/DM_kollok/DM-computer-algebra/Test.h
 CMakeFiles/DM_computer_algebra.dir/Frac.cpp.obj
  C:/Users/varka/DM_kollok/DM-computer-algebra/Frac.cpp
@@ -30,7 +32,9 @@ CMakeFiles/DM_computer_algebra.dir/Test.cpp.obj
  C:/Users/varka/DM_kollok/DM-computer-algebra/Test.h
 CMakeFiles/DM_computer_algebra.dir/main.cpp.obj
  C:/Users/varka/DM_kollok/DM-computer-algebra/Btest.h
+ C:/Users/varka/DM_kollok/DM-computer-algebra/Frac.h
  C:/Users/varka/DM_kollok/DM-computer-algebra/Integ.h
  C:/Users/varka/DM_kollok/DM-computer-algebra/Natural.h
+ C:/Users/varka/DM_kollok/DM-computer-algebra/Poly.h
  C:/Users/varka/DM_kollok/DM-computer-algebra/Test.h
  C:/Users/varka/DM_kollok/DM-computer-algebra/main.cpp

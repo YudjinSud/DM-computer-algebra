@@ -3,8 +3,10 @@
 
 CMakeFiles/DM_computer_algebra.dir/BTest.cpp.obj: ../BTest.cpp
 CMakeFiles/DM_computer_algebra.dir/BTest.cpp.obj: ../Btest.h
+CMakeFiles/DM_computer_algebra.dir/BTest.cpp.obj: ../Frac.h
 CMakeFiles/DM_computer_algebra.dir/BTest.cpp.obj: ../Integ.h
 CMakeFiles/DM_computer_algebra.dir/BTest.cpp.obj: ../Natural.h
+CMakeFiles/DM_computer_algebra.dir/BTest.cpp.obj: ../Poly.h
 CMakeFiles/DM_computer_algebra.dir/BTest.cpp.obj: ../Test.h
 
 CMakeFiles/DM_computer_algebra.dir/Frac.cpp.obj: ../Frac.cpp
@@ -29,8 +31,10 @@ CMakeFiles/DM_computer_algebra.dir/Test.cpp.obj: ../Test.cpp
 CMakeFiles/DM_computer_algebra.dir/Test.cpp.obj: ../Test.h
 
 CMakeFiles/DM_computer_algebra.dir/main.cpp.obj: ../Btest.h
+CMakeFiles/DM_computer_algebra.dir/main.cpp.obj: ../Frac.h
 CMakeFiles/DM_computer_algebra.dir/main.cpp.obj: ../Integ.h
 CMakeFiles/DM_computer_algebra.dir/main.cpp.obj: ../Natural.h
+CMakeFiles/DM_computer_algebra.dir/main.cpp.obj: ../Poly.h
 CMakeFiles/DM_computer_algebra.dir/main.cpp.obj: ../Test.h
 CMakeFiles/DM_computer_algebra.dir/main.cpp.obj: ../main.cpp
 

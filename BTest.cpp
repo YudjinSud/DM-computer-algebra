@@ -27,6 +27,7 @@ void BTest::runAllTests() {
     test_MUL_ZZ_Z();
     test_DIV_ZZ_Z();
     test_MOD_ZZ_Z();
+    test_RED_Q_Q();
 }
 
 void BTest::test_COM_NN_D() {
@@ -535,4 +536,20 @@ void BTest::test_MOD_ZZ_Z() {
     res.n = 2;
     res.dig = {1, 9};
     DO_CHECK(MOD_ZZ_Z(a, b) == res);
+}
+void BTest::test_RED_Q_Q()
+{
+    Frac a, b;
+    a.p.b = 0;
+    a.p.n = 3;
+    a.p.dig = {1, 0, 0};
+    a.q.n = 2;
+    a.q.dig = {1, 0};
+
+    b.p.b = 0;
+    b.p.n = 2;
+    b.p.dig = {1, 0};
+    b.q.n = 1;
+    b.q.dig = {1};
+    DO_CHECK( RED_Q_Q(a)== b);
 }

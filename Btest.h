@@ -4,6 +4,8 @@
 #include "Test.h"
 #include "Natural.h"
 #include "Integ.h"
+#include "Frac.h"
+#include "Poly.h"
 
 class BTest : public Test {
 public:
@@ -57,6 +59,8 @@ private:
     void test_DIV_ZZ_Z();
 
     void test_MOD_ZZ_Z();
+
+    void test_RED_Q_Q();
 };
 
 #endif //DM_COMPUTER_ALGEBRA_BTEST_H

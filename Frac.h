@@ -16,6 +16,18 @@ struct Frac { // P/Q
     Integ p;
     Natural q;
     bool operator==(const Frac &other);
+    Frac()
+    {
+        Integ I;
+        I.b = 0;
+        I.n = 1;
+        I.dig.push_back(0);
+        Natural Q;
+        Q.n = 1;
+        Q.dig.push_back(1);
+        this->p = I;
+        this->q = Q;
+    }
 };
 
 Frac RED_Q_Q(Frac a);
