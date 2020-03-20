@@ -36,14 +36,6 @@ iosfwd
 algorithm
 -
 
-C:/Users/varka/DM_kollok/DM-computer-algebra/Integ.cpp
-iostream
--
-Natural.h
-C:/Users/varka/DM_kollok/DM-computer-algebra/Natural.h
-Integ.h
-C:/Users/varka/DM_kollok/DM-computer-algebra/Integ.h
-
 C:/Users/varka/DM_kollok/DM-computer-algebra/Integ.h
 vector
 -
@@ -88,19 +80,7 @@ C:/Users/varka/DM_kollok/DM-computer-algebra/Integ.h
 Natural.h
 C:/Users/varka/DM_kollok/DM-computer-algebra/Natural.h
 
-C:/Users/varka/DM_kollok/DM-computer-algebra/Test.cpp
-Test.h
-C:/Users/varka/DM_kollok/DM-computer-algebra/Test.h
-iostream
--
-
 C:/Users/varka/DM_kollok/DM-computer-algebra/Test.h
 cstddef
 -
-
-C:/Users/varka/DM_kollok/DM-computer-algebra/main.cpp
-Test.h
-C:/Users/varka/DM_kollok/DM-computer-algebra/Test.h
-Btest.h
-C:/Users/varka/DM_kollok/DM-computer-algebra/Btest.h
 

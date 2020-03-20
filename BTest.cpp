@@ -125,13 +125,13 @@ void BTest::test_MUL_ND_N() {
 }
 
 void BTest::test_MUL_Nk_N() {
-    Natural a;
-    int k = 4;
+    Natural a, res;
+    int k;
+    k = 0;
     a.n = 2;
     a.dig = {9, 9};
-    Natural res;
-    res.n = 6;
-    res.dig = {9, 9, 0, 0, 0, 0};
+    res.n = 2;
+    res.dig = {9, 9};
     DO_CHECK(MUL_Nk_N(a, k) == res);
 }
 

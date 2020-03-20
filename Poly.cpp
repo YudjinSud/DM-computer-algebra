@@ -26,13 +26,15 @@ Poly SUB_PP_P(Poly a, Poly b) // P-2 вычитание многочленов
 		b.C.push_back(nul);
 	for (int i = 0; i <= a.m; i++)
 		a.C[i] = SUB_QQ_Q(a.C[i], b.C[i]);
-	bool n = false;
 	for (int i = a.m; i >= 0; i--) // удаление лишних нулей с конца
 	{
 		if (a.C[i] == nul)
 		{
-			n = true;
+			a.C.pop_back();
+			a.m--;
 		}
+		else
+		    break;
 	}
 	return a;
 }
