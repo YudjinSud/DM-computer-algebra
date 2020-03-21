@@ -14,27 +14,27 @@ void BTest::runAllTests() {
     test_SUB_NDN_N();
     test_DIV_NN_Dk();
     test_DIV_NN_N();
-     test_MOD_NN_N();
-     test_GCF_NN_N();
-     test_LCM_NN_N();
-     test_ABS_Z_N();
-     test_POZ_Z_D();
-     test_MUL_ZM_Z();
-     test_TRANS_N_Z();
-     test_TRANS_Z_N();
-     test_ADD_ZZ_Z();
-     test_SUB_ZZ_Z();
-     test_MUL_ZZ_Z();
-     test_DIV_ZZ_Z();
-     test_MOD_ZZ_Z();
-     test_RED_Q_Q();
-     test_INT_Q_B();
-     test_TRANS_Z_Q();
-     test_TRANS_Q_Z();
-     test_ADD_QQ_Q();
-     test_SUB_QQ_Q();
-     test_MUL_QQ_Q();
-     test_DIV_QQ_Q();
+    test_MOD_NN_N();
+    test_GCF_NN_N();
+    test_LCM_NN_N();
+    test_ABS_Z_N();
+    test_POZ_Z_D();
+    test_MUL_ZM_Z();
+    test_TRANS_N_Z();
+    test_TRANS_Z_N();
+    test_ADD_ZZ_Z();
+    test_SUB_ZZ_Z();
+    test_MUL_ZZ_Z();
+    test_DIV_ZZ_Z();
+    test_MOD_ZZ_Z();
+    test_RED_Q_Q();
+    test_INT_Q_B();
+    test_TRANS_Z_Q();
+    test_TRANS_Q_Z();
+    test_ADD_QQ_Q();
+    test_SUB_QQ_Q();
+    test_MUL_QQ_Q();
+    test_DIV_QQ_Q();
 
 }
 
@@ -178,6 +178,8 @@ void BTest::test_MUL_NN_N() {
     res.n = 11;
     res.dig = {6, 1, 3, 3, 4, 6, 6, 6, 6, 6, 4};
     DO_CHECK(MUL_NN_N(a, b) == res);
+
+
 }
 
 void BTest::test_SUB_NDN_N() {
@@ -357,6 +359,25 @@ void BTest::test_DIV_NN_N() {
     a.n = 12;
     a.dig = {6, 1, 3, 3, 4, 6, 6, 6, 6, 6, 4, 3};
     DO_CHECK(DIV_NN_N(a, b) == res);
+
+    b.n = 10;
+    b.dig = {6,6,6,9,9,9,8,8,8,8};
+    a.n = 8;
+    a.dig = {6,6,6,5,5,5,1,2};
+    res.n = 3;
+    res.dig = {1,0,0};
+    DO_CHECK(DIV_NN_N(a, b) == res);
+
+
+   b.n = 10;
+    b.dig = {6, 6, 6, 9, 9, 9, 8, 8, 8, 8};
+   res.n = 7;
+    res.dig = {1, 1, 9, 0, 2, 7, 7};
+    a.n = 16;
+    a.dig = {7, 9, 3, 9, 1, 4, 6, 2, 6, 6, 4, 1, 1, 9, 7, 6};
+    DO_CHECK(DIV_NN_N(a, b) == res);
+
+
 }
 
 void BTest::test_MOD_NN_N() {
@@ -440,6 +461,7 @@ void BTest::test_LCM_NN_N() {
     res.dig = {1, 0, 0};
     DO_CHECK(LCM_NN_N(a, b) == res);
 
+
 }
 
 
@@ -485,6 +507,14 @@ void BTest::test_POZ_Z_D() {
 void BTest::test_MUL_ZM_Z() {
     Integ a, res;
     a.b = 1;
+    a.n = 1;
+    a.dig = {0};
+    res.b = 0;
+    res.n = 1;
+    res.dig = {0};
+    DO_CHECK(MUL_ZM_Z(a) == res);
+
+    a.b = 0;
     a.n = 1;
     a.dig = {0};
     res.b = 0;
