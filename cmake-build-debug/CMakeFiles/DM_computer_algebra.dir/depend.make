@@ -20,6 +20,12 @@ CMakeFiles/DM_computer_algebra.dir/Integ.cpp.obj: ../Natural.h
 CMakeFiles/DM_computer_algebra.dir/Natural.cpp.obj: ../Natural.cpp
 CMakeFiles/DM_computer_algebra.dir/Natural.cpp.obj: ../Natural.h
 
+CMakeFiles/DM_computer_algebra.dir/Poly.cpp.obj: ../Frac.h
+CMakeFiles/DM_computer_algebra.dir/Poly.cpp.obj: ../Integ.h
+CMakeFiles/DM_computer_algebra.dir/Poly.cpp.obj: ../Natural.h
+CMakeFiles/DM_computer_algebra.dir/Poly.cpp.obj: ../Poly.cpp
+CMakeFiles/DM_computer_algebra.dir/Poly.cpp.obj: ../Poly.h
+
 CMakeFiles/DM_computer_algebra.dir/Test.cpp.obj: ../Test.cpp
 CMakeFiles/DM_computer_algebra.dir/Test.cpp.obj: ../Test.h
 

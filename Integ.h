@@ -15,6 +15,7 @@ struct Integ {
     int b;
     int n;
     vector<int> dig;
+
     bool operator==(const Integ &other);
 };
 

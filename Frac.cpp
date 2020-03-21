@@ -47,8 +47,8 @@ Frac ADD_QQ_Q(Frac a, Frac b) {
     a = RED_Q_Q(a);
     b = RED_Q_Q(b);
     Natural lcm = LCM_NN_N(a.q, b.q);
-    a.p = MUL_ZZ_Z(TRANS_N_Z(DIV_NN_N(lcm,a.q)), a.p);
-    b.p = MUL_ZZ_Z(TRANS_N_Z(DIV_NN_N(lcm,b.q)), b.p);
+    a.p = MUL_ZZ_Z(TRANS_N_Z(DIV_NN_N(lcm, a.q)), a.p);
+    b.p = MUL_ZZ_Z(TRANS_N_Z(DIV_NN_N(lcm, b.q)), b.p);
     a.p = ADD_ZZ_Z(a.p, b.p);
     a.q = lcm;
     return RED_Q_Q(a);

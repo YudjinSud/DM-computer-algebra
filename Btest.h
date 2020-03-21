@@ -5,6 +5,7 @@
 #include "Natural.h"
 #include "Integ.h"
 #include "Frac.h"
+
 class BTest : public Test {
 public:
     void runAllTests() override;

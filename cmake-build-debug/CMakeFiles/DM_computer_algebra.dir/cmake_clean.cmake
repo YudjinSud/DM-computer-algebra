@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/DM_computer_algebra.dir/Frac.cpp.obj"
   "CMakeFiles/DM_computer_algebra.dir/Integ.cpp.obj"
   "CMakeFiles/DM_computer_algebra.dir/Natural.cpp.obj"
+  "CMakeFiles/DM_computer_algebra.dir/Poly.cpp.obj"
   "CMakeFiles/DM_computer_algebra.dir/Test.cpp.obj"
   "CMakeFiles/DM_computer_algebra.dir/main.cpp.obj"
   "DM_computer_algebra.exe"
