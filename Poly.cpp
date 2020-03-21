@@ -109,31 +109,31 @@ Poly MUL_PP_P(Poly a, Poly b) // P-8 перемножение многочленов
 
 Poly DIV_PP_P(Poly a, Poly b) // P-9 Частное от деления многочлена на многочлен при делении с остатком
 {
-    if (a.m < b.m)
-        swap(a, b);
-    else if ((a.m == b.m) && (SUB_QQ_Q(a.C[a.m]), b.C[b.m]))
-    Natural c;
-    c.n = 0;
-    int k = a.n - b.n;
-    // нашли k - степень 10
-    while (k >= 0) {
-        c.dig.push_back(DIV_NN_Dk(a, b)); // вписали первую цифру результата
-        c.n++;
-        if (COM_NN_D(a, MUL_Nk_N(b, k)) == 1)
-            k--;
-        a = SUB_NN_N(a, MUL_Nk_N(MUL_ND_N(b, DIV_NN_Dk(a, b)), k)); // a = a - первая цифра * b * 10^k
-        k--;
-        for (int i = 0; i < k; i++)  {
-            c.dig.push_back(0);
-            c.n++;
-            k--;
-        }
-        while (COM_NN_D(a, MUL_Nk_N(b, k+1)) == 2) {
-            k++;
-            c.dig.pop_back();
-            c.n--;
-        }
-    }
+//    if (a.m < b.m)
+//        swap(a, b);
+//    else if ((a.m == b.m) && ()
+//    Natural c;
+//    c.n = 0;
+//    int k = a.n - b.n;
+//    // нашли k - степень 10
+//    while (k >= 0) {
+//        c.dig.push_back(DIV_NN_Dk(a, b)); // вписали первую цифру результата
+//        c.n++;
+//        if (COM_NN_D(a, MUL_Nk_N(b, k)) == 1)
+//            k--;
+//        a = SUB_NN_N(a, MUL_Nk_N(MUL_ND_N(b, DIV_NN_Dk(a, b)), k)); // a = a - первая цифра * b * 10^k
+//        k--;
+//        for (int i = 0; i < k; i++)  {
+//            c.dig.push_back(0);
+//            c.n++;
+//            k--;
+//        }
+//        while (COM_NN_D(a, MUL_Nk_N(b, k+1)) == 2) {
+//            k++;
+//            c.dig.pop_back();
+//            c.n--;
+//        }
+//    }
 }
 
 

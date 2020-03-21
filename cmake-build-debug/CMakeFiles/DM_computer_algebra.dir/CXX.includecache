@@ -6,6 +6,22 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/varka/DM_kollok/DM-computer-algebra/BTest.cpp
+iostream
+-
+Btest.h
+C:/Users/varka/DM_kollok/DM-computer-algebra/Btest.h
+
+C:/Users/varka/DM_kollok/DM-computer-algebra/Btest.h
+Test.h
+C:/Users/varka/DM_kollok/DM-computer-algebra/Test.h
+Natural.h
+C:/Users/varka/DM_kollok/DM-computer-algebra/Natural.h
+Integ.h
+C:/Users/varka/DM_kollok/DM-computer-algebra/Integ.h
+Frac.h
+C:/Users/varka/DM_kollok/DM-computer-algebra/Frac.h
+
 C:/Users/varka/DM_kollok/DM-computer-algebra/Frac.h
 vector
 -
@@ -32,27 +48,7 @@ algorithm
 iostream
 -
 
-C:/Users/varka/DM_kollok/DM-computer-algebra/Poly.cpp
-Natural.h
-C:/Users/varka/DM_kollok/DM-computer-algebra/Natural.h
-Integ.h
-C:/Users/varka/DM_kollok/DM-computer-algebra/Integ.h
-Poly.h
-C:/Users/varka/DM_kollok/DM-computer-algebra/Poly.h
-Frac.h
-C:/Users/varka/DM_kollok/DM-computer-algebra/Frac.h
-
-C:/Users/varka/DM_kollok/DM-computer-algebra/Poly.h
-vector
+C:/Users/varka/DM_kollok/DM-computer-algebra/Test.h
+cstddef
 -
-iosfwd
--
-algorithm
--
-Frac.h
-C:/Users/varka/DM_kollok/DM-computer-algebra/Frac.h
-Integ.h
-C:/Users/varka/DM_kollok/DM-computer-algebra/Integ.h
-Natural.h
-C:/Users/varka/DM_kollok/DM-computer-algebra/Natural.h
 

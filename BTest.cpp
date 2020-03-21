@@ -261,6 +261,30 @@ void BTest::test_DIV_NN_N() {
     res.n = 2;
     res.dig = {1, 1};
     DO_CHECK(DIV_NN_N(a, b) == res);
+
+    b.n = 5;
+    b.dig = {6,6,6,9,9};
+    a.n = 3;
+    a.dig = {6,6,6};
+    res.n = 3;
+    res.dig = {1, 0, 0};
+    DO_CHECK(DIV_NN_N(a, b) == res);
+
+    b.n = 10;
+    b.dig = {6,6,6,9,9,9,8,8,8,8};
+    a.n = 8;
+    a.dig = {6,6,6,5,5,5,1,2};
+    res.n = 3;
+    res.dig = {1, 0, 0};
+    DO_CHECK(DIV_NN_N(a, b) == res);
+
+    a.n = 12;
+    a.dig = {6, 1, 3, 3, 4, 6, 6, 6, 6, 6, 4, 3};
+    b.n = 2;
+    b.dig = {1, 3};
+    res.n = 11;
+    res.dig = {4, 7, 1, 8, 0, 5, 1, 2, 8, 1, 8};
+    DO_CHECK(DIV_NN_N(a, b) == res);
 }
 
 void BTest::test_MOD_NN_N() {
@@ -334,6 +358,14 @@ void BTest::test_LCM_NN_N() {
     res.n = 3;
     res.dig = {1, 0, 0};
     DO_CHECK(LCM_NN_N(a, b) == res);
+
+//    b.n = 10;
+//    b.dig = {6,6,6,9,9,9,8,8,8,8};
+//    a.n = 8;
+//    a.dig = {6,6,6,5,5,5,1,2};
+//    res.n = 16;
+//    res.dig = {7,9,3,9,1,4,6,2,6,6,4,1,1,9,7,6};
+//    DO_CHECK(LCM_NN_N(a, b) == res);
 
 }
 

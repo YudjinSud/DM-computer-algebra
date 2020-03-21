@@ -158,13 +158,20 @@ Natural DIV_NN_N(Natural a, Natural b) {
         swap(a, b);
     Natural c;
     c.n = 0;
-    int k = a.n - b.n;
     // нашли k - степень 10
+    int k = a.n - b.n;
     while (k >= 0) {
-        c.dig.push_back(DIV_NN_Dk(a, b)); // вписали первую цифру результата
-        c.n++;
+        if (COM_NN_D (a, b) == 1)
+        {
+            c.dig.push_back(0);
+            c.n++;
+            break;
+        }
+        k = a.n - b.n;
         if (COM_NN_D(a, MUL_Nk_N(b, k)) == 1)
             k--;
+        c.dig.push_back(DIV_NN_Dk(a, b)); // вписали первую цифру результата
+        c.n++;
         a = SUB_NN_N(a, MUL_Nk_N(MUL_ND_N(b, DIV_NN_Dk(a, b)), k)); // a = a - первая цифра * b * 10^k
         k--;
         for (int i = 0; i < k; i++)  {
@@ -178,6 +185,9 @@ Natural DIV_NN_N(Natural a, Natural b) {
             c.n--;
         }
     }
+//    for (int i = 0; i < c.dig.size(); i++)
+//        std::cout << c.dig[i];
+//    std::cout<< endl;
     return c;
 }
 
