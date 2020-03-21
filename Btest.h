@@ -5,8 +5,6 @@
 #include "Natural.h"
 #include "Integ.h"
 #include "Frac.h"
-#include "Poly.h"
-
 class BTest : public Test {
 public:
     void runAllTests() override;
@@ -61,6 +59,20 @@ private:
     void test_MOD_ZZ_Z();
 
     void test_RED_Q_Q();
+
+    void test_INT_Q_B();
+
+    void test_TRANS_Z_Q();
+
+    void test_TRANS_Q_Z();
+
+    void test_ADD_QQ_Q();
+
+    void test_SUB_QQ_Q();
+
+    void test_MUL_QQ_Q();
+
+    void test_DIV_QQ_Q();
 };
 
 #endif //DM_COMPUTER_ALGEBRA_BTEST_H

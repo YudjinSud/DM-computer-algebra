@@ -167,7 +167,7 @@ Natural DIV_NN_N(Natural a, Natural b) {
             k--;
         a = SUB_NN_N(a, MUL_Nk_N(MUL_ND_N(b, DIV_NN_Dk(a, b)), k)); // a = a - первая цифра * b * 10^k
         k--;
-        for (int i = 0; (i < k); i++)  {
+        for (int i = 0; i < k; i++)  {
             c.dig.push_back(0);
             c.n++;
             k--;

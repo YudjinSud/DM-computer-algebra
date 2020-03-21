@@ -6,9 +6,21 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/varka/DM_kollok/DM-computer-algebra/Natural.cpp
-Natural.h
-C:/Users/varka/DM_kollok/DM-computer-algebra/Natural.h
+C:/Users/varka/DM_kollok/DM-computer-algebra/Frac.h
+vector
+-
+iosfwd
+-
+algorithm
+-
+
+C:/Users/varka/DM_kollok/DM-computer-algebra/Integ.h
+vector
+-
+iosfwd
+-
+algorithm
+-
 
 C:/Users/varka/DM_kollok/DM-computer-algebra/Natural.h
 vector
@@ -19,4 +31,28 @@ algorithm
 -
 iostream
 -
+
+C:/Users/varka/DM_kollok/DM-computer-algebra/Poly.cpp
+Natural.h
+C:/Users/varka/DM_kollok/DM-computer-algebra/Natural.h
+Integ.h
+C:/Users/varka/DM_kollok/DM-computer-algebra/Integ.h
+Poly.h
+C:/Users/varka/DM_kollok/DM-computer-algebra/Poly.h
+Frac.h
+C:/Users/varka/DM_kollok/DM-computer-algebra/Frac.h
+
+C:/Users/varka/DM_kollok/DM-computer-algebra/Poly.h
+vector
+-
+iosfwd
+-
+algorithm
+-
+Frac.h
+C:/Users/varka/DM_kollok/DM-computer-algebra/Frac.h
+Integ.h
+C:/Users/varka/DM_kollok/DM-computer-algebra/Integ.h
+Natural.h
+C:/Users/varka/DM_kollok/DM-computer-algebra/Natural.h
 
