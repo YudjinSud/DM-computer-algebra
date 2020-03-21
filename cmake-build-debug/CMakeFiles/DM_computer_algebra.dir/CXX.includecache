@@ -6,37 +6,9 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/varka/DM_kollok/DM-computer-algebra/BTest.cpp
-iostream
--
-Btest.h
-C:/Users/varka/DM_kollok/DM-computer-algebra/Btest.h
-
-C:/Users/varka/DM_kollok/DM-computer-algebra/Btest.h
-Test.h
-C:/Users/varka/DM_kollok/DM-computer-algebra/Test.h
+C:/Users/varka/DM_kollok/DM-computer-algebra/Natural.cpp
 Natural.h
 C:/Users/varka/DM_kollok/DM-computer-algebra/Natural.h
-Integ.h
-C:/Users/varka/DM_kollok/DM-computer-algebra/Integ.h
-Frac.h
-C:/Users/varka/DM_kollok/DM-computer-algebra/Frac.h
-
-C:/Users/varka/DM_kollok/DM-computer-algebra/Frac.h
-vector
--
-iosfwd
--
-algorithm
--
-
-C:/Users/varka/DM_kollok/DM-computer-algebra/Integ.h
-vector
--
-iosfwd
--
-algorithm
--
 
 C:/Users/varka/DM_kollok/DM-computer-algebra/Natural.h
 vector
@@ -46,9 +18,5 @@ iosfwd
 algorithm
 -
 iostream
--
-
-C:/Users/varka/DM_kollok/DM-computer-algebra/Test.h
-cstddef
 -
 

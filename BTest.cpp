@@ -120,6 +120,15 @@ void BTest::test_SUB_NN_N() {
     res.n = 3;
     res.dig = {9, 0, 0};
     DO_CHECK(SUB_NN_N(a, b) == res);
+
+
+    a.n = 10;
+    a.dig = {5, 1, 1, 1, 2, 2, 2, 2, 2, 2};
+    b.n = 2;
+    b.dig = {1, 2};
+    res.n = 10;
+    res.dig = {5, 1, 1, 1, 2, 2, 2, 2, 1, 0};
+    DO_CHECK(SUB_NN_N(a, b) == res);
 }
 
 void BTest::test_MUL_ND_N() {
@@ -161,6 +170,16 @@ void BTest::test_MUL_NN_N() {
     res.n = 8;
     res.dig = {9, 6, 8, 2, 5, 9, 6, 0};
     DO_CHECK(MUL_NN_N(a, b) == res);
+
+    a.n = 10;
+    a.dig = {5, 1, 1, 1, 2, 2, 2, 2, 2, 2};
+    b.n = 2;
+    b.dig = {1, 2};
+    res.n = 11;
+    res.dig = {6, 1, 3, 3, 4, 6, 6, 6, 6, 6, 4};
+    DO_CHECK(MUL_NN_N(a, b) == res);
+
+
 }
 
 void BTest::test_SUB_NDN_N() {
@@ -173,10 +192,12 @@ void BTest::test_SUB_NDN_N() {
     res.n = 4;
     res.dig = {9, 6, 0, 5};
     DO_CHECK(SUB_NDN_N(a, b, n) == res);
+
 }
 
 void BTest::test_DIV_NN_Dk() {
     Natural a, b;
+
     a.n = 2;
     a.dig = {9, 9};
     b.n = 3;
@@ -194,9 +215,54 @@ void BTest::test_DIV_NN_Dk() {
     b.n = 2;
     b.dig = {3, 1};
     DO_CHECK(DIV_NN_Dk(a, b) == 3);
+
+    a.n = 5;
+    a.dig = {1, 2, 2, 2, 2};
+    b.n = 2;
+    b.dig = {3, 1};
+    DO_CHECK(DIV_NN_Dk(a, b) == 3);
+
+    a.n = 5;
+    a.dig = {1, 2, 2, 2, 2};
+    b.n = 1;
+    b.dig = {1};
+    DO_CHECK(DIV_NN_Dk(a, b) == 1);
+
+    a.n = 5;
+    a.dig = {1, 2, 2, 2, 2};
+    b.n = 2;
+    b.dig = {1, 0};
+    DO_CHECK(DIV_NN_Dk(a, b) == 1);
+
+    a.n = 1;
+    a.dig = {1};
+    b.n = 2;
+    b.dig = {1, 0};
+    DO_CHECK(DIV_NN_Dk(a, b) == 1);
+
+    a.n = 1;
+    a.dig = {1};
+    b.n = 1;
+    b.dig = {1};
+    DO_CHECK(DIV_NN_Dk(a, b) == 1);
+
+    a.n = 1;
+    a.dig = {2};
+    b.n = 1;
+    b.dig = {2};
+    DO_CHECK(DIV_NN_Dk(a, b) == 1);
+
+    a.n = 10;
+    a.dig = {5, 5, 5, 5, 5, 5, 5, 5, 5, 5};
+    b.n = 8;
+    b.dig = {4, 4, 4, 4, 4, 4, 4, 4};
+    DO_CHECK(DIV_NN_Dk(a, b) == 1);
+
+
 }
 
 void BTest::test_DIV_NN_N() {
+
     Natural a, b, res;
     a.n = 3;
     a.dig = {2, 0, 4};
@@ -262,12 +328,36 @@ void BTest::test_DIV_NN_N() {
     res.dig = {1, 1};
     DO_CHECK(DIV_NN_N(a, b) == res);
 
-    b.n = 5;
-    b.dig = {6,6,6,9,9};
-    a.n = 3;
-    a.dig = {6,6,6};
-    res.n = 3;
-    res.dig = {1, 0, 0};
+    res.n = 10;
+    res.dig = {5, 1, 1, 1, 2, 2, 2, 2, 2, 2};
+    b.n = 2;
+    b.dig = {1, 2};
+    a.n = 11;
+    a.dig = {6, 1, 3, 3, 4, 6, 6, 6, 6, 6, 4};
+    DO_CHECK(DIV_NN_N(a, b) == res);
+
+    a.n = 5;
+    a.dig = {6, 1, 3, 3, 4};
+    b.n = 2;
+    b.dig = {1, 3};
+    res.n = 4;
+    res.dig = {4, 7, 1, 8};
+    DO_CHECK(DIV_NN_N(a, b) == res);
+
+    res.n = 6;
+    res.dig = {4, 7, 1, 8, 0, 5};
+    b.n = 2;
+    b.dig = {1, 3};
+    a.n = 7;
+    a.dig = {6, 1, 3, 3, 4, 6, 6};
+    DO_CHECK(DIV_NN_N(a, b) == res);
+
+    res.n = 11;
+    res.dig = {4, 7, 1, 8, 0, 5, 1, 2, 8, 1, 8};
+    b.n = 2;
+    b.dig = {1, 3};
+    a.n = 12;
+    a.dig = {6, 1, 3, 3, 4, 6, 6, 6, 6, 6, 4, 3};
     DO_CHECK(DIV_NN_N(a, b) == res);
 
     b.n = 10;
@@ -275,16 +365,19 @@ void BTest::test_DIV_NN_N() {
     a.n = 8;
     a.dig = {6,6,6,5,5,5,1,2};
     res.n = 3;
-    res.dig = {1, 0, 0};
+    res.dig = {1,0,0};
     DO_CHECK(DIV_NN_N(a, b) == res);
 
-    a.n = 12;
-    a.dig = {6, 1, 3, 3, 4, 6, 6, 6, 6, 6, 4, 3};
-    b.n = 2;
-    b.dig = {1, 3};
-    res.n = 11;
-    res.dig = {4, 7, 1, 8, 0, 5, 1, 2, 8, 1, 8};
+
+    b.n = 10;
+    b.dig = {6, 6, 6, 9, 9, 9, 8, 8, 8, 8};
+    res.n = 7;
+    res.dig = {1, 1, 9, 0, 2, 7, 7};
+    a.n = 16;
+    a.dig = {7, 9, 3, 9, 1, 4, 6, 2, 6, 6, 4, 1, 1, 9, 7, 6};
     DO_CHECK(DIV_NN_N(a, b) == res);
+
+
 }
 
 void BTest::test_MOD_NN_N() {
@@ -304,6 +397,15 @@ void BTest::test_MOD_NN_N() {
     res.n = 1;
     res.dig = {1};
     DO_CHECK(MOD_NN_N(a, b) == res);
+
+    res.n = 1;
+    res.dig = {9};
+    b.n = 2;
+    b.dig = {1, 3};
+    a.n = 12;
+    a.dig = {6, 1, 3, 3, 4, 6, 6, 6, 6, 6, 4, 3};
+    DO_CHECK(MOD_NN_N(a, b) == res);
+
 }
 
 void BTest::test_GCF_NN_N() {
@@ -359,13 +461,6 @@ void BTest::test_LCM_NN_N() {
     res.dig = {1, 0, 0};
     DO_CHECK(LCM_NN_N(a, b) == res);
 
-//    b.n = 10;
-//    b.dig = {6,6,6,9,9,9,8,8,8,8};
-//    a.n = 8;
-//    a.dig = {6,6,6,5,5,5,1,2};
-//    res.n = 16;
-//    res.dig = {7,9,3,9,1,4,6,2,6,6,4,1,1,9,7,6};
-//    DO_CHECK(LCM_NN_N(a, b) == res);
 
 }
 
@@ -411,6 +506,14 @@ void BTest::test_POZ_Z_D() {
 void BTest::test_MUL_ZM_Z() {
     Integ a, res;
     a.b = 1;
+    a.n = 1;
+    a.dig = {0};
+    res.b = 0;
+    res.n = 1;
+    res.dig = {0};
+    DO_CHECK(MUL_ZM_Z(a) == res);
+
+    a.b = 0;
     a.n = 1;
     a.dig = {0};
     res.b = 0;
@@ -475,6 +578,17 @@ void BTest::test_ADD_ZZ_Z() {
     res.n = 1;
     res.dig = {3};
     DO_CHECK(ADD_ZZ_Z(a, b) == res);
+
+    a.b = 0;
+    a.n = 1;
+    a.dig = {0};
+    b.b = 1;
+    b.n = 2;
+    b.dig = {2, 5};
+    res.b = 0;
+    res.n = 1;
+    res.dig = {0};
+    DO_CHECK(MUL_ZZ_Z(a, b) == res);
 }
 
 void BTest::test_SUB_ZZ_Z() {
@@ -647,10 +761,10 @@ void BTest::test_ADD_QQ_Q() {
     a.p.n = 3;
     a.p.dig = {1, 2, 5};
     a.q.n = 2;
-    a.q.dig = {5,0};
+    a.q.dig = {5, 0};
     b.p.b = 1;
     b.p.n = 2;
-    b.p.dig = {3,4};
+    b.p.dig = {3, 4};
     b.q.n = 1;
     b.q.dig = {6};
     res.p.b = 1;
@@ -658,7 +772,7 @@ void BTest::test_ADD_QQ_Q() {
     res.p.dig = {4, 9};
     res.q.n = 1;
     res.q.dig = {6};
-    DO_CHECK(ADD_QQ_Q(a,b) == res);
+    DO_CHECK(ADD_QQ_Q(a, b) == res);
 }
 
 void BTest::test_SUB_QQ_Q() {
@@ -667,10 +781,10 @@ void BTest::test_SUB_QQ_Q() {
     a.p.n = 3;
     a.p.dig = {1, 2, 5};
     a.q.n = 2;
-    a.q.dig = {5,0};
+    a.q.dig = {5, 0};
     b.p.b = 1;
     b.p.n = 2;
-    b.p.dig = {3,4};
+    b.p.dig = {3, 4};
     b.q.n = 1;
     b.q.dig = {6};
     res.p.b = 0;
@@ -678,45 +792,45 @@ void BTest::test_SUB_QQ_Q() {
     res.p.dig = {1, 9};
     res.q.n = 1;
     res.q.dig = {6};
-    DO_CHECK(SUB_QQ_Q(a,b) == res);
+    DO_CHECK(SUB_QQ_Q(a, b) == res);
 }
 
-void BTest::test_MUL_QQ_Q(){
+void BTest::test_MUL_QQ_Q() {
     Frac a, b, res;
     a.p.b = 1;
     a.p.n = 3;
     a.p.dig = {1, 2, 5};
     a.q.n = 2;
-    a.q.dig = {5,0};
+    a.q.dig = {5, 0};
     b.p.b = 1;
     b.p.n = 2;
-    b.p.dig = {3,4};
+    b.p.dig = {3, 4};
     b.q.n = 1;
     b.q.dig = {6};
     res.p.b = 0;
     res.p.n = 2;
-    res.p.dig = {8,5};
+    res.p.dig = {8, 5};
     res.q.n = 1;
     res.q.dig = {6};
-    DO_CHECK(MUL_QQ_Q(a,b) == res);
+    DO_CHECK(MUL_QQ_Q(a, b) == res);
 }
 
-void BTest::test_DIV_QQ_Q(){
+void BTest::test_DIV_QQ_Q() {
     Frac a, b, res;
     a.p.b = 1;
     a.p.n = 3;
     a.p.dig = {1, 2, 5};
     a.q.n = 2;
-    a.q.dig = {5,0};
+    a.q.dig = {5, 0};
     b.p.b = 1;
     b.p.n = 2;
-    b.p.dig = {3,4};
+    b.p.dig = {3, 4};
     b.q.n = 1;
     b.q.dig = {6};
     res.p.b = 0;
     res.p.n = 2;
-    res.p.dig = {1,5};
+    res.p.dig = {1, 5};
     res.q.n = 2;
-    res.q.dig = {3,4};
-    DO_CHECK(DIV_QQ_Q(a,b) == res);
+    res.q.dig = {3, 4};
+    DO_CHECK(DIV_QQ_Q(a, b) == res);
 }

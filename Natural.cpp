@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Natural.h"
 
 #define all(a) begin(a), end(a)
@@ -95,7 +96,7 @@ Natural MUL_ND_N(Natural a, int n) {
 }
 
 Natural MUL_Nk_N(Natural a, int k) {
-    if(NZER_N_B(a)) return a;
+    if (NZER_N_B(a)) return a;
     fore(i, 0, k) a.dig.push_back(0);
     a.n = (int) (a.dig.size());
     return a;
@@ -122,72 +123,63 @@ Natural SUB_NDN_N(Natural a, Natural b, int n) {
 int DIV_NN_Dk(Natural a, Natural b) {
     if (COM_NN_D(a, b) == 1)
         swap(a, b);
-    int k = a.n - b.n;;
-    if (COM_NN_D(a, MUL_Nk_N(b, k)) == 1)
-        k--;
-    b = MUL_Nk_N(b, k);
+    Natural c;
+    for (int i = 0; i < a.n; i++) {
+        c.dig.push_back(a.dig[i]);
+        c.n = int(c.dig.size());
+        if (COM_NN_D(c, b) != 1) break;
+    }
     fore(i, 1, 10) {
-        if (COM_NN_D(a, MUL_ND_N(b, i)) == 0) {
-            return i;
-        } else if (COM_NN_D(a, MUL_ND_N(b, i)) == 1) {
+        if (COM_NN_D(c, MUL_ND_N(b, i)) == 1) {
             return (i - 1);
         }
     }
-    return 0;
+    return 9;
 }
 
 Natural DIV_NN_N(Natural a, Natural b) {
-//    if (COM_NN_D(a, b) == 1)
-//        swap(a, b);
-//    Natural c;
-//    while (COM_NN_D(a, b) != 1 ) {
-//        int x = DIV_NN_Dk(a, b);
-//        c.dig.push_back(x);
-//        int k = a.n - b.n;
-//        if (a.dig[0] < b.dig[0]) {
-//            k--;
-//        }
-//        int h = a.n - 1;
-//        a = SUB_NN_N(a, MUL_ND_N(MUL_Nk_N(b, k), x));
-//        h -= a.n;
-//        for(int i = 0; i < h && k != 0; i++) c.dig.push_back(0);
-//    }
-//    c.n = int(c.dig.size());
-
     if (COM_NN_D(a, b) == 1)
         swap(a, b);
+    Natural a_real = a;
     Natural c;
-    c.n = 0;
-    // нашли k - степень 10
-    int k = a.n - b.n;
-    while (k >= 0) {
-        if (COM_NN_D (a, b) == 1)
-        {
-            c.dig.push_back(0);
-            c.n++;
-            break;
+    while (COM_NN_D(a, b) != 1) {
+
+        Natural z;
+        z.n = 0;
+        int i_0 = 0;
+        while (COM_NN_D(z, b) == 1 && a.n > i_0) {
+            z.dig.push_back(a.dig[i_0]);
+            z.n++;
+            i_0++;
         }
-        k = a.n - b.n;
-        if (COM_NN_D(a, MUL_Nk_N(b, k)) == 1)
-            k--;
-        c.dig.push_back(DIV_NN_Dk(a, b)); // вписали первую цифру результата
-        c.n++;
-        a = SUB_NN_N(a, MUL_Nk_N(MUL_ND_N(b, DIV_NN_Dk(a, b)), k)); // a = a - первая цифра * b * 10^k
-        k--;
-        for (int i = 0; i < k; i++)  {
-            c.dig.push_back(0);
-            c.n++;
-            k--;
+        int x = DIV_NN_Dk(z, b);
+        c.dig.push_back(x);
+        Natural v = MUL_ND_N(b, x);
+        int kolvo = -1;
+        Natural u = SUB_NN_N(z, v);
+        if(NZER_N_B(u)){
+            u.n = 0;
+            u.dig.clear();
         }
-        while (COM_NN_D(a, MUL_Nk_N(b, k+1)) == 2) {
-            k++;
-            c.dig.pop_back();
-            c.n--;
+        for (int i = i_0; i < a.n && COM_NN_D(u, b) == 1; i++) {
+            kolvo++;
+            u.dig.push_back(a.dig[i]);
+            u.n = (int) (u.dig.size());
         }
+        bool flag = false;
+        while(COM_NN_D(a,v) != 1){ v.dig.push_back(0);v.n = (int) (v.dig.size()); flag = true;}
+        if(flag)v.dig.pop_back();
+        v.n = (int) (v.dig.size());
+        a = SUB_NN_N(a, v);
+        for (int i = 0; i < kolvo; i++) c.dig.push_back(0);
+
     }
-//    for (int i = 0; i < c.dig.size(); i++)
-//        std::cout << c.dig[i];
-//    std::cout<< endl;
+    c.n = (int) (c.dig.size());
+    int count = 0;
+    for(;1;count++)
+        if(COM_NN_D(a_real, MUL_Nk_N(MUL_NN_N(c,b), count + 1)) == 1) break;
+    for(int i = 0; i < count;i++) c.dig.push_back(0);
+    c.n = (int) (c.dig.size());
     return c;
 }
 
