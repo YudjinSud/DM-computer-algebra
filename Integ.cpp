@@ -67,6 +67,7 @@ Integ MUL_ZZ_Z(Integ a, Integ b) {
     a.b = (a.b + b.b) % 2;
     a.n = a1.n;
     a.dig = a1.dig;
+    if(NZER_N_B(a1)) a.b = 0;
     return a;
 }
 

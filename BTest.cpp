@@ -464,7 +464,6 @@ void BTest::test_LCM_NN_N() {
 
 }
 
-
 void BTest::test_ABS_Z_N() {
     Integ a, res;
     a.b = 1;
@@ -579,6 +578,17 @@ void BTest::test_ADD_ZZ_Z() {
     res.n = 1;
     res.dig = {3};
     DO_CHECK(ADD_ZZ_Z(a, b) == res);
+
+    a.b = 0;
+    a.n = 1;
+    a.dig = {0};
+    b.b = 1;
+    b.n = 2;
+    b.dig = {2, 5};
+    res.b = 0;
+    res.n = 1;
+    res.dig = {0};
+    DO_CHECK(MUL_ZZ_Z(a, b) == res);
 }
 
 void BTest::test_SUB_ZZ_Z() {
