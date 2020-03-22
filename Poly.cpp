@@ -117,7 +117,7 @@ Poly DIV_PP_P(Poly a, Poly b) {
 
 Poly MOD_PP_P(Poly a, Poly b) {
     Poly c = DIV_PP_P(a, b);
-    return SUB_PP_P(a, MOD_PP_P(c, b));
+    return SUB_PP_P(a, MUL_PP_P(c, b));
 }
 
 Poly GCF_PP_P(Poly a, Poly b) {
