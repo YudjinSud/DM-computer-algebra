@@ -8,6 +8,14 @@ Poly ADD_PP_P(Poly a, Poly b) {
         swap(a, b);
     for (int i = 0; i <= b.m; i++)
         a.C[i] = ADD_QQ_Q(a.C[i], b.C[i]);
+    Frac nul;
+    for (int i = a.m; i >= 0; i--) {
+        if (a.C[i] == nul) {
+            a.C.pop_back();
+            a.m--;
+        } else
+            break;
+    }
     return a;
 }
 
