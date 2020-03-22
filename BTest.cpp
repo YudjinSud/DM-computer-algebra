@@ -43,7 +43,10 @@ void BTest::runAllTests() {
     test_DEG_P_N();
     test_MUL_PP_P();
     test_DIV_PP_P();
-
+    test_MOD_PP_P();
+    test_GCF_PP_P();
+    test_DER_P_P();
+    test_NMR_P_P();
 }
 
 void BTest::test_COM_NN_D() {
@@ -953,7 +956,7 @@ void BTest::test_DIV_QQ_Q() {
 }
 
 void BTest::test_ADD_PP_P() {
-    Frac a1, a2, a3, b1, b2, b3,res1, res2, res3;
+    Frac a1, a2, a3, b1, b2, b3, res1, res2, res3;
     Poly x, y, res;
     x.m = 2;
     a1.p.b = 1;
@@ -1005,7 +1008,7 @@ void BTest::test_ADD_PP_P() {
     res3.p.dig = {1};
     res3.q.n = 1;
     res3.q.dig = {1};
-    res.C = {res1 ,res2, res3};
+    res.C = {res1, res2, res3};
     DO_CHECK(ADD_PP_P(x, y) == res);
 }
 
@@ -1034,5 +1037,264 @@ void BTest::test_MUL_PP_P() {
 }
 
 void BTest::test_DIV_PP_P() {
+    Frac a1, a2, a3, a4, res1, res2, res3;
+    Poly x, y, res;
+    x.m = 3;
+    a1.p.b = 0;
+    a1.p.n = 1;
+    a1.p.dig = {2};
+    a1.q.n = 1;
+    a1.q.dig = {1};
+    a2.p.b = 1;
+    a2.p.n = 1;
+    a2.p.dig = {3};
+    a2.q.n = 1;
+    a2.q.dig = {1};
+    a3.p.b = 0;
+    a3.p.n = 1;
+    a3.p.dig = {0};
+    a3.q.n = 1;
+    a3.q.dig = {1};
+    a4.p.b = 0;
+    a4.p.n = 1;
+    a4.p.dig = {1};
+    a4.q.n = 1;
+    a4.q.dig = {1};
+    x.C = {a1, a2, a3, a4};
+    y.m = 2;
+    a1.p.b = 1;
+    a1.p.n = 1;
+    a1.p.dig = {3};
+    a1.q.n = 1;
+    a1.q.dig = {1};
+    a2.p.b = 0;
+    a2.p.n = 1;
+    a2.p.dig = {0};
+    a2.q.n = 1;
+    a2.q.dig = {1};
+    a3.p.b = 0;
+    a3.p.n = 1;
+    a3.p.dig = {3};
+    a3.q.n = 1;
+    a3.q.dig = {1};
+    y.C = {a1, a2, a3};
+    res.m = 1;
+    res1.p.b = 0;
+    res1.p.n = 1;
+    res1.p.dig = {0};
+    res1.q.n = 1;
+    res1.q.dig = {1};
+    res2.p.b = 0;
+    res2.p.n = 1;
+    res2.p.dig = {1};
+    res2.q.n = 1;
+    res2.q.dig = {3};
+    res.C = {res1, res2};
+    DO_CHECK(DIV_PP_P(x, y) == res);
 
+
+}
+
+void BTest::test_MOD_PP_P() {
+    Frac a1, a2, a3, a4, res1, res2, res3;
+    Poly x, y, res;
+    x.m = 3;
+    a1.p.b = 0;
+    a1.p.n = 1;
+    a1.p.dig = {2};
+    a1.q.n = 1;
+    a1.q.dig = {1};
+    a2.p.b = 1;
+    a2.p.n = 1;
+    a2.p.dig = {3};
+    a2.q.n = 1;
+    a2.q.dig = {1};
+    a3.p.b = 0;
+    a3.p.n = 1;
+    a3.p.dig = {0};
+    a3.q.n = 1;
+    a3.q.dig = {1};
+    a4.p.b = 0;
+    a4.p.n = 1;
+    a4.p.dig = {1};
+    a4.q.n = 1;
+    a4.q.dig = {1};
+    x.C = {a1, a2, a3, a4};
+    y.m = 2;
+    a1.p.b = 1;
+    a1.p.n = 1;
+    a1.p.dig = {3};
+    a1.q.n = 1;
+    a1.q.dig = {1};
+    a2.p.b = 0;
+    a2.p.n = 1;
+    a2.p.dig = {0};
+    a2.q.n = 1;
+    a2.q.dig = {1};
+    a3.p.b = 0;
+    a3.p.n = 1;
+    a3.p.dig = {3};
+    a3.q.n = 1;
+    a3.q.dig = {1};
+    y.C = {a1, a2, a3};
+    res.m = 1;
+    res1.p.b = 0;
+    res1.p.n = 1;
+    res1.p.dig = {2};
+    res1.q.n = 1;
+    res1.q.dig = {1};
+    res2.p.b = 1;
+    res2.p.n = 1;
+    res2.p.dig = {2};
+    res2.q.n = 1;
+    res2.q.dig = {1};
+    res.C = {res1, res2};
+    DO_CHECK(MOD_PP_P(x, y) == res);
+}
+
+void BTest::test_GCF_PP_P() {
+    Frac a1, a2, a3, a4, res1, res2, res3;
+    Poly x, y, res;
+    x.m = 3;
+    a1.p.b = 0;
+    a1.p.n = 1;
+    a1.p.dig = {2};
+    a1.q.n = 1;
+    a1.q.dig = {1};
+    a2.p.b = 1;
+    a2.p.n = 1;
+    a2.p.dig = {3};
+    a2.q.n = 1;
+    a2.q.dig = {1};
+    a3.p.b = 0;
+    a3.p.n = 1;
+    a3.p.dig = {0};
+    a3.q.n = 1;
+    a3.q.dig = {1};
+    a4.p.b = 0;
+    a4.p.n = 1;
+    a4.p.dig = {1};
+    a4.q.n = 1;
+    a4.q.dig = {1};
+    x.C = {a1, a2, a3, a4};
+    y.m = 2;
+    a1.p.b = 1;
+    a1.p.n = 1;
+    a1.p.dig = {3};
+    a1.q.n = 1;
+    a1.q.dig = {1};
+    a2.p.b = 0;
+    a2.p.n = 1;
+    a2.p.dig = {0};
+    a2.q.n = 1;
+    a2.q.dig = {1};
+    a3.p.b = 0;
+    a3.p.n = 1;
+    a3.p.dig = {3};
+    a3.q.n = 1;
+    a3.q.dig = {1};
+    y.C = {a1, a2, a3};
+    res.m = 1;
+    res1.p.b = 1;
+    res1.p.n = 1;
+    res1.p.dig = {1};
+    res1.q.n = 1;
+    res1.q.dig = {1};
+    res2.p.b = 0;
+    res2.p.n = 1;
+    res2.p.dig = {1};
+    res2.q.n = 1;
+    res2.q.dig = {1};
+    res.C = {res1, res2};
+    DO_CHECK(GCF_PP_P(x, y) == res);
+}
+
+void BTest::test_DER_P_P() {
+    Frac a1, a2, a3, a4, res1, res2, res3;
+    Poly x, res;
+    x.m = 3;
+    a1.p.b = 0;
+    a1.p.n = 1;
+    a1.p.dig = {2};
+    a1.q.n = 1;
+    a1.q.dig = {1};
+    a2.p.b = 1;
+    a2.p.n = 1;
+    a2.p.dig = {3};
+    a2.q.n = 1;
+    a2.q.dig = {1};
+    a3.p.b = 0;
+    a3.p.n = 1;
+    a3.p.dig = {0};
+    a3.q.n = 1;
+    a3.q.dig = {1};
+    a4.p.b = 0;
+    a4.p.n = 1;
+    a4.p.dig = {1};
+    a4.q.n = 1;
+    a4.q.dig = {1};
+    x.C = {a1, a2, a3, a4};
+    res.m = 2;
+    res1.p.b = 1;
+    res1.p.n = 1;
+    res1.p.dig = {3};
+    res1.q.n = 1;
+    res1.q.dig = {1};
+    res2.p.b = 0;
+    res2.p.n = 1;
+    res2.p.dig = {0};
+    res2.q.n = 1;
+    res2.q.dig = {1};
+    res3.p.b = 0;
+    res3.p.n = 1;
+    res3.p.dig = {1};
+    res3.q.n = 1;
+    res3.q.dig = {1};
+    res.C = {res1, res2, res3};
+    DO_CHECK(DER_P_P(x) == res);
+}
+
+void BTest::test_NMR_P_P() {
+    Frac a1, a2, a3, a4, res1, res2, res3;
+    Poly x, res;
+    x.m = 3;
+    a1.p.b = 0;
+    a1.p.n = 1;
+    a1.p.dig = {2};
+    a1.q.n = 1;
+    a1.q.dig = {1};
+    a2.p.b = 1;
+    a2.p.n = 1;
+    a2.p.dig = {3};
+    a2.q.n = 1;
+    a2.q.dig = {1};
+    a3.p.b = 0;
+    a3.p.n = 1;
+    a3.p.dig = {0};
+    a3.q.n = 1;
+    a3.q.dig = {1};
+    a4.p.b = 0;
+    a4.p.n = 1;
+    a4.p.dig = {1};
+    a4.q.n = 1;
+    a4.q.dig = {1};
+    x.C = {a1, a2, a3, a4};
+    res.m = 2;
+    res1.p.b = 1;
+    res1.p.n = 1;
+    res1.p.dig = {2};
+    res1.q.n = 1;
+    res1.q.dig = {1};
+    res2.p.b = 0;
+    res2.p.n = 1;
+    res2.p.dig = {1};
+    res2.q.n = 1;
+    res2.q.dig = {1};
+    res3.p.b = 0;
+    res3.p.n = 1;
+    res3.p.dig = {1};
+    res3.q.n = 1;
+    res3.q.dig = {1};
+    res.C = {res1, res2, res3};
+    DO_CHECK(NMR_P_P(x) == res);
 }

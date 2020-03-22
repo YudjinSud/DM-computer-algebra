@@ -157,7 +157,7 @@ Natural DIV_NN_N(Natural a, Natural b) {
         Natural v = MUL_ND_N(b, x);
         int kolvo = -1;
         Natural u = SUB_NN_N(z, v);
-        if(NZER_N_B(u)){
+        if (NZER_N_B(u)) {
             u.n = 0;
             u.dig.clear();
         }
@@ -167,8 +167,12 @@ Natural DIV_NN_N(Natural a, Natural b) {
             u.n = (int) (u.dig.size());
         }
         bool flag = false;
-        while(COM_NN_D(a,v) != 1){ v.dig.push_back(0);v.n = (int) (v.dig.size()); flag = true;}
-        if(flag)v.dig.pop_back();
+        while (COM_NN_D(a, v) != 1) {
+            v.dig.push_back(0);
+            v.n = (int) (v.dig.size());
+            flag = true;
+        }
+        if (flag)v.dig.pop_back();
         v.n = (int) (v.dig.size());
         a = SUB_NN_N(a, v);
         for (int i = 0; i < kolvo; i++) c.dig.push_back(0);
@@ -176,9 +180,9 @@ Natural DIV_NN_N(Natural a, Natural b) {
     }
     c.n = (int) (c.dig.size());
     int count = 0;
-    for(;1;count++)
-        if(COM_NN_D(a_real, MUL_Nk_N(MUL_NN_N(c,b), count + 1)) == 1) break;
-    for(int i = 0; i < count;i++) c.dig.push_back(0);
+    for (; 1; count++)
+        if (COM_NN_D(a_real, MUL_Nk_N(MUL_NN_N(c, b), count + 1)) == 1) break;
+    for (int i = 0; i < count; i++) c.dig.push_back(0);
     c.n = (int) (c.dig.size());
     return c;
 }

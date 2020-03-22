@@ -91,6 +91,14 @@ private:
     void test_MUL_PP_P();
 
     void test_DIV_PP_P();
+
+    void test_MOD_PP_P();
+
+    void test_GCF_PP_P();
+
+    void test_DER_P_P();
+
+    void test_NMR_P_P();
 };
 
 #endif //DM_COMPUTER_ALGEBRA_BTEST_H

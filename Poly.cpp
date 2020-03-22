@@ -31,6 +31,10 @@ Poly SUB_PP_P(Poly a, Poly b) {
         } else
             break;
     }
+    if (a.C.empty()) {
+        a.C.push_back(Frac());
+        a.m = 0;
+    }
     return a;
 }
 
@@ -105,27 +109,60 @@ Poly DIV_PP_P(Poly a, Poly b) {
     int stepen_c = DEG_P_N(a) - DEG_P_N(b);
     if (stepen_c <= 0) return Poly();
     Poly c;
-    while (DEG_P_N(a) - DEG_P_N(b) >= 0) {
-        Frac x = DIV_QQ_Q(a.C[b.m], b.C[b.m]);
-        c.C.push_back(x);
-        a = SUB_PP_P(a, MUL_Pxk_P(MUL_PQ_P(b, x), DEG_P_N(a) - DEG_P_N(b)));
+    Frac x;
+    int curr_check = DEG_P_N(a);
+    for (; curr_check >= DEG_P_N(b); --curr_check) {
+        if (a.m < curr_check) {
+            c.C.push_back(Frac());
+        } else {
+            x = DIV_QQ_Q(a.C[a.m], b.C[b.m]);
+            c.C.push_back(x);
+            a = SUB_PP_P(a, MUL_Pxk_P(MUL_PQ_P(b, x), DEG_P_N(a) - DEG_P_N(b)));
+        }
     }
     c.m = (c.C.size() - 1);
     reverse(begin(c.C), end(c.C));
+    for (int i = c.m; i >= 0; i--) {
+        if (c.C[i] == Frac()) {
+            c.C.pop_back();
+            c.m--;
+        } else
+            break;
+    }
     return c;
 }
 
 Poly MOD_PP_P(Poly a, Poly b) {
-    Poly c = DIV_PP_P(a, b);
-    return SUB_PP_P(a, MUL_PP_P(c, b));
+    int stepen_c = DEG_P_N(a) - DEG_P_N(b);
+    if (stepen_c <= 0) return Poly();
+    Poly c;
+    Frac x;
+    while (DEG_P_N(a) - DEG_P_N(b) >= 0) {
+        x = DIV_QQ_Q(a.C[a.m], b.C[b.m]);
+        c.C.push_back(x);
+        a = SUB_PP_P(a, MUL_Pxk_P(MUL_PQ_P(b, x), DEG_P_N(a) - DEG_P_N(b)));
+    }
+    return a;
 }
 
 Poly GCF_PP_P(Poly a, Poly b) {
     if (a.m < b.m)
         swap(a, b);
-    if (b == Poly())
+    bool f = true;
+    Frac t = Frac();
+    for (int i = 0; i <= b.m; i++)
+        if (!(b.C[i] == t))
+            f = false;
+    if (f) {
+        Frac s = a.C[a.m];
+        int x = s.p.b;
+        Natural c = TRANS_Z_N(ABS_Z_N(s.p));
+        s.p = TRANS_N_Z(s.q);
+        s.p.b = x;
+        s.q = c;
+        a = MUL_PQ_P(a,s);
         return a;
-    else
+    } else
         return GCF_PP_P(b, MOD_PP_P(a, b));
 }
 
@@ -144,5 +181,10 @@ Poly DER_P_P(Poly a) { //P-12
     a.C.pop_back();
     a.m--;
     return a;
+}
+
+Poly NMR_P_P(Poly a) { //P-13
+    Poly b = DER_P_P(a);
+    return DIV_PP_P(a, GCF_PP_P(a, b));
 }
 
