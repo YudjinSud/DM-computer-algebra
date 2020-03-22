@@ -2,6 +2,7 @@
 #include "Btest.h"
 
 
+
 void BTest::runAllTests() {
     test_COM_NN_D();
     test_NZER_N_B();
@@ -35,6 +36,14 @@ void BTest::runAllTests() {
     test_SUB_QQ_Q();
     test_MUL_QQ_Q();
     test_DIV_QQ_Q();
+    test_ADD_PP_P();
+    test_SUB_PP_P();
+    test_MUL_PQ_P();
+    test_MUL_Pxk_P();
+    test_LED_P_Q();
+    test_DEG_P_N();
+    test_MUL_PP_P();
+    test_DIV_PP_P();
 
 }
 
@@ -361,17 +370,17 @@ void BTest::test_DIV_NN_N() {
     DO_CHECK(DIV_NN_N(a, b) == res);
 
     b.n = 10;
-    b.dig = {6,6,6,9,9,9,8,8,8,8};
+    b.dig = {6, 6, 6, 9, 9, 9, 8, 8, 8, 8};
     a.n = 8;
-    a.dig = {6,6,6,5,5,5,1,2};
+    a.dig = {6, 6, 6, 5, 5, 5, 1, 2};
     res.n = 3;
-    res.dig = {1,0,0};
+    res.dig = {1, 0, 0};
     DO_CHECK(DIV_NN_N(a, b) == res);
 
 
-   b.n = 10;
+    b.n = 10;
     b.dig = {6, 6, 6, 9, 9, 9, 8, 8, 8, 8};
-   res.n = 7;
+    res.n = 7;
     res.dig = {1, 1, 9, 0, 2, 7, 7};
     a.n = 16;
     a.dig = {7, 9, 3, 9, 1, 4, 6, 2, 6, 6, 4, 1, 1, 9, 7, 6};
@@ -405,6 +414,7 @@ void BTest::test_MOD_NN_N() {
     a.n = 12;
     a.dig = {6, 1, 3, 3, 4, 6, 6, 6, 6, 6, 4, 3};
     DO_CHECK(MOD_NN_N(a, b) == res);
+
 
 }
 
@@ -833,4 +843,36 @@ void BTest::test_DIV_QQ_Q() {
     res.q.n = 2;
     res.q.dig = {3, 4};
     DO_CHECK(DIV_QQ_Q(a, b) == res);
+}
+
+void BTest::test_ADD_PP_P(){
+
+}
+
+void BTest::test_SUB_PP_P(){
+
+}
+
+void BTest::test_MUL_PQ_P(){
+
+}
+
+void BTest::test_MUL_Pxk_P(){
+
+}
+
+void BTest::test_LED_P_Q(){
+
+}
+
+void BTest::test_DEG_P_N(){
+
+}
+
+void BTest::test_MUL_PP_P(){
+
+}
+
+void BTest::test_DIV_PP_P(){
+
 }

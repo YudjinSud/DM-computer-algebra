@@ -23,7 +23,7 @@ struct Poly { // P/Q
     Poly() {
         Frac bla;
         this->C.push_back(bla);
-        this->m = 1;
+        this->m = 0;
     }
 
     bool operator==(const Poly &other) {
@@ -37,6 +37,7 @@ struct Poly { // P/Q
 
     ~Poly() {
         C.clear();
+        m = 0;
     }
 };
 

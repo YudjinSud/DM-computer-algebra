@@ -93,6 +93,34 @@ Poly MUL_PP_P(Poly a, Poly b) {
     return c;
 }
 
+Poly DIV_PP_P(Poly a, Poly b) {
+    int stepen_c = DEG_P_N(a) - DEG_P_N(b);
+    if (stepen_c <= 0) return Poly();
+    Poly c;
+    while (DEG_P_N(a) - DEG_P_N(b) >= 0) {
+        Frac x = DIV_QQ_Q(a.C[b.m], b.C[b.m]);
+        c.C.push_back(x);
+        a = SUB_PP_P(a, MUL_Pxk_P(MUL_PQ_P(b, x), DEG_P_N(a) - DEG_P_N(b)));
+    }
+    c.m = (c.C.size() - 1);
+    reverse(begin(c.C), end(c.C));
+    return c;
+}
+
+Poly MOD_PP_P(Poly a, Poly b) {
+    Poly c = DIV_PP_P(a, b);
+    return SUB_PP_P(a, MOD_PP_P(c, b));
+}
+
+Poly GCF_PP_P(Poly a, Poly b) {
+    if (a.m < b.m)
+        swap(a, b);
+    if (b == Poly())
+        return a;
+    else
+        return GCF_PP_P(b, MOD_PP_P(a, b));
+}
+
 Poly DER_P_P(Poly a) { //P-12
     for (int i = 1; i <= a.m; i++) {
         int j = i;
@@ -109,3 +137,4 @@ Poly DER_P_P(Poly a) { //P-12
     a.m--;
     return a;
 }
+

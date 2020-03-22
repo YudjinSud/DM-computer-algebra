@@ -6,13 +6,29 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/xtkcb/DM-computer-algebra/Integ.cpp
+C:/Users/xtkcb/DM-computer-algebra/BTest.cpp
 iostream
 -
+Btest.h
+C:/Users/xtkcb/DM-computer-algebra/Btest.h
+
+C:/Users/xtkcb/DM-computer-algebra/Btest.h
+Test.h
+C:/Users/xtkcb/DM-computer-algebra/Test.h
 Natural.h
 C:/Users/xtkcb/DM-computer-algebra/Natural.h
 Integ.h
 C:/Users/xtkcb/DM-computer-algebra/Integ.h
+Frac.h
+C:/Users/xtkcb/DM-computer-algebra/Frac.h
+
+C:/Users/xtkcb/DM-computer-algebra/Frac.h
+vector
+-
+iosfwd
+-
+algorithm
+-
 
 C:/Users/xtkcb/DM-computer-algebra/Integ.h
 vector
@@ -28,5 +44,33 @@ vector
 iosfwd
 -
 algorithm
+-
+
+C:/Users/xtkcb/DM-computer-algebra/Poly.cpp
+Natural.h
+C:/Users/xtkcb/DM-computer-algebra/Natural.h
+Integ.h
+C:/Users/xtkcb/DM-computer-algebra/Integ.h
+Poly.h
+C:/Users/xtkcb/DM-computer-algebra/Poly.h
+Frac.h
+C:/Users/xtkcb/DM-computer-algebra/Frac.h
+
+C:/Users/xtkcb/DM-computer-algebra/Poly.h
+vector
+-
+iosfwd
+-
+algorithm
+-
+Frac.h
+C:/Users/xtkcb/DM-computer-algebra/Frac.h
+Integ.h
+C:/Users/xtkcb/DM-computer-algebra/Integ.h
+Natural.h
+C:/Users/xtkcb/DM-computer-algebra/Natural.h
+
+C:/Users/xtkcb/DM-computer-algebra/Test.h
+cstddef
 -
 

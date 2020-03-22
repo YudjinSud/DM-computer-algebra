@@ -5,6 +5,7 @@
 #include "Natural.h"
 #include "Integ.h"
 #include "Frac.h"
+#include "Poly.h"
 
 class BTest : public Test {
 public:
@@ -74,6 +75,22 @@ private:
     void test_MUL_QQ_Q();
 
     void test_DIV_QQ_Q();
+
+    void test_ADD_PP_P();
+
+    void test_SUB_PP_P();
+
+    void test_MUL_PQ_P();
+
+    void test_MUL_Pxk_P();
+
+    void test_LED_P_Q();
+
+    void test_DEG_P_N();
+
+    void test_MUL_PP_P();
+
+    void test_DIV_PP_P();
 };
 
 #endif //DM_COMPUTER_ALGEBRA_BTEST_H
