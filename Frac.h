@@ -9,7 +9,8 @@
 #include <vector>
 #include <iosfwd>
 #include <algorithm>
-
+#include "Integ.h"
+#include "Natural.h"
 using namespace std;
 
 struct Frac { // P/Q

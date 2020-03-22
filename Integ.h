@@ -8,7 +8,7 @@
 #include <vector>
 #include <iosfwd>
 #include <algorithm>
-
+#include "Natural.h"
 using namespace std;
 
 struct Integ {

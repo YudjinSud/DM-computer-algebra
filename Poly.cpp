@@ -1,7 +1,4 @@
-#include "Natural.h"
-#include "Integ.h"
 #include "Poly.h"
-#include "Frac.h"
 
 Poly ADD_PP_P(Poly a, Poly b) {
     if (a.m < b.m)
@@ -15,6 +12,10 @@ Poly ADD_PP_P(Poly a, Poly b) {
             a.m--;
         } else
             break;
+    }
+    if (a.C.empty()) {
+        a.C.push_back(Frac());
+        a.m = 0;
     }
     return a;
 }
@@ -64,6 +65,13 @@ Frac LED_P_Q(Poly a) {
     while ((a.C[i] == nul) && (i > 0)) {
         i--;
     }
+    Frac s = a.C[a.m];
+    int x = s.p.b;
+    Natural c = TRANS_Z_N(ABS_Z_N(s.p));
+    s.p = TRANS_N_Z(s.q);
+    s.p.b = x;
+    s.q = c;
+    a = MUL_PQ_P(a,s);
     return a.C[i];
 }
 

@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/xtkcb/DM-computer-algebra/BTest.cpp" "C:/Users/xtkcb/DM-computer-algebra/cmake-build-debug/CMakeFiles/DM_computer_algebra.dir/BTest.cpp.obj"
   "C:/Users/xtkcb/DM-computer-algebra/Frac.cpp" "C:/Users/xtkcb/DM-computer-algebra/cmake-build-debug/CMakeFiles/DM_computer_algebra.dir/Frac.cpp.obj"
   "C:/Users/xtkcb/DM-computer-algebra/Integ.cpp" "C:/Users/xtkcb/DM-computer-algebra/cmake-build-debug/CMakeFiles/DM_computer_algebra.dir/Integ.cpp.obj"
+  "C:/Users/xtkcb/DM-computer-algebra/Manipulator.cpp" "C:/Users/xtkcb/DM-computer-algebra/cmake-build-debug/CMakeFiles/DM_computer_algebra.dir/Manipulator.cpp.obj"
   "C:/Users/xtkcb/DM-computer-algebra/Natural.cpp" "C:/Users/xtkcb/DM-computer-algebra/cmake-build-debug/CMakeFiles/DM_computer_algebra.dir/Natural.cpp.obj"
   "C:/Users/xtkcb/DM-computer-algebra/Poly.cpp" "C:/Users/xtkcb/DM-computer-algebra/cmake-build-debug/CMakeFiles/DM_computer_algebra.dir/Poly.cpp.obj"
   "C:/Users/xtkcb/DM-computer-algebra/Test.cpp" "C:/Users/xtkcb/DM-computer-algebra/cmake-build-debug/CMakeFiles/DM_computer_algebra.dir/Test.cpp.obj"

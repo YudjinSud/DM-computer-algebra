@@ -6,6 +6,7 @@
 #include "Integ.h"
 #include "Frac.h"
 #include "Poly.h"
+#include "Manipulator.h"
 
 class BTest : public Test {
 public:

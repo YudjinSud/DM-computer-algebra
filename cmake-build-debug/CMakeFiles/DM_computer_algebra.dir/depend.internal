@@ -6,6 +6,7 @@ CMakeFiles/DM_computer_algebra.dir/BTest.cpp.obj
  C:/Users/xtkcb/DM-computer-algebra/Btest.h
  C:/Users/xtkcb/DM-computer-algebra/Frac.h
  C:/Users/xtkcb/DM-computer-algebra/Integ.h
+ C:/Users/xtkcb/DM-computer-algebra/Manipulator.h
  C:/Users/xtkcb/DM-computer-algebra/Natural.h
  C:/Users/xtkcb/DM-computer-algebra/Poly.h
  C:/Users/xtkcb/DM-computer-algebra/Test.h
@@ -18,6 +19,13 @@ CMakeFiles/DM_computer_algebra.dir/Integ.cpp.obj
  C:/Users/xtkcb/DM-computer-algebra/Integ.cpp
  C:/Users/xtkcb/DM-computer-algebra/Integ.h
  C:/Users/xtkcb/DM-computer-algebra/Natural.h
+CMakeFiles/DM_computer_algebra.dir/Manipulator.cpp.obj
+ C:/Users/xtkcb/DM-computer-algebra/Frac.h
+ C:/Users/xtkcb/DM-computer-algebra/Integ.h
+ C:/Users/xtkcb/DM-computer-algebra/Manipulator.cpp
+ C:/Users/xtkcb/DM-computer-algebra/Manipulator.h
+ C:/Users/xtkcb/DM-computer-algebra/Natural.h
+ C:/Users/xtkcb/DM-computer-algebra/Poly.h
 CMakeFiles/DM_computer_algebra.dir/Natural.cpp.obj
  C:/Users/xtkcb/DM-computer-algebra/Natural.cpp
  C:/Users/xtkcb/DM-computer-algebra/Natural.h
@@ -34,6 +42,7 @@ CMakeFiles/DM_computer_algebra.dir/main.cpp.obj
  C:/Users/xtkcb/DM-computer-algebra/Btest.h
  C:/Users/xtkcb/DM-computer-algebra/Frac.h
  C:/Users/xtkcb/DM-computer-algebra/Integ.h
+ C:/Users/xtkcb/DM-computer-algebra/Manipulator.h
  C:/Users/xtkcb/DM-computer-algebra/Natural.h
  C:/Users/xtkcb/DM-computer-algebra/Poly.h
  C:/Users/xtkcb/DM-computer-algebra/Test.h

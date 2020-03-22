@@ -103,6 +103,12 @@
 		<Unit filename="C:/Users/xtkcb/DM-computer-algebra/Integ.h">
 			<Option target="DM_computer_algebra"/>
 		</Unit>
+		<Unit filename="C:/Users/xtkcb/DM-computer-algebra/Manipulator.cpp">
+			<Option target="DM_computer_algebra"/>
+		</Unit>
+		<Unit filename="C:/Users/xtkcb/DM-computer-algebra/Manipulator.h">
+			<Option target="DM_computer_algebra"/>
+		</Unit>
 		<Unit filename="C:/Users/xtkcb/DM-computer-algebra/Natural.cpp">
 			<Option target="DM_computer_algebra"/>
 		</Unit>

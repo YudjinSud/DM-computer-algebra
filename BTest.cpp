@@ -1010,6 +1010,49 @@ void BTest::test_ADD_PP_P() {
     res3.q.dig = {1};
     res.C = {res1, res2, res3};
     DO_CHECK(ADD_PP_P(x, y) == res);
+
+    x.m = 2;
+    a1.p.b = 1;
+    a1.p.n = 1;
+    a1.p.dig = {1};
+    a1.q.n = 1;
+    a1.q.dig = {1};
+    a2.p.b = 0;
+    a2.p.n = 1;
+    a2.p.dig = {1};
+    a2.q.n = 1;
+    a2.q.dig = {1};
+    a3.p.b = 0;
+    a3.p.n = 1;
+    a3.p.dig = {0};
+    a3.q.n = 1;
+    a3.q.dig = {1};
+    x.C = {a3, a2, a1};
+    y.m = 2;
+    b1.p.b = 0;
+    b1.p.n = 1;
+    b1.p.dig = {1};
+    b1.q.n = 1;
+    b1.q.dig = {1};
+    b2.p.b = 1;
+    b2.p.n = 1;
+    b2.p.dig = {1};
+    b2.q.n = 1;
+    b2.q.dig = {1};
+    b3.p.b =0;
+    b3.p.n = 1;
+    b3.p.dig = {0};
+    b3.q.n = 1;
+    b3.q.dig = {1};
+    y.C = {b3, b2, b1};
+    res.m = 0;
+    res1.p.b = 0;
+    res1.p.n = 1;
+    res1.p.dig = {0};
+    res1.q.n = 1;
+    res1.q.dig = {1};
+    res.C = {res1};
+    DO_CHECK(ADD_PP_P(x, y) == res); //уходит в -1
 }
 
 void BTest::test_SUB_PP_P() {
@@ -1025,7 +1068,27 @@ void BTest::test_MUL_Pxk_P() {
 }
 
 void BTest::test_LED_P_Q() {
-
+    Frac a1, a2, a3, b1, b2, b3, res;
+    Poly x;
+    x.m = 1;
+    a1.p.b = 1;
+    a1.p.n = 1;
+    a1.p.dig = {3};
+    a1.q.n = 1;
+    a1.q.dig = {6};
+    a2.p.b = 1;
+    a2.p.n = 1;
+    a2.p.dig = {1};
+    a2.q.n = 1;
+    a2.q.dig = {1};
+    x.C = {a2, a1};
+    res.p.b = 1;
+    res.p.n = 1;
+    res.p.dig = {1};
+    res.q.n = 1;
+    res.q.dig = {2};
+    Frac c = LED_P_Q(x);
+    DO_CHECK(LED_P_Q(x) == res);
 }
 
 void BTest::test_DEG_P_N() {
