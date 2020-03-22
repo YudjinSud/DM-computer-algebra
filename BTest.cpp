@@ -2,7 +2,6 @@
 #include "Btest.h"
 
 
-
 void BTest::runAllTests() {
     test_COM_NN_D();
     test_NZER_N_B();
@@ -725,7 +724,7 @@ void BTest::test_MOD_ZZ_Z() {
     a.n = 1;
     a.dig = {0};
     b.n = 10;
-    b.dig = {5,9,5,9,5,9,5,9,5,9};
+    b.dig = {5, 9, 5, 9, 5, 9, 5, 9, 5, 9};
     res.b = 0;
     res.n = 1;
     res.dig = {0};
@@ -826,7 +825,7 @@ void BTest::test_ADD_QQ_Q() {
 
     a.p.b = 1;
     a.p.n = 4;
-    a.p.dig = {7,5,6,2};
+    a.p.dig = {7, 5, 6, 2};
     a.q.n = 1;
     a.q.dig = {4};
     b.p.b = 0;
@@ -836,7 +835,7 @@ void BTest::test_ADD_QQ_Q() {
     b.q.dig = {5};
     res.p.b = 1;
     res.p.n = 4;
-    res.p.dig = {3,7,8,1};
+    res.p.dig = {3, 7, 8, 1};
     res.q.n = 1;
     res.q.dig = {2};
     DO_CHECK(ADD_QQ_Q(a, b) == res);
@@ -863,7 +862,7 @@ void BTest::test_SUB_QQ_Q() {
 
     a.p.b = 1;
     a.p.n = 4;
-    a.p.dig = {7,5,6,2};
+    a.p.dig = {7, 5, 6, 2};
     a.q.n = 1;
     a.q.dig = {4};
     b.p.b = 0;
@@ -873,7 +872,7 @@ void BTest::test_SUB_QQ_Q() {
     b.q.dig = {5};
     res.p.b = 1;
     res.p.n = 4;
-    res.p.dig = {3,7,8,1};
+    res.p.dig = {3, 7, 8, 1};
     res.q.n = 1;
     res.q.dig = {2};
     DO_CHECK(SUB_QQ_Q(a, b) == res);
@@ -953,34 +952,87 @@ void BTest::test_DIV_QQ_Q() {
     DO_CHECK(DIV_QQ_Q(a, b) == res);
 }
 
-void BTest::test_ADD_PP_P(){
+void BTest::test_ADD_PP_P() {
+    Frac a1, a2, a3, b1, b2, b3,res1, res2, res3;
+    Poly x, y, res;
+    x.m = 2;
+    a1.p.b = 1;
+    a1.p.n = 1;
+    a1.p.dig = {1};
+    a1.q.n = 1;
+    a1.q.dig = {1};
+    a2.p.b = 0;
+    a2.p.n = 2;
+    a2.p.dig = {1, 1};
+    a2.q.n = 2;
+    a2.q.dig = {1, 2};
+    a3.p.b = 0;
+    a3.p.n = 1;
+    a3.p.dig = {5};
+    a3.q.n = 1;
+    a3.q.dig = {1};
+    x.C = {a1, a2, a3};
+    y.m = 2;
+    b1.p.b = 0;
+    b1.p.n = 1;
+    b1.p.dig = {1};
+    b1.q.n = 1;
+    b1.q.dig = {1};
+    b2.p.b = 0;
+    b2.p.n = 1;
+    b2.p.dig = {1};
+    b2.q.n = 2;
+    b2.q.dig = {1, 2};
+    b3.p.b = 1;
+    b3.p.n = 1;
+    b3.p.dig = {4};
+    b3.q.n = 1;
+    b3.q.dig = {1};
+    y.C = {b1, b2, b3};
+    res.m = 2;
+    res2.p.b = 0;
+    res2.p.n = 1;
+    res2.p.dig = {0};
+    res2.q.n = 1;
+    res2.q.dig = {1};
+    res2.p.b = 0;
+    res2.p.n = 1;
+    res2.p.dig = {1};
+    res2.q.n = 1;
+    res2.q.dig = {1};
+    res3.p.b = 0;
+    res3.p.n = 1;
+    res3.p.dig = {1};
+    res3.q.n = 1;
+    res3.q.dig = {1};
+    res.C = {res1 ,res2, res3};
+    DO_CHECK(ADD_PP_P(x, y) == res);
+}
+
+void BTest::test_SUB_PP_P() {
 
 }
 
-void BTest::test_SUB_PP_P(){
+void BTest::test_MUL_PQ_P() {
 
 }
 
-void BTest::test_MUL_PQ_P(){
+void BTest::test_MUL_Pxk_P() {
 
 }
 
-void BTest::test_MUL_Pxk_P(){
+void BTest::test_LED_P_Q() {
 
 }
 
-void BTest::test_LED_P_Q(){
+void BTest::test_DEG_P_N() {
 
 }
 
-void BTest::test_DEG_P_N(){
+void BTest::test_MUL_PP_P() {
 
 }
 
-void BTest::test_MUL_PP_P(){
-
-}
-
-void BTest::test_DIV_PP_P(){
+void BTest::test_DIV_PP_P() {
 
 }
