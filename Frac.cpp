@@ -4,8 +4,17 @@
 
 
 Frac RED_Q_Q(Frac a) {
+    Integ nul;
+    nul.b = 0;
+    nul.n = 1;
+    nul.dig = {0};
     Integ p = a.p;
     Natural q = a.q;
+    if(nul == p){
+        a.q.n = 1;
+        a.q.dig = {1};
+        return a;
+    }
     int x = p.b;
     Natural p1 = TRANS_Z_N(p);
     Natural gcd = GCF_NN_N(p1, q);
@@ -55,7 +64,14 @@ Frac ADD_QQ_Q(Frac a, Frac b) {
 }
 
 Frac SUB_QQ_Q(Frac a, Frac b) {
-    b.p.b = 1 - b.p.b;
+    Integ nul;
+    nul.b = 0;
+    nul.n = 1;
+    nul.dig = {0};
+    if (!(nul == b.p)){
+        b.p.b = 1 - b.p.b;
+    }
+
     return ADD_QQ_Q(a, b);
 }
 

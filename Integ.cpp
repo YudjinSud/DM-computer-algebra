@@ -84,6 +84,11 @@ Integ DIV_ZZ_Z(Integ a, Natural b) {
 }
 
 Integ MOD_ZZ_Z(Integ a, Natural b) {
+    Integ nul;
+    nul.b = 0;
+    nul.n = 1;
+    nul.dig = {0};
+    if(a == nul) return nul;
     a = SUB_ZZ_Z(a, MUL_ZZ_Z(DIV_ZZ_Z(a, b), TRANS_N_Z(b)));
     return a;
 }
