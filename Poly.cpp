@@ -1,6 +1,4 @@
-#include <iostream>
 #include "Poly.h"
-#include "Manipulator.h"
 
 Poly ADD_PP_P(Poly a, Poly b) {
     if (a.m < b.m)

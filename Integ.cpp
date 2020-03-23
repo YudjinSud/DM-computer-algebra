@@ -1,5 +1,3 @@
-#include <iostream>
-#include "Natural.h"
 #include "Integ.h"
 
 

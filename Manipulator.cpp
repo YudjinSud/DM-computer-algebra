@@ -2,8 +2,6 @@
 // Created by xtkcb on 22-Mar-20.
 //
 
-#include <cassert>
-#include <iostream>
 #include "Manipulator.h"
 
 write_Poly::write_Poly(Poly poly) : poly_(poly) {

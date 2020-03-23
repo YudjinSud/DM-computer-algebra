@@ -7,8 +7,6 @@
 #IncludeRegexTransform: 
 
 C:/Users/xtkcb/DM-computer-algebra/BTest.cpp
-iostream
--
 Btest.h
 C:/Users/xtkcb/DM-computer-algebra/Btest.h
 
@@ -50,7 +48,15 @@ algorithm
 Natural.h
 C:/Users/xtkcb/DM-computer-algebra/Natural.h
 
+C:/Users/xtkcb/DM-computer-algebra/Manipulator.cpp
+Manipulator.h
 C:/Users/xtkcb/DM-computer-algebra/Manipulator.h
+
+C:/Users/xtkcb/DM-computer-algebra/Manipulator.h
+cassert
+-
+iostream
+-
 fstream
 -
 string
@@ -65,6 +71,10 @@ iosfwd
 -
 algorithm
 -
+
+C:/Users/xtkcb/DM-computer-algebra/Poly.cpp
+Poly.h
+C:/Users/xtkcb/DM-computer-algebra/Poly.h
 
 C:/Users/xtkcb/DM-computer-algebra/Poly.h
 vector
@@ -85,4 +95,10 @@ C:/Users/xtkcb/DM-computer-algebra/Natural.h
 C:/Users/xtkcb/DM-computer-algebra/Test.h
 cstddef
 -
+
+C:/Users/xtkcb/DM-computer-algebra/main.cpp
+Test.h
+C:/Users/xtkcb/DM-computer-algebra/Test.h
+Btest.h
+C:/Users/xtkcb/DM-computer-algebra/Btest.h
 

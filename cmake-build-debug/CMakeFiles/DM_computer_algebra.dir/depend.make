@@ -31,7 +31,6 @@ CMakeFiles/DM_computer_algebra.dir/Natural.cpp.obj: ../Natural.h
 
 CMakeFiles/DM_computer_algebra.dir/Poly.cpp.obj: ../Frac.h
 CMakeFiles/DM_computer_algebra.dir/Poly.cpp.obj: ../Integ.h
-CMakeFiles/DM_computer_algebra.dir/Poly.cpp.obj: ../Manipulator.h
 CMakeFiles/DM_computer_algebra.dir/Poly.cpp.obj: ../Natural.h
 CMakeFiles/DM_computer_algebra.dir/Poly.cpp.obj: ../Poly.cpp
 CMakeFiles/DM_computer_algebra.dir/Poly.cpp.obj: ../Poly.h

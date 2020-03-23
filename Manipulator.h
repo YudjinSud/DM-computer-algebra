@@ -5,6 +5,8 @@
 #ifndef DM_COMPUTER_ALGEBRA_MANIPULATOR_H
 #define DM_COMPUTER_ALGEBRA_MANIPULATOR_H
 
+#include <cassert>
+#include <iostream>
 #include <fstream>
 #include <string>
 #include "Poly.h"
