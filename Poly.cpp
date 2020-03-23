@@ -152,13 +152,14 @@ Poly DIV_PP_P(Poly a, Poly b) {
 
 Poly MOD_PP_P(Poly a, Poly b) {
     int stepen_c = DEG_P_N(a) - DEG_P_N(b);
-    if (stepen_c <= 0) return Poly();
+    if (stepen_c < 0) return Poly();
     Poly c;
     Frac x;
     while (DEG_P_N(a) - DEG_P_N(b) >= 0) {
         x = DIV_QQ_Q(a.C[a.m], b.C[b.m]);
         c.C.push_back(x);
         a = SUB_PP_P(a, MUL_Pxk_P(MUL_PQ_P(b, x), DEG_P_N(a) - DEG_P_N(b)));
+        if(a == Poly()) break;
     }
     return a;
 }
