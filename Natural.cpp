@@ -218,5 +218,4 @@ void print_natural(Natural a)
 {
     for (int i = 0; i < a.n; i++)
         cout << a.dig[i];
-    cout << endl;
 }

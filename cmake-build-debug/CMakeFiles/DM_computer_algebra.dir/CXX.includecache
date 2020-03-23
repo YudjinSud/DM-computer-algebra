@@ -26,14 +26,6 @@ C:/Users/varka/DM_kollok/DM-computer-algebra/Poly.h
 Manipulator.h
 C:/Users/varka/DM_kollok/DM-computer-algebra/Manipulator.h
 
-C:/Users/varka/DM_kollok/DM-computer-algebra/Frac.cpp
-Natural.h
-C:/Users/varka/DM_kollok/DM-computer-algebra/Natural.h
-Integ.h
-C:/Users/varka/DM_kollok/DM-computer-algebra/Integ.h
-Frac.h
-C:/Users/varka/DM_kollok/DM-computer-algebra/Frac.h
-
 C:/Users/varka/DM_kollok/DM-computer-algebra/Frac.h
 vector
 -
@@ -46,14 +38,6 @@ C:/Users/varka/DM_kollok/DM-computer-algebra/Integ.h
 Natural.h
 C:/Users/varka/DM_kollok/DM-computer-algebra/Natural.h
 
-C:/Users/varka/DM_kollok/DM-computer-algebra/Integ.cpp
-iostream
--
-Natural.h
-C:/Users/varka/DM_kollok/DM-computer-algebra/Natural.h
-Integ.h
-C:/Users/varka/DM_kollok/DM-computer-algebra/Integ.h
-
 C:/Users/varka/DM_kollok/DM-computer-algebra/Integ.h
 vector
 -
@@ -63,12 +47,6 @@ algorithm
 -
 Natural.h
 C:/Users/varka/DM_kollok/DM-computer-algebra/Natural.h
-
-C:/Users/varka/DM_kollok/DM-computer-algebra/Manipulator.cpp
-cassert
--
-Manipulator.h
-C:/Users/varka/DM_kollok/DM-computer-algebra/Manipulator.h
 
 C:/Users/varka/DM_kollok/DM-computer-algebra/Manipulator.h
 fstream
@@ -78,12 +56,6 @@ string
 Poly.h
 C:/Users/varka/DM_kollok/DM-computer-algebra/Poly.h
 
-C:/Users/varka/DM_kollok/DM-computer-algebra/Natural.cpp
-iostream
--
-Natural.h
-C:/Users/varka/DM_kollok/DM-computer-algebra/Natural.h
-
 C:/Users/varka/DM_kollok/DM-computer-algebra/Natural.h
 vector
 -
@@ -93,14 +65,6 @@ algorithm
 -
 iostream
 -
-
-C:/Users/varka/DM_kollok/DM-computer-algebra/Poly.cpp
-iostream
--
-Poly.h
-C:/Users/varka/DM_kollok/DM-computer-algebra/Poly.h
-Manipulator.h
-C:/Users/varka/DM_kollok/DM-computer-algebra/Manipulator.h
 
 C:/Users/varka/DM_kollok/DM-computer-algebra/Poly.h
 vector
@@ -119,10 +83,4 @@ C:/Users/varka/DM_kollok/DM-computer-algebra/Natural.h
 C:/Users/varka/DM_kollok/DM-computer-algebra/Test.h
 cstddef
 -
-
-C:/Users/varka/DM_kollok/DM-computer-algebra/main.cpp
-Test.h
-C:/Users/varka/DM_kollok/DM-computer-algebra/Test.h
-Btest.h
-C:/Users/varka/DM_kollok/DM-computer-algebra/Btest.h
 

@@ -30,7 +30,54 @@ struct Frac { // P/Q
         this->p = I;
         this->q = Q;
     }
+    Frac(int P, int Q)
+    {
+       Integ up(P);
+       Natural down(Q);
+       this->p = up;
+       this->q = down;
+    }
+    Frac (string P, string Q)
+    {
+        Integ up(P);
+        Natural down(Q);
+        this->p = up;
+        this->q = down;
+    }
+    Frac (string a)
+    {
+        vector <char> up, down;
+        //string up, down;
+        int i = 0;
+        while ((a[i] != '/')&&(i<a.size()))
+        {
+                up.push_back(a[i]);
+                i++;
+                if (a[i] == '/')
+                {
+                    i++;
+                    while (i<a.size())
+                    {
+                        down.push_back(a[i]);
+                        i++;
+                    }
+                }
+        }
+        Integ bla(up);
+        this->p = bla;
+        if (!down.size())
+        {
+            Natural la;
+            this->q = la;
+        } else
+        {
+            Natural la (down);
+            this->q = la;
+        }
+    }
 };
+
+void print_frac(Frac a);
 
 Frac RED_Q_Q(Frac a);
 

@@ -98,3 +98,10 @@ Frac DIV_QQ_Q(Frac a, Frac b) {
 bool Frac::operator==(const Frac &other) {
     return p == other.p && q == other.q;
 }
+
+void print_frac(Frac a)
+{
+    print_integer(a.p);
+    cout << '/';
+    print_natural(a.q);
+}

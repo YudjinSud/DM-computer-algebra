@@ -106,6 +106,10 @@ private:
     void test_natural_constructor();
 
     void test_integer_constructor();
+
+    void test_frac_constructor();
+
+    void test_poly_constructor();
 };
 
 #endif //DM_COMPUTER_ALGEBRA_BTEST_H

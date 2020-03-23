@@ -75,6 +75,49 @@ struct Natural {
             }
         }
     }
+    Natural (vector<char> num)
+    {
+        this->n = num.size();
+        if (num[0] == '-')
+            this->n--;
+        for (int i = num.size() - this->n; i < num.size(); i++) {
+            switch (num[i]) {
+                case '0':
+                    this->dig.push_back(0);
+                    break;
+                case '1':
+                    this->dig.push_back(1);
+                    break;
+                case '2':
+                    this->dig.push_back(2);
+                    break;
+                case '3':
+                    this->dig.push_back(3);
+                    break;
+                case '4':
+                    this->dig.push_back(4);
+                    break;
+                case '5':
+                    this->dig.push_back(5);
+                    break;
+                case '6':
+                    this->dig.push_back(6);
+                    break;
+                case '7':
+                    this->dig.push_back(7);
+                    break;
+                case '8':
+                    this->dig.push_back(8);
+                    break;
+                case '9':
+                    this->dig.push_back(9);
+                    break;
+                case ' ':
+                    this->n--;
+                    break;
+            }
+        }
+    }
 };
 
 void print_natural(Natural a);

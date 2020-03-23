@@ -50,6 +50,33 @@ void BTest::runAllTests() {
     test_FAC_P_Q();
     test_natural_constructor();
     test_integer_constructor();
+    test_frac_constructor();
+    test_poly_constructor();
+}
+
+void BTest::test_poly_constructor()
+{
+//    Poly a ({"1/2", "2/5", "3/4"}); // 3/4x^2 + 2/5x + 1/2
+//    print_poly(a);
+//    cout << endl;
+}
+
+void BTest::test_frac_constructor()
+{
+    Frac a("-25", "3");
+    bool same = false;
+    if (a.p.b && a.p.dig[0] == 2 && a.p.dig[1] == 5 && a.q.dig[0] == 3 && a.p.n == 2 && a.q.n == 1)
+        same = true;
+//    print_frac(a);
+//    cout << endl;
+    DO_CHECK(same);
+// ДЛЯ ДЛИННЫХ ЧИСЕЛ ПЛИЗ КАК СТРОКУ
+//    Frac b ("28747483829", "288838");
+//    print_frac(b);
+//    cout << endl;
+//    Frac b ("23748850/79192994");
+//        print_frac(b);
+//    cout << endl;
 }
 
 void BTest::test_natural_constructor()

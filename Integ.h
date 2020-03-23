@@ -39,6 +39,17 @@ struct Integ {
             this->b = 1;
         }
     }
+    Integ (vector <char> num)
+    {
+        Natural a (num);
+        this->dig = a.dig;
+        this->n = a.n;
+        this->b = 0;
+        if (num[0] == '-')
+        {
+            this->b = 1;
+        }
+    }
 };
 
 void print_integer(Integ a);

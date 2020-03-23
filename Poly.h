@@ -35,12 +35,23 @@ struct Poly { // P/Q
         return ((this->m == other.m) && (k == m));
     }
 
+    Poly (vector <string> mas) // 1/2+2/5x+3/4x^2 -> {"1/2", "2/5", "3/4"}
+    {
+        this->m = mas.size()-1;
+        for (int i = 0; i <= this->m; i++)
+        {
+            Frac bla(mas[i]);
+            this->C.push_back(bla);
+        }
+    }
+
     ~Poly() {
         C.clear();
         m = 0;
     }
 };
 
+void print_poly(Poly a);
 
 Poly ADD_PP_P(Poly a, Poly b); // P-1 сложение многочленов
 

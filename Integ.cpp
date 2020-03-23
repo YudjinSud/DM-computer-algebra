@@ -104,5 +104,4 @@ void print_integer(Integ a)
         cout << '-';
     for (int i = 0; i < a.n; i++)
         cout << a.dig[i];
-    cout << endl;
 }

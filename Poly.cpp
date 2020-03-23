@@ -206,3 +206,17 @@ Poly NMR_P_P(Poly a) { //P-13
     Poly b = DER_P_P(a);
     return DIV_PP_P(a, GCF_PP_P(a, b));
 }
+
+void print_poly(Poly a)
+{
+    for (int i = a.m; i >= 0; i--)
+    {
+        if (i != a.m)
+            cout << " + ";
+        print_frac(a.C[i]);
+        if (i == 1)
+            cout << "x";
+        else if (i)
+            cout << "x^" << i;
+    }
+}
