@@ -1567,20 +1567,49 @@ void BTest::test_DIV_PP_P() {
     res.C = {res1};
     DO_CHECK(DIV_PP_P(x, y) == res);
 
-    Poly a({"15/1", "10/1", "5/1"});
-    print_poly (a);
-    cout << endl;
-    Poly b({"1/1", "1/1"});
-    print_poly (b);
-    cout << endl;
-    Poly result ({"5/1", "5/1"});
-    print_poly (result);
-    cout << endl;
+    Poly a({"1/1", "-3/1", "6/1", "-4/1", "1/1"});
+    Poly b({"1/1", "-1/1", "1/1"});
+    Poly result ({"2/1", "-3/1", "1/1"});
     DO_CHECK(result == DIV_PP_P(a, b));
 
+    Poly g({"1/1", "0/1", "0/1", "1/1"});
+    Poly h({"1/1", "0/1", "1/1"});
+    Poly r ({"0/1", "1/1"});
+    DO_CHECK(r == DIV_PP_P(g, h));
+
+    Poly m({"6/1", "1/1", "2/1", "2/1"});
+    Poly n({"1/1", "2/1", "1/1"});
+    Poly result2 ({"-2/1", "2/1"});
+    DO_CHECK(result2 == DIV_PP_P(m, n));
+
+    Poly aa({"2/1", "1/3", "5/2"});
+    Poly bb({"1/1", "1/5"});
+    Poly rr({"-365/6", "25/2"});
+    DO_CHECK(rr == DIV_PP_P(aa,bb));
 }
 
-void BTest::test_MOD_PP_P() {
+void BTest::test_MOD_PP_P() { // P-10
+
+    Poly a({"1/1", "-3/1", "6/1", "-4/1", "1/1"});
+    Poly b({"1/1", "-1/1", "1/1"});
+    Poly result ({"-1/1", "2/1"});
+    DO_CHECK(result == MOD_PP_P(a, b));
+
+    Poly g({"1/1", "0/1", "0/1", "1/1"});
+    Poly h({"1/1", "0/1", "1/1"});
+    Poly r ({"1/1", "-1/1"});
+    DO_CHECK(r == MOD_PP_P(g, h));
+
+    Poly aa({"2/1", "1/3", "5/2"});
+    Poly bb({"1/1", "1/5"});
+    Poly rr({"377/6"});
+    DO_CHECK(rr == MOD_PP_P(aa,bb));
+
+    Poly m({"6/1", "1/1", "2/1", "2/1"});
+    Poly n({"1/1", "2/1", "1/1"});
+    Poly result2 ({"8/1", "3/1"});
+    DO_CHECK(result2 == MOD_PP_P(m, n));
+
     Frac a1, a2, a3, a4, res1, res2, res3;
     Poly x, y, res;
     x.m = 3;
@@ -1720,6 +1749,29 @@ void BTest::test_MOD_PP_P() {
 }
 
 void BTest::test_GCF_PP_P() {
+
+    Poly a({"-7/1", "-27/1", "-38/1", "-22/1", "-3/1", "1/1"});
+    Poly b({"5/1", "16/1", "18/1", "8/1", "1/1"});
+    Poly result ({"1/1", "3/1", "3/1", "1/1"});
+    DO_CHECK(result == GCF_PP_P(a, b));
+
+    Poly g({"-1445/4761", "6511/4761", "-421/207", "1/1"});
+    Poly h({"1547/2323", "-3810/2323", "1/1"});
+    Poly r ({"-17/23", "1/1"});
+   // print_poly(GCF_PP_P(g, h));
+    DO_CHECK(r == GCF_PP_P(g, h));
+
+    Poly aa({"1/1", "2/1", "1/1"});
+    Poly bb({"1/1", "1/1"});
+    Poly rr({"1/1", "1/1"});
+    //print_poly(GCF_PP_P(aa,bb));
+    DO_CHECK(rr == GCF_PP_P(aa,bb));
+
+//    Poly m({"6/1", "1/1", "2/1", "2/1"});
+//    Poly n({"1/1", "2/1", "1/1"});
+//    Poly result2 ({"8/1", "3/1"});
+//    DO_CHECK(result2 == GCF_PP_P(m, n));
+
     Frac a1, a2, a3, a4, res1, res2, res3;
     Poly x, y, res;
     x.m = 3;
