@@ -99,6 +99,16 @@ Poly FAC_P_Q(Poly a) {
         a.C[i].q.n = 1;
         a.C[i].q.dig = {1};
     }
+    if(a.C[a.m].p.b == 1){
+        Integ nul;
+        nul.b = 0;
+        nul.n = 1;
+        nul.dig = {0};
+        for(int i = 0; i <= a.m; i++)
+        if (!(nul == a.C[i].p)){
+            a.C[i].p.b = 1 - a.C[i].p.b;
+        }
+    }
     return a;
 }
 

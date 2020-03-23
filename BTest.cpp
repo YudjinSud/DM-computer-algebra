@@ -1090,6 +1090,27 @@ void BTest::test_LED_P_Q() {
     res.q.dig = {6};
     Frac c = LED_P_Q(x);
     DO_CHECK(LED_P_Q(x) == res);
+
+    x.m = 1;
+    a1.p.b = 1;
+    a1.p.n = 1;
+    a1.p.dig = {3};
+    a1.q.n = 1;
+    a1.q.dig = {6};
+    a2.p.b = 1;
+    a2.p.n = 1;
+    a2.p.dig = {1};
+    a2.q.n = 1;
+    a2.q.dig = {1};
+    x.C = {a2, a1};
+    res.p.b = 1;
+    res.p.n = 1;
+    res.p.dig = {3};
+    res.q.n = 1;
+    res.q.dig = {6};
+//    std::cout << write_Frac(LED_P_Q(x)) << std::endl;
+//    std::cout << write_Poly(x)<< std::endl;
+    DO_CHECK(LED_P_Q(x) == res);
 }
 
 void BTest::test_DEG_P_N() {
@@ -1157,7 +1178,7 @@ void BTest::test_FAC_P_Q() {
     a3.q.dig = {6};
     x.C = {a3, a2, a1};
     res.m = 2;
-    res1.p.b = 1;
+    res1.p.b = 0;
     res1.p.n = 1;
     res1.p.dig = {4};
     res1.q.n = 1;
@@ -1167,7 +1188,46 @@ void BTest::test_FAC_P_Q() {
     res2.p.dig = {0};
     res2.q.n = 1;
     res2.q.dig = {1};
-    res3.p.b = 0;
+    res3.p.b = 1;
+    res3.p.n = 1;
+    res3.p.dig = {1};
+    res3.q.n = 1;
+    res3.q.dig = {1};
+    res.C = {res3,res2,res1};
+//    std::cout << write_Poly(x) << std::endl;
+//    std::cout << write_Poly(res) << std::endl;
+//    std::cout << write_Poly(FAC_P_Q(x)) << std::endl;
+    DO_CHECK(FAC_P_Q(x) == res);
+
+    x.m = 2;
+    a1.p.b = 1;
+    a1.p.n = 1;
+    a1.p.dig = {2};
+    a1.q.n = 1;
+    a1.q.dig = {3};
+    a2.p.b = 0;
+    a2.p.n = 1;
+    a2.p.dig = {0};
+    a2.q.n = 1;
+    a2.q.dig = {1};
+    a3.p.b = 0;
+    a3.p.n = 1;
+    a3.p.dig = {1};
+    a3.q.n = 1;
+    a3.q.dig = {6};
+    x.C = {a3, a2, a1};
+    res.m = 2;
+    res1.p.b = 0;
+    res1.p.n = 1;
+    res1.p.dig = {4};
+    res1.q.n = 1;
+    res1.q.dig = {1};
+    res2.p.b = 0;
+    res2.p.n = 1;
+    res2.p.dig = {0};
+    res2.q.n = 1;
+    res2.q.dig = {1};
+    res3.p.b = 1;
     res3.p.n = 1;
     res3.p.dig = {1};
     res3.q.n = 1;
