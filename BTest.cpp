@@ -1468,6 +1468,48 @@ void BTest::test_DIV_PP_P() {
     res.C = {res1, res2};
     DO_CHECK(DIV_PP_P(x, y) == res);
 
+    x.m = 2;
+    a1.p.b = 0;
+    a1.p.n = 1;
+    a1.p.dig = {3};
+    a1.q.n = 1;
+    a1.q.dig = {5};
+    a2.p.b = 1;
+    a2.p.n = 1;
+    a2.p.dig = {1};
+    a2.q.n = 1;
+    a2.q.dig = {4};
+    a3.p.b = 0;
+    a3.p.n = 1;
+    a3.p.dig = {1};
+    a3.q.n = 1;
+    a3.q.dig = {1};
+    x.C = {a3,a2,a1};
+    y.m = 2;
+    a1.p.b = 0;
+    a1.p.n = 1;
+    a1.p.dig = {1};
+    a1.q.n = 1;
+    a1.q.dig = {1};
+    a2.p.b = 0;
+    a2.p.n = 1;
+    a2.p.dig = {0};
+    a2.q.n = 1;
+    a2.q.dig = {1};
+    a3.p.b = 0;
+    a3.p.n = 1;
+    a3.p.dig = {1};
+    a3.q.n = 1;
+    a3.q.dig = {1};
+    y.C = {a3,a2,a1};
+    res.m = 0;
+    res1.p.b = 0;
+    res1.p.n = 1;
+    res1.p.dig = {3};
+    res1.q.n = 1;
+    res1.q.dig = {5};
+    res.C = {res1};
+    DO_CHECK(DIV_PP_P(x, y) == res);
 
 }
 
@@ -1623,7 +1665,7 @@ void BTest::test_DER_P_P() {
     res2.q.dig = {1};
     res3.p.b = 0;
     res3.p.n = 1;
-    res3.p.dig = {1};
+    res3.p.dig = {3};
     res3.q.n = 1;
     res3.q.dig = {1};
     res.C = {res1, res2, res3};

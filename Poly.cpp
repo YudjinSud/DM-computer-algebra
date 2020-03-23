@@ -125,11 +125,11 @@ Poly MUL_PP_P(Poly a, Poly b) {
 
 Poly DIV_PP_P(Poly a, Poly b) {
     int stepen_c = DEG_P_N(a) - DEG_P_N(b);
-    if (stepen_c <= 0) return Poly();
+    if (stepen_c < 0) return Poly();
     Poly c;
     Frac x;
     int curr_check = DEG_P_N(a);
-    for (; curr_check >= DEG_P_N(b); --curr_check) {
+    for (;curr_check >= DEG_P_N(b); --curr_check) {
         if (a.m < curr_check) {
             c.C.push_back(Frac());
         } else {

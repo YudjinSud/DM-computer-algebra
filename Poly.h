@@ -27,8 +27,8 @@ struct Poly { // P/Q
     }
 
     bool operator==(const Poly &other) {
-        int k = 0;
-        for (int i = 0; i < m; i++) {
+        int k = -1;
+        for (int i = 0; i <= m; i++) {
             if (this->C[i] == other.C[i])
                 k++;
         }

@@ -11,8 +11,8 @@ write_Poly::write_Poly(Poly poly) : poly_(poly) {
 
 std::ostream &write_Poly::write(std::ostream &os) const {
     for (int i = poly_.m; i >= 0; i--){
-        os << write_Frac(poly_.C[i]) << " x^"<<i;
-        if(i != 0) os << " + ";
+        os << write_Frac(poly_.C[i]) ;
+        if(i != 0) os << " x^"<<i << " + ";
     }
     return os;
 }
