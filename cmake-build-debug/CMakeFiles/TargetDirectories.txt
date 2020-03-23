@@ -1,3 +1,0 @@
-C:/Users/xtkcb/DM-computer-algebra/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-C:/Users/xtkcb/DM-computer-algebra/cmake-build-debug/CMakeFiles/DM_computer_algebra.dir
-C:/Users/xtkcb/DM-computer-algebra/cmake-build-debug/CMakeFiles/edit_cache.dir
