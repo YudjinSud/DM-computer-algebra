@@ -19,7 +19,6 @@ struct Poly { // P/Q
     int m; // max степень в полиноме
     vector<Frac> C; // массив коэффициентов
 
-
     Poly() {
         Frac bla;
         this->C.push_back(bla);
