@@ -216,6 +216,6 @@ bool Natural::operator==(const Natural &other) {
 
 void print_natural(Natural a)
 {
-    for (int i = 0; i < a.n; i++)
+    for (int i = 0; i < a.dig.size(); i++)
         cout << a.dig[i];
 }

@@ -102,6 +102,6 @@ void print_integer(Integ a)
 {
     if (a.b)
         cout << '-';
-    for (int i = 0; i < a.n; i++)
+    for (int i = 0; i < a.dig.size(); i++)
         cout << a.dig[i];
 }

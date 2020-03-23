@@ -30,12 +30,13 @@ struct Natural {
     Natural (string num)
     {
         this->n = num.size();
-        if (num[0] == '-')
-            this->n--;
-        for (int i = num.size() - this->n; i < num.size(); i++)
+        for (int i = 0; i < num.size(); i++)
         {
             switch (num[i])
             {
+                case '-':
+                    this->n--;
+                    break;
                 case '0':
                     this->dig.push_back(0);
                     break;
@@ -69,19 +70,17 @@ struct Natural {
                 case ' ':
                     this->n--;
                     break;
-//                case '-':
-//                    this->n--;
-//                    break;
             }
         }
     }
     Natural (vector<char> num)
     {
         this->n = num.size();
-        if (num[0] == '-')
-            this->n--;
-        for (int i = num.size() - this->n; i < num.size(); i++) {
+        for (int i = 0; i < num.size(); i++) {
             switch (num[i]) {
+                case '-':
+                    this->n--;
+                    break;
                 case '0':
                     this->dig.push_back(0);
                     break;

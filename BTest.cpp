@@ -54,6 +54,9 @@ void BTest::runAllTests() {
     test_poly_constructor();
 }
 
+
+
+
 void BTest::test_poly_constructor()
 {
 //    Poly a ({"1/2", "2/5", "3/4"}); // 3/4x^2 + 2/5x + 1/2
@@ -1563,6 +1566,17 @@ void BTest::test_DIV_PP_P() {
     res1.q.dig = {5};
     res.C = {res1};
     DO_CHECK(DIV_PP_P(x, y) == res);
+
+    Poly a({"15/1", "10/1", "5/1"});
+    print_poly (a);
+    cout << endl;
+    Poly b({"1/1", "1/1"});
+    print_poly (b);
+    cout << endl;
+    Poly result ({"5/1", "5/1"});
+    print_poly (result);
+    cout << endl;
+    DO_CHECK(result == DIV_PP_P(a, b));
 
 }
 

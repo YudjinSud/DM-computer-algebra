@@ -101,7 +101,11 @@ bool Frac::operator==(const Frac &other) {
 
 void print_frac(Frac a)
 {
-    print_integer(a.p);
-    cout << '/';
-    print_natural(a.q);
+    if (a.p.dig.size())
+        print_integer(a.p);
+    if (a.q.dig.size())
+    {
+        cout << '/';
+        print_natural(a.q);
+    }
 }

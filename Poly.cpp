@@ -123,7 +123,7 @@ Poly MUL_PP_P(Poly a, Poly b) {
     return c;
 }
 
-Poly DIV_PP_P(Poly a, Poly b) {
+Poly DIV_PP_P(Poly a, Poly b) { //Ð-9
     int stepen_c = DEG_P_N(a) - DEG_P_N(b);
     if (stepen_c < 0) return Poly();
     Poly c;
