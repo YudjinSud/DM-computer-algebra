@@ -1,0 +1,3 @@
+C:/PJ/DM-computer-algebra-test_branch_for_elek34ka/DM-computer-algebra-test_branch_for_elek34ka/cmake-build-debug/CMakeFiles/DM_computer_algebra_test_branch_for_elek34ka.dir
+C:/PJ/DM-computer-algebra-test_branch_for_elek34ka/DM-computer-algebra-test_branch_for_elek34ka/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/PJ/DM-computer-algebra-test_branch_for_elek34ka/DM-computer-algebra-test_branch_for_elek34ka/cmake-build-debug/CMakeFiles/rebuild_cache.dir

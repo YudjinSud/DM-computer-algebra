@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="DM_computer_algebra_test_branch_for_elek34ka"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="msvc8"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/PJ/DM-computer-algebra-test_branch_for_elek34ka/DM-computer-algebra-test_branch_for_elek34ka/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\PJ\DM-computer-algebra-test_branch_for_elek34ka\DM-computer-algebra-test_branch_for_elek34ka\cmake-build-debug\Makefile VERBOSE=1 all"/>
+					<CompileFile command="nmake /NOLOGO /f C:\PJ\DM-computer-algebra-test_branch_for_elek34ka\DM-computer-algebra-test_branch_for_elek34ka\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\PJ\DM-computer-algebra-test_branch_for_elek34ka\DM-computer-algebra-test_branch_for_elek34ka\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\PJ\DM-computer-algebra-test_branch_for_elek34ka\DM-computer-algebra-test_branch_for_elek34ka\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="DM_computer_algebra_test_branch_for_elek34ka">
+				<Option output="C:/PJ/DM-computer-algebra-test_branch_for_elek34ka/DM-computer-algebra-test_branch_for_elek34ka/cmake-build-debug/DM_computer_algebra_test_branch_for_elek34ka.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/PJ/DM-computer-algebra-test_branch_for_elek34ka/DM-computer-algebra-test_branch_for_elek34ka/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="C:/PJ/DM-computer-algebra-test_branch_for_elek34ka/DM-computer-algebra-test_branch_for_elek34ka/."/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\ATLMFC\include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\PJ\DM-computer-algebra-test_branch_for_elek34ka\DM-computer-algebra-test_branch_for_elek34ka\cmake-build-debug\Makefile VERBOSE=1 DM_computer_algebra_test_branch_for_elek34ka"/>
+					<CompileFile command="nmake /NOLOGO /f C:\PJ\DM-computer-algebra-test_branch_for_elek34ka\DM-computer-algebra-test_branch_for_elek34ka\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\PJ\DM-computer-algebra-test_branch_for_elek34ka\DM-computer-algebra-test_branch_for_elek34ka\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\PJ\DM-computer-algebra-test_branch_for_elek34ka\DM-computer-algebra-test_branch_for_elek34ka\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="DM_computer_algebra_test_branch_for_elek34ka/fast">
+				<Option output="C:/PJ/DM-computer-algebra-test_branch_for_elek34ka/DM-computer-algebra-test_branch_for_elek34ka/cmake-build-debug/DM_computer_algebra_test_branch_for_elek34ka.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/PJ/DM-computer-algebra-test_branch_for_elek34ka/DM-computer-algebra-test_branch_for_elek34ka/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="C:/PJ/DM-computer-algebra-test_branch_for_elek34ka/DM-computer-algebra-test_branch_for_elek34ka/."/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\ATLMFC\include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\PJ\DM-computer-algebra-test_branch_for_elek34ka\DM-computer-algebra-test_branch_for_elek34ka\cmake-build-debug\Makefile VERBOSE=1 DM_computer_algebra_test_branch_for_elek34ka/fast"/>
+					<CompileFile command="nmake /NOLOGO /f C:\PJ\DM-computer-algebra-test_branch_for_elek34ka\DM-computer-algebra-test_branch_for_elek34ka\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\PJ\DM-computer-algebra-test_branch_for_elek34ka\DM-computer-algebra-test_branch_for_elek34ka\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\PJ\DM-computer-algebra-test_branch_for_elek34ka\DM-computer-algebra-test_branch_for_elek34ka\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/PJ/DM-computer-algebra-test_branch_for_elek34ka/DM-computer-algebra-test_branch_for_elek34ka/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\PJ\DM-computer-algebra-test_branch_for_elek34ka\DM-computer-algebra-test_branch_for_elek34ka\cmake-build-debug\Makefile VERBOSE=1 edit_cache"/>
+					<CompileFile command="nmake /NOLOGO /f C:\PJ\DM-computer-algebra-test_branch_for_elek34ka\DM-computer-algebra-test_branch_for_elek34ka\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\PJ\DM-computer-algebra-test_branch_for_elek34ka\DM-computer-algebra-test_branch_for_elek34ka\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\PJ\DM-computer-algebra-test_branch_for_elek34ka\DM-computer-algebra-test_branch_for_elek34ka\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/PJ/DM-computer-algebra-test_branch_for_elek34ka/DM-computer-algebra-test_branch_for_elek34ka/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\PJ\DM-computer-algebra-test_branch_for_elek34ka\DM-computer-algebra-test_branch_for_elek34ka\cmake-build-debug\Makefile VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="nmake /NOLOGO /f C:\PJ\DM-computer-algebra-test_branch_for_elek34ka\DM-computer-algebra-test_branch_for_elek34ka\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\PJ\DM-computer-algebra-test_branch_for_elek34ka\DM-computer-algebra-test_branch_for_elek34ka\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\PJ\DM-computer-algebra-test_branch_for_elek34ka\DM-computer-algebra-test_branch_for_elek34ka\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/PJ/DM-computer-algebra-test_branch_for_elek34ka/DM-computer-algebra-test_branch_for_elek34ka/BTest.cpp">
+			<Option target="DM_computer_algebra_test_branch_for_elek34ka"/>
+		</Unit>
+		<Unit filename="C:/PJ/DM-computer-algebra-test_branch_for_elek34ka/DM-computer-algebra-test_branch_for_elek34ka/BTest.h">
+			<Option target="DM_computer_algebra_test_branch_for_elek34ka"/>
+		</Unit>
+		<Unit filename="C:/PJ/DM-computer-algebra-test_branch_for_elek34ka/DM-computer-algebra-test_branch_for_elek34ka/Btest.h">
+			<Option target="DM_computer_algebra_test_branch_for_elek34ka"/>
+		</Unit>
+		<Unit filename="C:/PJ/DM-computer-algebra-test_branch_for_elek34ka/DM-computer-algebra-test_branch_for_elek34ka/Frac.cpp">
+			<Option target="DM_computer_algebra_test_branch_for_elek34ka"/>
+		</Unit>
+		<Unit filename="C:/PJ/DM-computer-algebra-test_branch_for_elek34ka/DM-computer-algebra-test_branch_for_elek34ka/Frac.h">
+			<Option target="DM_computer_algebra_test_branch_for_elek34ka"/>
+		</Unit>
+		<Unit filename="C:/PJ/DM-computer-algebra-test_branch_for_elek34ka/DM-computer-algebra-test_branch_for_elek34ka/Integ.cpp">
+			<Option target="DM_computer_algebra_test_branch_for_elek34ka"/>
+		</Unit>
+		<Unit filename="C:/PJ/DM-computer-algebra-test_branch_for_elek34ka/DM-computer-algebra-test_branch_for_elek34ka/Integ.h">
+			<Option target="DM_computer_algebra_test_branch_for_elek34ka"/>
+		</Unit>
+		<Unit filename="C:/PJ/DM-computer-algebra-test_branch_for_elek34ka/DM-computer-algebra-test_branch_for_elek34ka/Manipulator.cpp">
+			<Option target="DM_computer_algebra_test_branch_for_elek34ka"/>
+		</Unit>
+		<Unit filename="C:/PJ/DM-computer-algebra-test_branch_for_elek34ka/DM-computer-algebra-test_branch_for_elek34ka/Manipulator.h">
+			<Option target="DM_computer_algebra_test_branch_for_elek34ka"/>
+		</Unit>
+		<Unit filename="C:/PJ/DM-computer-algebra-test_branch_for_elek34ka/DM-computer-algebra-test_branch_for_elek34ka/Natural.cpp">
+			<Option target="DM_computer_algebra_test_branch_for_elek34ka"/>
+		</Unit>
+		<Unit filename="C:/PJ/DM-computer-algebra-test_branch_for_elek34ka/DM-computer-algebra-test_branch_for_elek34ka/Natural.h">
+			<Option target="DM_computer_algebra_test_branch_for_elek34ka"/>
+		</Unit>
+		<Unit filename="C:/PJ/DM-computer-algebra-test_branch_for_elek34ka/DM-computer-algebra-test_branch_for_elek34ka/Poly.cpp">
+			<Option target="DM_computer_algebra_test_branch_for_elek34ka"/>
+		</Unit>
+		<Unit filename="C:/PJ/DM-computer-algebra-test_branch_for_elek34ka/DM-computer-algebra-test_branch_for_elek34ka/Poly.h">
+			<Option target="DM_computer_algebra_test_branch_for_elek34ka"/>
+		</Unit>
+		<Unit filename="C:/PJ/DM-computer-algebra-test_branch_for_elek34ka/DM-computer-algebra-test_branch_for_elek34ka/Test.cpp">
+			<Option target="DM_computer_algebra_test_branch_for_elek34ka"/>
+		</Unit>
+		<Unit filename="C:/PJ/DM-computer-algebra-test_branch_for_elek34ka/DM-computer-algebra-test_branch_for_elek34ka/Test.h">
+			<Option target="DM_computer_algebra_test_branch_for_elek34ka"/>
+		</Unit>
+		<Unit filename="C:/PJ/DM-computer-algebra-test_branch_for_elek34ka/DM-computer-algebra-test_branch_for_elek34ka/main.cpp">
+			<Option target="DM_computer_algebra_test_branch_for_elek34ka"/>
+		</Unit>
+		<Unit filename="C:/PJ/DM-computer-algebra-test_branch_for_elek34ka/DM-computer-algebra-test_branch_for_elek34ka/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
