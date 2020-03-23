@@ -31,6 +31,7 @@ Integ TRANS_N_Z(Natural a) {
 }
 
 Natural TRANS_Z_N(Integ a) {
+    a = ABS_Z_N(a);
     Natural c;
     c.n = a.n;
     c.dig = a.dig;

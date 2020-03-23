@@ -140,6 +140,7 @@ int DIV_NN_Dk(Natural a, Natural b) {
 Natural DIV_NN_N(Natural a, Natural b) {
     if (COM_NN_D(a, b) == 1)
         swap(a, b);
+
     Natural a_real = a;
     Natural c;
     while (COM_NN_D(a, b) != 1) {
@@ -205,6 +206,7 @@ Natural GCF_NN_N(Natural a, Natural b) {
 Natural LCM_NN_N(Natural a, Natural b) {
     if (COM_NN_D(a, b) == 1)
         swap(a, b);
+    if(NZER_N_B(b)) return a;
     return MUL_NN_N(DIV_NN_N(a, GCF_NN_N(a, b)), b);
 }
 

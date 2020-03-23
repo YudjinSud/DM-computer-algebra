@@ -89,6 +89,8 @@ private:
 
     void test_DEG_P_N();
 
+    void test_FAC_P_Q();
+
     void test_MUL_PP_P();
 
     void test_DIV_PP_P();

@@ -1,4 +1,6 @@
+#include <iostream>
 #include "Poly.h"
+#include "Manipulator.h"
 
 Poly ADD_PP_P(Poly a, Poly b) {
     if (a.m < b.m)
@@ -65,13 +67,6 @@ Frac LED_P_Q(Poly a) {
     while ((a.C[i] == nul) && (i > 0)) {
         i--;
     }
-    Frac s = a.C[a.m];
-    int x = s.p.b;
-    Natural c = TRANS_Z_N(ABS_Z_N(s.p));
-    s.p = TRANS_N_Z(s.q);
-    s.p.b = x;
-    s.q = c;
-    a = MUL_PQ_P(a,s);
     return a.C[i];
 }
 
@@ -87,15 +82,20 @@ int DEG_P_N(Poly a) {
 Poly FAC_P_Q(Poly a) {
     Natural NOD, NOK;
     if (a.m > 0) {
-        NOD = GCF_NN_N(TRANS_Z_N(a.C[0].p), TRANS_Z_N(a.C[1].p));
-        NOK = LCM_NN_N(a.C[0].q, a.C[1].q);
+        NOD = TRANS_Z_N(a.C[0].p);
+        NOK = a.C[0].q;
     }
-    for (int i = 2; i <= a.m; i++) {
+    for (int i = 1; i <= a.m; i++) {
         NOD = GCF_NN_N(NOD, TRANS_Z_N(a.C[i].p));
         NOK = LCM_NN_N(NOK, a.C[i].q);
     }
     for (int i = 0; i <= a.m; i++) {
-        a.C[i].p = MUL_ZZ_Z(TRANS_N_Z(DIV_NN_N(TRANS_Z_N(a.C[i].p), NOD)), TRANS_N_Z(DIV_NN_N(NOK, a.C[i].q)));
+        int x = a.C[i].p.b;
+        Integ nul;
+        nul.b = 0; nul.n = 1; nul.dig = {0};
+        if(a.C[i].p == nul);
+        else a.C[i].p = MUL_ZZ_Z(TRANS_N_Z(DIV_NN_N(TRANS_Z_N(a.C[i].p), NOD)), TRANS_N_Z(DIV_NN_N(NOK, a.C[i].q)));
+        a.C[i].p.b = x;
         a.C[i].q.n = 1;
         a.C[i].q.dig = {1};
     }
@@ -107,7 +107,7 @@ Poly MUL_PP_P(Poly a, Poly b) {
         swap(a, b);
     Poly c = MUL_PQ_P(a, b.C[0]);
     for (int i = 1; i <= b.m; i++)
-        c = ADD_PP_P(c, ADD_PP_P(MUL_PQ_P(a, b.C[i]), MUL_Pxk_P(a, i)));
+        c = ADD_PP_P(c, MUL_PQ_P(MUL_Pxk_P(a, i), b.C[i]));
     c.m = DEG_P_N(c);
     c.C.resize(c.m + 1);
     return c;
