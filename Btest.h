@@ -7,6 +7,7 @@
 #include "Frac.h"
 #include "Poly.h"
 #include "Manipulator.h"
+#include <sstream>
 
 class BTest : public Test {
 public:

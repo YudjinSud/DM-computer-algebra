@@ -9,9 +9,11 @@
 #include <vector>
 #include <iosfwd>
 #include <algorithm>
+#include <sstream>
 #include "Frac.h"
 #include "Integ.h"
 #include "Natural.h"
+//#include "Manipulator.h"
 
 using namespace std;
 
@@ -24,7 +26,16 @@ struct Poly { // P/Q
         this->C.push_back(bla);
         this->m = 0;
     }
-
+/*
+    explicit Poly(std::string s){
+        std::stringstream s_0;
+        s_0 << s;
+        Poly c;
+        s_0 >> read_Poly(c);
+        C = c.C;
+        m = c.m;
+    }
+*/
     bool operator==(const Poly &other) {
         int k = -1;
         for (int i = 0; i <= m; i++) {

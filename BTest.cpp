@@ -1069,7 +1069,7 @@ void BTest::test_MUL_Pxk_P() {
 }
 
 void BTest::test_LED_P_Q() {
-    Frac a1, a2, a3, b1, b2, b3, res;
+    /*Frac a1, a2, a3, b1, b2, b3, res;
     Poly x;
     x.m = 1;
     a1.p.b = 1;
@@ -1110,7 +1110,17 @@ void BTest::test_LED_P_Q() {
     res.q.dig = {6};
 //    std::cout << write_Frac(LED_P_Q(x)) << std::endl;
 //    std::cout << write_Poly(x)<< std::endl;
-    DO_CHECK(LED_P_Q(x) == res);
+    DO_CHECK(LED_P_Q(x) == res);*/
+    string s = "(3)/(5)x^2 + (-1)/(4)x^1 + (1)/(1)";
+    std::stringstream s_0;
+    s_0 << s;
+    Poly c;
+    s_0 >> read_Poly(c);
+    Frac res;
+    string res1 = "(3)/(5)";
+    s_0 << res1;
+    s_0 >> read_Frac(res);
+    DO_CHECK(LED_P_Q(c) == res);
 }
 
 void BTest::test_DEG_P_N() {
@@ -1650,6 +1660,59 @@ void BTest::test_MOD_PP_P() {
     res1.q.dig = {1};
     res.C = {res1};
     DO_CHECK(MOD_PP_P(x, y) == res); // виснет
+
+    x.m = 3;
+    a1.p.b = 0;
+    a1.p.n = 1;
+    a1.p.dig = {2};
+    a1.q.n = 1;
+    a1.q.dig = {1};
+    a2.p.b = 1;
+    a2.p.n = 1;
+    a2.p.dig = {3};
+    a2.q.n = 1;
+    a2.q.dig = {1};
+    a3.p.b = 0;
+    a3.p.n = 1;
+    a3.p.dig = {0};
+    a3.q.n = 1;
+    a3.q.dig = {1};
+    a4.p.b = 0;
+    a4.p.n = 1;
+    a4.p.dig = {1};
+    a4.q.n = 1;
+    a4.q.dig = {1};
+    x.C = {a1, a2, a3, a4};
+    y.m = 2;
+    a1.p.b = 1;
+    a1.p.n = 1;
+    a1.p.dig = {3};
+    a1.q.n = 1;
+    a1.q.dig = {1};
+    a2.p.b = 0;
+    a2.p.n = 1;
+    a2.p.dig = {0};
+    a2.q.n = 1;
+    a2.q.dig = {1};
+    a3.p.b = 0;
+    a3.p.n = 1;
+    a3.p.dig = {3};
+    a3.q.n = 1;
+    a3.q.dig = {1};
+    y.C = {a1, a2, a3};
+    res.m = 1;
+    res1.p.b = 0;
+    res1.p.n = 1;
+    res1.p.dig = {2};
+    res1.q.n = 1;
+    res1.q.dig = {1};
+    res2.p.b = 1;
+    res2.p.n = 1;
+    res2.p.dig = {2};
+    res2.q.n = 1;
+    res2.q.dig = {1};
+    res.C = {res1, res2};
+    DO_CHECK(MOD_PP_P(x, y) == res);
 }
 
 void BTest::test_GCF_PP_P() {
