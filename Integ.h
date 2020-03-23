@@ -8,7 +8,7 @@
 #include <vector>
 #include <iosfwd>
 #include <algorithm>
-
+#include "Natural.h"
 using namespace std;
 
 struct Integ {
@@ -16,8 +16,32 @@ struct Integ {
     int n;
     vector<int> dig;
     bool operator==(const Integ &other);
+    Integ(){}
+    Integ (int num)
+    {
+        Natural a (num);
+        this->dig = a.dig;
+        this->n = a.n;
+        this->b = 0;
+        if (num < 0)
+        {
+            this->b = 1;
+        }
+    }
+    Integ (string num)
+    {
+        Natural a (num);
+        this->dig = a.dig;
+        this->n = a.n;
+        this->b = 0;
+        if (num[0] == '-')
+        {
+            this->b = 1;
+        }
+    }
 };
 
+void print_integer(Integ a);
 
 Integ ABS_Z_N(Integ a);
 //Абсолютная величина числа, результат - натуральное

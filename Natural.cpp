@@ -140,6 +140,7 @@ int DIV_NN_Dk(Natural a, Natural b) {
 Natural DIV_NN_N(Natural a, Natural b) {
     if (COM_NN_D(a, b) == 1)
         swap(a, b);
+
     Natural a_real = a;
     Natural c;
     while (COM_NN_D(a, b) != 1) {
@@ -157,7 +158,7 @@ Natural DIV_NN_N(Natural a, Natural b) {
         Natural v = MUL_ND_N(b, x);
         int kolvo = -1;
         Natural u = SUB_NN_N(z, v);
-        if(NZER_N_B(u)){
+        if (NZER_N_B(u)) {
             u.n = 0;
             u.dig.clear();
         }
@@ -167,8 +168,12 @@ Natural DIV_NN_N(Natural a, Natural b) {
             u.n = (int) (u.dig.size());
         }
         bool flag = false;
-        while(COM_NN_D(a,v) != 1){ v.dig.push_back(0);v.n = (int) (v.dig.size()); flag = true;}
-        if(flag)v.dig.pop_back();
+        while (COM_NN_D(a, v) != 1) {
+            v.dig.push_back(0);
+            v.n = (int) (v.dig.size());
+            flag = true;
+        }
+        if (flag)v.dig.pop_back();
         v.n = (int) (v.dig.size());
         a = SUB_NN_N(a, v);
         for (int i = 0; i < kolvo; i++) c.dig.push_back(0);
@@ -176,9 +181,9 @@ Natural DIV_NN_N(Natural a, Natural b) {
     }
     c.n = (int) (c.dig.size());
     int count = 0;
-    for(;1;count++)
-        if(COM_NN_D(a_real, MUL_Nk_N(MUL_NN_N(c,b), count + 1)) == 1) break;
-    for(int i = 0; i < count;i++) c.dig.push_back(0);
+    for (; 1; count++)
+        if (COM_NN_D(a_real, MUL_Nk_N(MUL_NN_N(c, b), count + 1)) == 1) break;
+    for (int i = 0; i < count; i++) c.dig.push_back(0);
     c.n = (int) (c.dig.size());
     return c;
 }
@@ -201,9 +206,17 @@ Natural GCF_NN_N(Natural a, Natural b) {
 Natural LCM_NN_N(Natural a, Natural b) {
     if (COM_NN_D(a, b) == 1)
         swap(a, b);
+    if(NZER_N_B(b)) return a;
     return MUL_NN_N(DIV_NN_N(a, GCF_NN_N(a, b)), b);
 }
 
 bool Natural::operator==(const Natural &other) {
     return n == other.n && dig == other.dig;
+}
+
+void print_natural(Natural a)
+{
+    for (int i = 0; i < a.n; i++)
+        cout << a.dig[i];
+    cout << endl;
 }

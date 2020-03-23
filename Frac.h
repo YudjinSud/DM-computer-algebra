@@ -9,15 +9,17 @@
 #include <vector>
 #include <iosfwd>
 #include <algorithm>
-
+#include "Integ.h"
+#include "Natural.h"
 using namespace std;
 
 struct Frac { // P/Q
     Integ p;
     Natural q;
+
     bool operator==(const Frac &other);
-    Frac()
-    {
+
+    Frac() {
         Integ I;
         I.b = 0;
         I.n = 1;

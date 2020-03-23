@@ -1,4 +1,7 @@
-#pragma once
+//
+// Created by xtkcb on 21-Mar-20.
+//
+
 #ifndef DM_COMPUTER_ALGEBRA_POLY_H
 #define DM_COMPUTER_ALGEBRA_POLY_H
 
@@ -9,33 +12,33 @@
 #include "Frac.h"
 #include "Integ.h"
 #include "Natural.h"
+
 using namespace std;
 
 struct Poly { // P/Q
-	int m; // max степень в полиноме
-	vector<Frac> C; // массив коэффициентов
+    int m; // max степень в полиноме
+    vector<Frac> C; // массив коэффициентов
 
 
-	Poly() // C[0] - единицы, С[1] - иксы, С[2] - иксы в квадрате...
-	{
-		Frac bla;
-		this->C.push_back(bla);
-		this->m = 1;
-	}
-	bool operator==(const Poly& other)
-	{
-		int k = 0;
-		for (int i = 0; i < m; i++)
-		{
-			if (this->C[i] == other.C[i])
-				k++;
-		}
-		return ((this->m == other.m) && (k == m));
-	}
-	~Poly()
-	{
-		C.clear();
-	}
+    Poly() {
+        Frac bla;
+        this->C.push_back(bla);
+        this->m = 0;
+    }
+
+    bool operator==(const Poly &other) {
+        int k = -1;
+        for (int i = 0; i <= m; i++) {
+            if (this->C[i] == other.C[i])
+                k++;
+        }
+        return ((this->m == other.m) && (k == m));
+    }
+
+    ~Poly() {
+        C.clear();
+        m = 0;
+    }
 };
 
 

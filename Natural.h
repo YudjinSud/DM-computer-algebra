@@ -11,9 +11,73 @@ using namespace std;
 struct Natural {
     int n;
     vector<int> dig;
-
     bool operator==(const Natural &other);
+    std::ostream& operator << (std::ostream& out);
+    Natural (){}
+    Natural(int num)
+    {
+        this->n = 0;
+        if (num < 0)
+            num = -num;
+        while (num)
+        {
+            this->dig.push_back(num % 10);
+            this->n++;
+            num /= 10;
+        }
+        reverse(this->dig.begin(), this->dig.end());
+    }
+    Natural (string num)
+    {
+        this->n = num.size();
+        if (num[0] == '-')
+            this->n--;
+        for (int i = num.size() - this->n; i < num.size(); i++)
+        {
+            switch (num[i])
+            {
+                case '0':
+                    this->dig.push_back(0);
+                    break;
+                case '1':
+                    this->dig.push_back(1);
+                    break;
+                case '2':
+                    this->dig.push_back(2);
+                    break;
+                case '3':
+                    this->dig.push_back(3);
+                    break;
+                case '4':
+                    this->dig.push_back(4);
+                    break;
+                case '5':
+                    this->dig.push_back(5);
+                    break;
+                case '6':
+                    this->dig.push_back(6);
+                    break;
+                case '7':
+                    this->dig.push_back(7);
+                    break;
+                case '8':
+                    this->dig.push_back(8);
+                    break;
+                case '9':
+                    this->dig.push_back(9);
+                    break;
+                case ' ':
+                    this->n--;
+                    break;
+//                case '-':
+//                    this->n--;
+//                    break;
+            }
+        }
+    }
 };
+
+void print_natural(Natural a);
 
 int COM_NN_D(Natural a, Natural b);
 //Сравнение натуральных чисел: 2 - если первое больше второго, 0, если равно, 1 иначе.

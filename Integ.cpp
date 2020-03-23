@@ -14,6 +14,10 @@ int POZ_Z_D(Integ a) {
 }
 
 Integ MUL_ZM_Z(Integ a) {
+    if(NZER_N_B(TRANS_Z_N(ABS_Z_N(a)))) {
+        a.b = 0;
+        return a;
+    }
     a.b = 1 - a.b;
     return a;
 }
@@ -27,6 +31,7 @@ Integ TRANS_N_Z(Natural a) {
 }
 
 Natural TRANS_Z_N(Integ a) {
+    a = ABS_Z_N(a);
     Natural c;
     c.n = a.n;
     c.dig = a.dig;
@@ -63,6 +68,7 @@ Integ MUL_ZZ_Z(Integ a, Integ b) {
     a.b = (a.b + b.b) % 2;
     a.n = a1.n;
     a.dig = a1.dig;
+    if(NZER_N_B(a1)) a.b = 0;
     return a;
 }
 
@@ -79,10 +85,24 @@ Integ DIV_ZZ_Z(Integ a, Natural b) {
 }
 
 Integ MOD_ZZ_Z(Integ a, Natural b) {
+    Integ nul;
+    nul.b = 0;
+    nul.n = 1;
+    nul.dig = {0};
+    if(a == nul) return nul;
     a = SUB_ZZ_Z(a, MUL_ZZ_Z(DIV_ZZ_Z(a, b), TRANS_N_Z(b)));
     return a;
 }
 
 bool Integ::operator==(const Integ &other) {
     return n == other.n && dig == other.dig && b == other.b;
+}
+
+void print_integer(Integ a)
+{
+    if (a.b)
+        cout << '-';
+    for (int i = 0; i < a.n; i++)
+        cout << a.dig[i];
+    cout << endl;
 }

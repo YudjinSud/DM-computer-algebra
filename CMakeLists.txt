@@ -18,4 +18,4 @@ add_executable(DM_computer_algebra
         Poly.cpp
         Poly.h
         Test.cpp
-        Test.h)
+        Test.h Manipulator.cpp Manipulator.h)
