@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>leti_logo_krug-eng_2019.png</file>
+        <file>buttonnames.qml</file>
+        <file>inputWindow.qml</file>
+    </qresource>
+</RCC>
