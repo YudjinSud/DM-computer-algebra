@@ -15,7 +15,7 @@ ApplicationWindow {
         height: 39
         text: qsTr("Сравнение")
         onClicked: {
-                    var component = Qt.createComponent("C:\Users\User\source\repos\DM-computer-algebra/natural/n1.qml")
+                    var component = Qt.createComponent("natural/n1.qml")
             var window    = component.createObject("n1")
             window.show()
         }
