@@ -50,17 +50,7 @@ vector<int> QStringTOVectorInt(const QString s) {
 }
 
 
-QString NaturalBackendWrapper::calculate(const QString &input1, const QString &input2, const QString id) {
-
-//    string s = "(3)/(5)x^2 + (-1)/(4)x^1 + (1)/(1)";
-//    std::stringstream s_0;
-//    s_0 << s;
-//    Poly c;
-//    s_0 >> read_Poly(c);
-//    Frac res;
-//    string res1 = "(3)/(5)";
-//    s_0 << res1;
-//    s_0 >> read_Frac(res);
+QString NaturalBackendWrapper::calculate(const QString &input1, const QString &input2, const QString &id) {
 
     std::stringstream s_0;
     string s1 = input1.toStdString();
@@ -76,29 +66,17 @@ QString NaturalBackendWrapper::calculate(const QString &input1, const QString &i
     s_0 << s2;
     s_0 >> read_Nat(b);
 
-    int res = 0;
+    QString res = "";
 
-    if(id == "n1") {
-        res = COM_NN_D(a, b);
+    if(id == "1") {
+        res = QString::number(COM_NN_D(a, b));
     }
-
-
-
-
-//    vector<int> digits1;
-//    vector<int> digits2;
-
-//    digits1 = QStringTOVectorInt(input1);
-//    digits2 = QStringTOVectorInt(input2);
-
-
-//    b.n = digits2.size();
-//    b.dig = digits2;
-
-//    int res = COM_NN_D(a, b);
+    else if(id == "2") {
+        res = NZER_N_B(a) == 0 ? "Да" : "Нет" ;
+    }
 
     qDebug() << res;
 
-    return QString::number(res);
+    return res;
 
 }

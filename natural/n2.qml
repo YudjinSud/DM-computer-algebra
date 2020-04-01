@@ -12,8 +12,9 @@ ApplicationWindow {
     visible: true
 
     NaturalBackendWrapper {
-            id : backend
-        }
+        id : backend
+    }
+
     Text {
         id: desN1
         x: 15
@@ -33,8 +34,9 @@ ApplicationWindow {
         y: 219
         text: qsTr("Проверить")
         onClicked: {
-                    textArea.text = backend.calculate(backend.input1, backend.input2, algo)
-                }
+            backend.input2 = text;
+            textArea.text = backend.calculate(backend.input1, backend.input2, algo)
+        }
     }
 
     TextField {
@@ -45,19 +47,9 @@ ApplicationWindow {
         height: 25
         placeholderText: qsTr("             Первое число")
         text: backend.input1
-                onTextChanged: backend.input1 = text
+        onTextChanged: backend.input1 = text
     }
 
-    TextField {
-        id: textField1
-        x: 204
-        y: 188
-        width: 181
-        height: 25
-        placeholderText: qsTr("             Второе число")
-        text : backend.input2
-                onTextChanged: backend.input2 = text
-    }
 
     TextArea {
         id: textArea

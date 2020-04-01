@@ -36,6 +36,7 @@ ApplicationWindow {
         y: 219
         text: qsTr("Сравнить")
         onClicked: {
+            console.log(algo);
             textArea.text = backend.calculate(backend.input1, backend.input2, algo)
         }
     }
