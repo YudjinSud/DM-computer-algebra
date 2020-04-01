@@ -1,10 +1,17 @@
-#define fore(i, j, n) for(long long i = j; i < n; i++)
+//#define fore(i, j, n) for(long long i = j; i < n; i++)
 
-
+//pure backend
 #include "Test.h"
 #include "Btest.h"
+
+//backend wrapping
+#include "NaturalBackendWrapper.h"
+
+// QT intrinsics
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+
+
 
 int main(int argc, char *argv[])
 {
@@ -12,6 +19,12 @@ int main(int argc, char *argv[])
     BTest bt;
     bt.runAllTests();
     Test::showFinalResult();
+
+
+    qmlRegisterType<NaturalBackendWrapper>("io.qt.examples.NaturalBackendWrapper", 1, 0, "NaturalBackendWrapper");
+    NaturalBackendWrapper wr;
+   // wr.input()
+
 
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 

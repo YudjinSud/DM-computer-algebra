@@ -19,6 +19,7 @@ SOURCES += \
         Integ.cpp \
         Manipulator.cpp \
         Natural.cpp \
+        NaturalBackendWrapper.cpp \
         Poly.cpp \
         Test.cpp \
         main.cpp
@@ -42,5 +43,6 @@ HEADERS += \
     Integ.h \
     Manipulator.h \
     Natural.h \
+    NaturalBackendWrapper.h \
     Poly.h \
     Test.h
