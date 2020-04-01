@@ -2,10 +2,10 @@ import QtQuick 2.3
 import QtQuick.Controls 1.2
 
 ApplicationWindow {
-    id: n1
+    id: i9
     width: 400; height: 400
     color: "#00557f"
-    title: qsTr("Сравнение")
+    title: qsTr("Частное")
     visible: true
 
     Text {
@@ -15,10 +15,10 @@ ApplicationWindow {
         width: 370
         height: 146
         color: "#d5f476"
-        text: qsTr("Сравнение натуральных чисел:
-0 - если числа равны,
-1 - если второе больше первого,
-2 - если первое больше второго")
+        text: qsTr("Частное от деления
+большего целого числа
+на меньшее или равное натуральное
+с остатком(делитель отличен от нуля)")
         font.pixelSize: 20
     }
 
@@ -26,7 +26,7 @@ ApplicationWindow {
         id: button
         x: 171
         y: 219
-        text: qsTr("Сравнить")
+        text: qsTr("Вычислить")
         onClicked: {
 
         }

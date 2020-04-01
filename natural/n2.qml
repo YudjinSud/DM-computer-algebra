@@ -2,10 +2,10 @@ import QtQuick 2.3
 import QtQuick.Controls 1.2
 
 ApplicationWindow {
-    id: f8
+    id: n2
     width: 400; height: 400
     color: "#00557f"
-    title: qsTr("Деление")
+    title: qsTr("Проверка на 0")
     visible: true
 
     Text {
@@ -15,8 +15,9 @@ ApplicationWindow {
         width: 370
         height: 146
         color: "#d5f476"
-        text: qsTr("Деление дробей
-(делитель отличен от нуля)")
+        text: qsTr("Проверка на ноль:
+если число не равно нулю, то «да»
+если число равно нулю, то «нет»")
         font.pixelSize: 20
     }
 
@@ -24,27 +25,28 @@ ApplicationWindow {
         id: button
         x: 171
         y: 219
-        text: qsTr("Разделить")
+        text: qsTr("Проверить")
         onClicked: {
 
         }
     }
+
     TextField {
         id: textField
         x: 15
-        y: 158
+        y: 188
         width: 181
         height: 25
-        placeholderText: qsTr("                Числитель")
+        placeholderText: qsTr("             Первое число")
     }
 
     TextField {
         id: textField1
         x: 204
-        y: 158
+        y: 188
         width: 181
         height: 25
-        placeholderText: qsTr("                Знаменатель")
+        placeholderText: qsTr("             Второе число")
     }
 
     TextArea {
@@ -53,14 +55,5 @@ ApplicationWindow {
         y: 250
         width: 255
         height: 44
-    }
-
-    TextField {
-        id: textField2
-        x: 110
-        y: 189
-        width: 181
-        height: 25
-        placeholderText: qsTr("                     Делитель")
     }
 }

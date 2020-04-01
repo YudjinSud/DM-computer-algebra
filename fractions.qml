@@ -14,6 +14,11 @@ ApplicationWindow {
         width: 111
         height: 39
         text: qsTr("Сокращение")
+        onClicked: {
+                    var component = Qt.createComponent("fractions/f1.qml")
+            var window    = component.createObject("f1")
+            window.show()
+        }
     }
 
     Button {
@@ -23,6 +28,11 @@ ApplicationWindow {
         width: 111
         height: 39
         text: qsTr("Проверка на целое")
+        onClicked: {
+                    var component = Qt.createComponent("fractions/f2.qml")
+            var window    = component.createObject("f2")
+            window.show()
+        }
     }
 
     Button {
@@ -32,6 +42,11 @@ ApplicationWindow {
         width: 111
         height: 39
         text: qsTr("Целое в дробное")
+        onClicked: {
+                    var component = Qt.createComponent("fractions/f3.qml")
+            var window    = component.createObject("f3")
+            window.show()
+        }
     }
 
     Button {
@@ -41,6 +56,11 @@ ApplicationWindow {
         width: 111
         height: 39
         text: qsTr("Дробное в целое")
+        onClicked: {
+                    var component = Qt.createComponent("fractions/f4.qml")
+            var window    = component.createObject("f4")
+            window.show()
+        }
     }
 
     Button {
@@ -50,6 +70,11 @@ ApplicationWindow {
         width: 111
         height: 39
         text: qsTr("Сложение")
+        onClicked: {
+                    var component = Qt.createComponent("fractions/f5.qml")
+            var window    = component.createObject("f5")
+            window.show()
+        }
     }
 
     Button {
@@ -59,6 +84,11 @@ ApplicationWindow {
         width: 111
         height: 39
         text: qsTr("Вычитание")
+        onClicked: {
+                    var component = Qt.createComponent("fractions/f6.qml")
+            var window    = component.createObject("f6")
+            window.show()
+        }
     }
 
     Button {
@@ -68,6 +98,11 @@ ApplicationWindow {
         width: 111
         height: 39
         text: qsTr("Умножение")
+        onClicked: {
+                    var component = Qt.createComponent("fractions/f7.qml")
+            var window    = component.createObject("f7")
+            window.show()
+        }
     }
 
     Button {
@@ -77,5 +112,10 @@ ApplicationWindow {
         width: 111
         height: 39
         text: qsTr("Деление")
+        onClicked: {
+                    var component = Qt.createComponent("fractions/f8.qml")
+            var window    = component.createObject("f8")
+            window.show()
+        }
     }
 }

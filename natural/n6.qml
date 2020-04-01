@@ -2,10 +2,10 @@ import QtQuick 2.3
 import QtQuick.Controls 1.2
 
 ApplicationWindow {
-    id: n1
+    id: n6
     width: 400; height: 400
     color: "#00557f"
-    title: qsTr("Сравнение")
+    title: qsTr("Умножение натурального числа на цифру")
     visible: true
 
     Text {
@@ -15,10 +15,8 @@ ApplicationWindow {
         width: 370
         height: 146
         color: "#d5f476"
-        text: qsTr("Сравнение натуральных чисел:
-0 - если числа равны,
-1 - если второе больше первого,
-2 - если первое больше второго")
+        text: qsTr("Умножение натурального числа
+на цифру")
         font.pixelSize: 20
     }
 
@@ -26,7 +24,7 @@ ApplicationWindow {
         id: button
         x: 171
         y: 219
-        text: qsTr("Сравнить")
+        text: qsTr("Умножить")
         onClicked: {
 
         }
