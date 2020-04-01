@@ -30,7 +30,7 @@ public:
 public slots :
    void setInput1(const QString &input);
    void setInput2(const QString &input);
-   QString calculate(const QString &input1, const QString &input2, const QString id);
+   QString calculate(const QString &input1, const QString &input2, const QString &id);
 
 
 signals:

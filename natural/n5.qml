@@ -3,6 +3,7 @@ import QtQuick.Controls 1.2
 
 ApplicationWindow {
     id: n5
+    property int algo : 5
     width: 400; height: 400
     color: "#00557f"
     title: qsTr("Вычитание")

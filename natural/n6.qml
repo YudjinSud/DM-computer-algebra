@@ -3,6 +3,7 @@ import QtQuick.Controls 1.2
 
 ApplicationWindow {
     id: n6
+    property int algo : 6
     width: 400; height: 400
     color: "#00557f"
     title: qsTr("Умножение натурального числа на цифру")
