@@ -1,11 +1,15 @@
-#include "computeralgebra.h"
+#include "Test.h"
+#include "Btest.h"
 
-#include <QApplication>
+#define fore(i, j, n) for(long long i = j; i < n; i++)
 
-int main(int argc, char *argv[])
-{
-    QApplication a(argc, argv);
-    ComputerAlgebra w;
-    w.show();
-    return a.exec();
+int main() {
+    BTest bt;
+    bt.runAllTests();
+    Test::showFinalResult();
+//    Poly c;
+//    std::cin >> read_Poly(c); format: "(3)/(5)x^2 + (-1)/(4)x^1 + (1)/(1)" testi delaite 4erez  stringstream
+//    std::cout << write_Poly(c) << std::endl;
+    return 0;
 }
+
