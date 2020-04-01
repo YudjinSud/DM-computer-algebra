@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>leti_logo_krug-eng_2019.png</file>
+        <file>natural.qml</file>
+        <file>integer.qml</file>
+        <file>fractions.qml</file>
+        <file>polynoms.qml</file>
+        <file>natural/n1.qml</file>
+    </qresource>
+</RCC>
