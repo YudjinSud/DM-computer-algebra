@@ -31,20 +31,11 @@ ApplicationWindow {
 
     TextField {
         id: textField
-        x: 15
+        x: 112
         y: 188
         width: 181
         height: 25
-        placeholderText: qsTr("                   Числитель")
-    }
-
-    TextField {
-        id: textField1
-        x: 204
-        y: 188
-        width: 181
-        height: 25
-        placeholderText: qsTr("                   Знаменатель")
+        placeholderText: qsTr("")
     }
 
     TextArea {
