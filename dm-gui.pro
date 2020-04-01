@@ -17,6 +17,7 @@ SOURCES += \
         BTest.cpp \
         Frac.cpp \
         Integ.cpp \
+        IntegBackendWrapper.cpp \
         Manipulator.cpp \
         Natural.cpp \
         NaturalBackendWrapper.cpp \
@@ -41,6 +42,7 @@ HEADERS += \
     Btest.h \
     Frac.h \
     Integ.h \
+    IntegBackendWrapper.h \
     Manipulator.h \
     Natural.h \
     NaturalBackendWrapper.h \
