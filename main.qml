@@ -9,63 +9,18 @@ ApplicationWindow {
     color: "#00557f"
     title: qsTr("Приложение ДМ")
 
-    ListView {
-        id: listView
-        y: 40
-        width: 230
-        height: 427
-        anchors.leftMargin: 0
-        anchors.rightMargin: 372
-        anchors.topMargin: 46
-        topMargin: 0
-        contentWidth: 0
-        spacing: 3
-        layoutDirection: Qt.LeftToRight
-        orientation: ListView.Vertical
-        anchors.top: parent.top
-        anchors.right: parent.right
-        anchors.left: parent.left
-        clip: false
-        opacity: 0.557
-        delegate: Item {
-            x: 5
-            width: 80
-            height: 40
-            Row {
-                id: row1
-                spacing: 10
-                Button {
-                    width: (applicationWindow.width/640)*258
-                    height: applicationWindow.height/12
-                    Text {
-                        text: name
-                        anchors.verticalCenter: parent.verticalCenter
-                        font.bold: true
-                    }
-                }
-            }
-        }
-
-        Button {
-            id: button
-            width: 260
-            height: 40
-            text: qsTr("N-1")
-
-            onClicked: {
-                        var component = Qt.createComponent("inputWindow.qml")
-                var window    = component.createObject("root")
-                window.show()
-            }
-        }
-
         Button {
             id: button1
             x: 0
             y: 52
             width: 260
             height: 40
-            text: qsTr("N-1")
+            text: qsTr("Натуральные числа")
+            onClicked: {
+                        var component = Qt.createComponent("natural.qml")
+                var window    = component.createObject("n")
+                window.show()
+            }
         }
 
         Button {
@@ -74,7 +29,12 @@ ApplicationWindow {
             y: 105
             width: 260
             height: 40
-            text: qsTr("N-1")
+            text: qsTr("Целые числа")
+            onClicked: {
+                        var component = Qt.createComponent("integer.qml")
+                var window    = component.createObject("i")
+                window.show()
+            }
         }
 
         Button {
@@ -83,7 +43,12 @@ ApplicationWindow {
             y: 158
             width: 260
             height: 40
-            text: qsTr("N-1")
+            text: qsTr("Дроби")
+            onClicked: {
+                        var component = Qt.createComponent("fractions.qml")
+                var window    = component.createObject("f")
+                window.show()
+            }
         }
 
         Button {
@@ -92,41 +57,17 @@ ApplicationWindow {
             y: 214
             width: 260
             height: 40
-            text: qsTr("N-1")
+            text: qsTr("Многочлены")
+            onClicked: {
+                        var component = Qt.createComponent("polynoms.qml")
+                var window    = component.createObject("p")
+                window.show()
+            }
         }
-
-        Button {
-            id: button5
-            x: 0
-            y: 272
-            width: 260
-            height: 40
-            text: qsTr("N-1")
-        }
-
-        Button {
-            id: button6
-            x: 0
-            y: 326
-            width: 260
-            height: 40
-            text: qsTr("N-1")
-        }
-
-        Button {
-            id: button7
-            x: 0
-            y: 379
-            width: 260
-            height: 40
-            text: qsTr("N-1")
-        }
-    }
-
     Text {
         id: element
         x: 0
-        y: 9
+        y: 8
         width: 268
         height: 31
         color: "#ffffff"
@@ -140,13 +81,11 @@ ApplicationWindow {
     Image {
         id: image
         x: 296
-        y: 46
+        y: 0
         width: 322
-        height: 410
+        height: 356
         source: "leti_logo_krug-eng_2019.png"
         fillMode: Image.PreserveAspectFit
     }
 
 }
-
-
