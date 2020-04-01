@@ -1,12 +1,20 @@
 import QtQuick 2.3
 import QtQuick.Controls 1.2
 
+import io.qt.examples.NaturalBackendWrapper 1.0
+
 ApplicationWindow {
     id: n14
+    property int algo : 14
     width: 400; height: 400
     color: "#00557f"
     title: qsTr("НОК")
     visible: true
+
+
+    NaturalBackendWrapper {
+            id : backend
+        }
 
     Text {
         id: desN1
@@ -25,7 +33,7 @@ ApplicationWindow {
         y: 219
         text: qsTr("Вычислить")
         onClicked: {
-
+            textArea.text = backend.calculate(backend.input1, backend.input2, algo)
         }
     }
 
@@ -45,6 +53,9 @@ ApplicationWindow {
         width: 181
         height: 25
         placeholderText: qsTr("             Второе число")
+        text: backend.input1
+               onTextChanged: backend.input1 = text
+
     }
 
     TextArea {
@@ -53,5 +64,7 @@ ApplicationWindow {
         y: 250
         width: 255
         height: 44
+        text : backend.input2
+                onTextChanged: backend.input2 = text
     }
 }

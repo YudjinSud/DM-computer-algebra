@@ -46,7 +46,6 @@ ApplicationWindow {
         width: 181
         height: 25
         placeholderText: qsTr("             Первое число")
-
         text: backend.input1
         onTextChanged: backend.input1 = text
     }
@@ -58,5 +57,6 @@ ApplicationWindow {
         y: 250
         width: 255
         height: 44
+
     }
 }

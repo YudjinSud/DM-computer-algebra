@@ -1,12 +1,19 @@
 import QtQuick 2.3
 import QtQuick.Controls 1.2
 
+import io.qt.examples.NaturalBackendWrapper 1.0
+
 ApplicationWindow {
     id: n10
+    property int algo : 10
     width: 400; height: 400
     color: "#00557f"
     title: qsTr("Первая цифра")
     visible: true
+
+    NaturalBackendWrapper {
+            id : backend
+        }
 
     Text {
         id: desN1
@@ -30,8 +37,8 @@ ApplicationWindow {
         y: 219
         text: qsTr("Вычислить")
         onClicked: {
-
-        }
+                    textArea.text = backend.calculate(backend.input1, backend.input2, algo)
+                }
     }
 
     TextField {
@@ -41,6 +48,8 @@ ApplicationWindow {
         width: 181
         height: 25
         placeholderText: qsTr("             Первое число")
+        text: backend.input1
+                onTextChanged: backend.input1 = text
     }
 
     TextField {
@@ -50,6 +59,8 @@ ApplicationWindow {
         width: 181
         height: 25
         placeholderText: qsTr("             Второе число")
+        text : backend.input2
+                onTextChanged: backend.input2 = text
     }
 
     TextArea {

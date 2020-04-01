@@ -3,6 +3,7 @@ import QtQuick.Controls 1.2
 
 ApplicationWindow {
     id: i10
+    property int algo : 10
     width: 400; height: 400
     color: "#00557f"
     title: qsTr("Делениес остатком")

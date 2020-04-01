@@ -22,7 +22,7 @@ ApplicationWindow {
 
     Button {
         id: button
-        x: 171
+        x: 157
         y: 219
         text: qsTr("Преобразовать")
         onClicked: {
@@ -32,25 +32,15 @@ ApplicationWindow {
 
     TextField {
         id: textField
-        x: 15
+        x: 110
         y: 188
         width: 181
         height: 25
-        placeholderText: qsTr("                   Числитель")
-    }
-
-    TextField {
-        id: textField1
-        x: 204
-        y: 188
-        width: 181
-        height: 25
-        placeholderText: qsTr("                   Знаменатель")
     }
 
     TextArea {
         id: textArea
-        x: 80
+        x: 73
         y: 250
         width: 255
         height: 44
