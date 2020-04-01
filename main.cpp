@@ -8,6 +8,11 @@
 
 int main(int argc, char *argv[])
 {
+
+    BTest bt;
+    bt.runAllTests();
+    Test::showFinalResult();
+
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QGuiApplication app(argc, argv);
@@ -21,9 +26,6 @@ int main(int argc, char *argv[])
     }, Qt::QueuedConnection);
     engine.load(url);
 
-    BTest bt;
-    bt.runAllTests();
-    Test::showFinalResult();
 //    Poly c;
 //    std::cin >> read_Poly(c); format: "(3)/(5)x^2 + (-1)/(4)x^1 + (1)/(1)" testi delaite 4erez  stringstream
 //    std::cout << write_Poly(c) << std::endl;
