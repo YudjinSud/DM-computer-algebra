@@ -28,14 +28,6 @@ ApplicationWindow {
 
         }
     }
-    TextField {
-        id: textField
-        x: 15
-        y: 158
-        width: 181
-        height: 25
-        placeholderText: qsTr("            Первый числитель")
-    }
 
     TextField {
         id: textField1
@@ -43,15 +35,6 @@ ApplicationWindow {
         y: 189
         width: 181
         height: 25
-        placeholderText: qsTr("            Первый знаменатель")
-    }
-    TextField {
-        id: textField2
-        x: 202
-        y: 158
-        width: 181
-        height: 25
-        placeholderText: qsTr("            Второй числитель")
     }
 
     TextField {
@@ -60,7 +43,6 @@ ApplicationWindow {
         y: 189
         width: 181
         height: 25
-        placeholderText: qsTr("            Второй знаменатель")
     }
     TextArea {
         id: textArea

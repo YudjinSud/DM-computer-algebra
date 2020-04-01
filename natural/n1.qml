@@ -6,6 +6,7 @@ import io.qt.examples.NaturalBackendWrapper 1.0
 
 ApplicationWindow {
     id: n1
+    property int algo : 1
     width: 400; height: 400
     color: "#00557f"
     title: qsTr("Сравнение")
@@ -35,7 +36,7 @@ ApplicationWindow {
         y: 219
         text: qsTr("Сравнить")
         onClicked: {
-            textArea.text = backend.calculate(backend.input1, backend.input2, ApplicationWindow.id)
+            textArea.text = backend.calculate(backend.input1, backend.input2, algo)
         }
     }
 

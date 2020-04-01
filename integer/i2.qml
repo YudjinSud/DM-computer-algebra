@@ -3,6 +3,7 @@ import QtQuick.Controls 1.2
 
 ApplicationWindow {
     id: i2
+    property int algo : 2
     width: 400; height: 400
     color: "#00557f"
     title: qsTr("Знак числа")
