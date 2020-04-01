@@ -14,50 +14,47 @@ ApplicationWindow {
         y: 13
         width: 370
         height: 146
-        text: qsTr("Тут нужно вставить описание алгоритма с сайта Позднякова")
-        font.pixelSize: 12
-    }
-
-    TextInput {
-        id: textInput
-        x: 15
-        y: 190
-        width: 187
-        height: 20
-        text: qsTr("Text Input")
-        inputMask: "Первое число"
-        wrapMode: Text.WordWrap
-        font.pixelSize: 12
-    }
-
-    TextInput {
-        id: textInput1
-        x: 202
-        y: 190
-        width: 183
-        height: 20
-        text: qsTr("Text Input")
-        inputMask: "Второе число"
-        font.pixelSize: 12
+        color: "#d5f476"
+        text: qsTr("Сравнение натуральных чисел:
+0 - если числа равны,
+1 - если второе больше первого,
+2 - если первое больше второго")
+        font.pixelSize: 20
     }
 
     Button {
         id: button
         x: 171
-        y: 216
+        y: 219
         text: qsTr("Сравнить")
         onClicked: {
 
         }
     }
 
-    TextEdit {
-        id: textEdit
-        x: 160
-        y: 259
-        width: 80
-        height: 20
-        text: qsTr("Text Edit")
-        font.pixelSize: 12
+    TextField {
+        id: textField
+        x: 15
+        y: 188
+        width: 181
+        height: 25
+        placeholderText: qsTr("             Первое число")
+    }
+
+    TextField {
+        id: textField1
+        x: 204
+        y: 188
+        width: 181
+        height: 25
+        placeholderText: qsTr("             Второе число")
+    }
+
+    TextArea {
+        id: textArea
+        x: 80
+        y: 250
+        width: 255
+        height: 44
     }
 }
