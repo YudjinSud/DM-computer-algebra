@@ -37,7 +37,7 @@ ApplicationWindow {
         y: 219
         text: qsTr("Вычислить")
         onClicked: {
-                    textArea.text = backend.calculate(backend.input1, backend.input2, algo)
+                    textArea.text = backend.calculate(backend.input1, backend.input2, 0, algo)
                 }
     }
 
@@ -69,5 +69,6 @@ ApplicationWindow {
         y: 250
         width: 255
         height: 44
+        readOnly: true
     }
 }

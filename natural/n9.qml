@@ -35,7 +35,7 @@ ApplicationWindow {
         y: 219
         text: qsTr("Вычесть")
         onClicked: {
-                    textArea.text = backend.calculate(backend.input1, backend.input2, algo)
+                    textArea.text = backend.calculate(backend.input1, backend.input2, backend.input3, algo)
                 }
     }
 
@@ -43,7 +43,7 @@ ApplicationWindow {
         id: textField
         x: 15
         y: 188
-        width: 181
+        width: 89
         height: 25
         placeholderText: qsTr("             Первое число")
         text: backend.input1
@@ -52,13 +52,24 @@ ApplicationWindow {
 
     TextField {
         id: textField1
-        x: 204
+        x: 148
         y: 188
-        width: 181
+        width: 98
         height: 25
+        text: backend.input2
         placeholderText: qsTr("             Второе число")
-        text : backend.input2
                 onTextChanged: backend.input2 = text
+    }
+
+    TextField {
+        id: textField2
+        x: 284
+        y: 188
+        width: 86
+        height: 25
+        placeholderText: qsTr("             Цифра")
+        text : backend.input3
+                onTextChanged: backend.input3 = text
     }
 
     TextArea {
@@ -67,5 +78,6 @@ ApplicationWindow {
         y: 250
         width: 255
         height: 44
+        readOnly: true
     }
 }

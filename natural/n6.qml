@@ -33,7 +33,7 @@ ApplicationWindow {
         y: 219
         text: qsTr("Умножить")
         onClicked: {
-                    textArea.text = backend.calculate(backend.input1, backend.input2, algo)
+                    textArea.text = backend.calculate(backend.input1, backend.input2, backend.input3, algo)
                 }
     }
 
@@ -54,9 +54,9 @@ ApplicationWindow {
         y: 188
         width: 181
         height: 25
-        placeholderText: qsTr("             Второе число")
-        text : backend.input2
-                onTextChanged: backend.input2 = text
+        placeholderText: qsTr("             Цифра")
+        text : backend.input3
+                onTextChanged: backend.input3 = text
     }
 
     TextArea {
@@ -65,5 +65,6 @@ ApplicationWindow {
         y: 250
         width: 255
         height: 44
+        readOnly: true
     }
 }

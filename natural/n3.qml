@@ -31,8 +31,9 @@ ApplicationWindow {
         y: 219
         text: qsTr("Добавить")
         onClicked: {
-                    textArea.text = backend.calculate(backend.input1, backend.input2, algo)
-                }
+            backend.input2 = text
+            textArea.text = backend.calculate(backend.input1, backend.input2, 0, algo)
+        }
     }
 
     TextField {
@@ -46,22 +47,12 @@ ApplicationWindow {
                 onTextChanged: backend.input1 = text
     }
 
-    TextField {
-        id: textField1
-        x: 204
-        y: 188
-        width: 181
-        height: 25
-        placeholderText: qsTr("             Второе число")
-        text : backend.input2
-                onTextChanged: backend.input2 = text
-    }
-
     TextArea {
         id: textArea
         x: 80
         y: 250
         width: 255
         height: 44
+        readOnly: true
     }
 }
