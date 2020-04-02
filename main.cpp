@@ -6,6 +6,7 @@
 
 //backend wrapping
 #include "NaturalBackendWrapper.h"
+#include "IntegBackendWrapper.h"
 
 // QT intrinsics
 #include <QGuiApplication>
@@ -25,6 +26,8 @@ int main(int argc, char *argv[])
     NaturalBackendWrapper wr;
    // wr.input()
 
+    qmlRegisterType<IntegBackendWrapper>("io.qt.examples.IntegBackendWrapper", 1, 0, "IntegBackendWrapper");
+    IntegBackendWrapper zr;
 
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 

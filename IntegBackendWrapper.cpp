@@ -54,7 +54,7 @@ void IntegBackendWrapper::setInput3(const QString &input)
     emit input3Changed();
 }
 
-vector<int> QStringTOVectorInt(const QString s) {
+vector<int> QStringToVectorInt(const QString s) {
     vector<int> vec;
     QByteArray byteArray = s.toLocal8Bit();
     for (int i = 0; i < byteArray.size(); i++) {
@@ -74,7 +74,7 @@ QString IntegToQString(Integ a) {
     return s;
 }
 
-QString NaturalToQString(Natural a) {
+QString NatToQString(Natural a) {
     QString s;
     for(int i = 0; i < a.n; i++) {
         s.push_back(QString::number(a.dig[i]));
@@ -131,7 +131,7 @@ QString IntegBackendWrapper::calculate(const QString &input1, const QString &inp
         break;
     }
     case 5: {
-        res = NaturalToQString(TRANS_Z_N(a));
+        res = NatToQString(TRANS_Z_N(a));
         break;
     }
     case 6: {

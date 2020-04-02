@@ -1,6 +1,8 @@
 import QtQuick 2.3
 import QtQuick.Controls 1.2
 
+import io.qt.examples.IntegBackendWrapper 1.0
+
 ApplicationWindow {
     id: i1
     property int algo : 1
@@ -8,6 +10,10 @@ ApplicationWindow {
     color: "#00557f"
     title: qsTr("Абсолютное значение")
     visible: true
+
+    IntegBackendWrapper {
+            id : backend
+        }
 
     Text {
         id: desN1
@@ -27,8 +33,8 @@ ApplicationWindow {
         y: 219
         text: qsTr("Вычислить")
         onClicked: {
-
-        }
+                    textArea.text = backend.calculate(backend.input1, backend.input2, algo)
+                }
     }
 
     TextField {
@@ -39,6 +45,8 @@ ApplicationWindow {
         height: 25
         readOnly: true
         placeholderText: qsTr("               Введите число")
+        text: backend.input1
+                onTextChanged: backend.input1 = text
     }
 
     TextArea {

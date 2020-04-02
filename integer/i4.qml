@@ -16,7 +16,7 @@ ApplicationWindow {
         width: 370
         height: 146
         color: "#d5f476"
-        text: qsTr("Преобразование натурального в целоео")
+        text: qsTr("Преобразование натурального в целое")
         font.pixelSize: 20
     }
 
