@@ -151,33 +151,15 @@ Poly DIV_PP_P(Poly a, Poly b) {
 Poly MOD_PP_P(Poly a, Poly b) {
     int stepen_c = DEG_P_N(a) - DEG_P_N(b);
     if (stepen_c < 0) return Poly();
-    Poly c;
-    Frac x;
-    while (DEG_P_N(a) - DEG_P_N(b) >= 0) {
-        x = DIV_QQ_Q(a.C[a.m], b.C[b.m]);
-        c.C.push_back(x);
-        a = SUB_PP_P(a, MUL_Pxk_P(MUL_PQ_P(b, x), DEG_P_N(a) - DEG_P_N(b)));
-        if(a == Poly()) break;
-    }
-    return a;
+    Poly c = DIV_PP_P(a,b);
+    return SUB_PP_P(a, MUL_PP_P(c,b));
 }
 
 Poly GCF_PP_P(Poly a, Poly b) {
     if (a.m < b.m)
         swap(a, b);
-    bool f = true;
-    Frac t = Frac();
-    for (int i = 0; i <= b.m; i++)
-        if (!(b.C[i] == t))
-            f = false;
-    if (f) {
-        Frac s = a.C[a.m];
-        int x = s.p.b;
-        Natural c = TRANS_Z_N(ABS_Z_N(s.p));
-        s.p = TRANS_N_Z(s.q);
-        s.p.b = x;
-        s.q = c;
-        a = MUL_PQ_P(a,s);
+    if (b == Poly()) {
+        a = FAC_P_Q(a);
         return a;
     } else
         return GCF_PP_P(b, MOD_PP_P(a, b));
