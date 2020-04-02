@@ -4,11 +4,11 @@ import QtQuick.Controls 1.2
 import io.qt.examples.BackendIOWrapper 1.0
 
 ApplicationWindow {
-    id: p1
-    property int algo : 1
+    id: p5
+    property int algo : 5
     width: 400; height: 400
     color: "#00557f"
-    title: qsTr("Умножение многочлена")
+    title: qsTr("Старший коэффициент многочлена")
     visible: true
 
     BackendIOWrapper {
@@ -22,8 +22,8 @@ ApplicationWindow {
         width: 370
         height: 146
         color: "#d5f476"
-        text: qsTr("Умножение многочлена
-на рациональное число")
+        text: qsTr("Старший коэффициент
+многочлена")
         font.pixelSize: 20
     }
 
@@ -31,10 +31,10 @@ ApplicationWindow {
         id: button
         x: 171
         y: 219
-        text: qsTr("Умножить")
+        text: qsTr("Вчислить")
         onClicked: {
             console.log(algo);
-            textArea.text = backend.calculatePoly(backend.input1, 0, 0, backend.input2,  algo)
+            textArea.text = backend.calculatePoly(backend.input1, 1, 0, backend.input2,  algo)
         }
     }
 

@@ -92,25 +92,23 @@ int checkInputNaturals(Natural a, Natural b, string s1, string s2, int id) {
     //для случая с дробаями - 1 - 8
     // полиномы - 1 -  13
 
-    switch (id) {
+   switch (id) {
     case 5: {
         if (COM_NN_D(a, b) == 1) return 0;
         break;
     }
-    case 6{
+    case 6: {
 
     }
     case 9: {
-         if(COM_NN_D)
+
     }
     }
 
     return 1;
 }
 
-
-QString BackendIOWrapper::calculateNatural(const QString &input1, const QString &input2, const QString &integ,  const QString &id) {
-
+QString BackendIOWrapper::calculateNatural (const QString &input1, const QString &input2, const QString &integ,  const QString &id) {
     std::stringstream s_0;
     //custom string stream to read prettified input of polynomials etc
 
@@ -221,7 +219,7 @@ QString BackendIOWrapper::calculateNatural(const QString &input1, const QString 
 }
 
 
-QString IntegToQString(Integ a) {
+QString IntegToQString(Integ a){
     std::stringstream ss;
     QString QS;
     std::string std_s;
@@ -233,7 +231,7 @@ QString IntegToQString(Integ a) {
 }
 
 
-QString BackendIOWrapper::calculateInteger(const QString &input1, const QString &input2, const QString &integ,  const QString &id) {
+QString BackendIOWrapper::calculateInteger (const QString &input1, const QString &input2, const QString &integ,  const QString &id) {
     std::stringstream s_0;
     //custom string stream to read prettified input of polynomials etc
 

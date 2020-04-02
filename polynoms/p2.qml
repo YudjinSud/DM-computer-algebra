@@ -4,11 +4,11 @@ import QtQuick.Controls 1.2
 import io.qt.examples.BackendIOWrapper 1.0
 
 ApplicationWindow {
-    id: p2
+    id: p1
     property int algo : 2
     width: 400; height: 400
     color: "#00557f"
-    title: qsTr("Вычитание многочленов")
+    title: qsTr("Сложение многочленов")
     visible: true
 
     BackendIOWrapper {
@@ -33,7 +33,7 @@ ApplicationWindow {
         text: qsTr("Вычесть")
         onClicked: {
             console.log(algo);
-            textArea.text = backend.calculatePoly(backend.input1, backend.input2, 0, (0)/(1),  algo)
+            textArea.text = backend.calculatePoly(backend.input1, backend.input2, 0, "(1)/(1)",  algo)
         }
     }
 
@@ -44,6 +44,9 @@ ApplicationWindow {
         width: 181
         height: 25
         placeholderText: qsTr("           Первый полином")
+        text: backend.input1
+        onTextChanged: backend.input1 = text
+
     }
 
     TextField {
@@ -53,6 +56,8 @@ ApplicationWindow {
         width: 181
         height: 25
         placeholderText: qsTr("           Второй полином")
+        text: backend.input2
+        onTextChanged: backend.input2 = text
     }
 
     TextArea {
@@ -61,5 +66,6 @@ ApplicationWindow {
         y: 250
         width: 255
         height: 44
+        readOnly: true
     }
 }

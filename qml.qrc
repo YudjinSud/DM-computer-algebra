@@ -42,5 +42,15 @@
         <file>natural/n14.qml</file>
         <file>polynoms/p2.qml</file>
         <file>polynoms/p3.qml</file>
+        <file>polynoms/p5.qml</file>
+        <file>polynoms/p4.qml</file>
+        <file>polynoms/p6.qml</file>
+        <file>polynoms/p7.qml</file>
+        <file>polynoms/p8.qml</file>
+        <file>polynoms/p9.qml</file>
+        <file>polynoms/p10.qml</file>
+        <file>polynoms/p11.qml</file>
+        <file>polynoms/p12.qml</file>
+        <file>polynoms/p13.qml</file>
     </qresource>
 </RCC>
