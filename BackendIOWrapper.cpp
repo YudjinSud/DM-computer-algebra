@@ -67,11 +67,14 @@ vector<int> QStringTOVectorInt(const QString s) {
 
 
 QString NaturalToQString(Natural a) {
-    QString s;
-    for(int i = 0; i < a.n; i++) {
-        s.push_back(QString::number(a.dig[i]));
-    }
-    return s;
+    std::stringstream ss;
+    QString QS;
+    std::string std_s;
+    ss << write_Nat(a);
+    ss >> std_s;
+    QS = QString::fromStdString(std_s);
+
+    return QS;
 }
 
 
@@ -179,14 +182,14 @@ QString BackendIOWrapper::calculateNatural(const QString &input1, const QString 
 
 
 QString IntegToQString(Integ a) {
-    QString s;
-    if(a.b == 1) {
-        s.push_back('-');
-    }
-    for(int i = 0; i < a.n; i++) {
-        s.push_back(QString::number(a.dig[i]));
-    }
-    return s;
+    std::stringstream ss;
+    QString QS;
+    std::string std_s;
+    ss << write_Integ(a);
+    ss >> std_s;
+    QS = QString::fromStdString(std_s);
+
+    return QS;
 }
 
 
@@ -206,14 +209,12 @@ QString BackendIOWrapper::calculateInteger(const QString &input1, const QString 
 
     qDebug() << "Derived integer :" << k;
 
-    Integ a, b, resInteg;
+    Integ a, b;
     Natural n;
     s_0 << s1;
     s_0 >> read_Integ(a);
     s_0 << s2;
     s_0 >> read_Integ(b);
-    s_0 << s1;
-    s_0 >> read_Nat(n);
 
     QString res = "";
 
@@ -273,8 +274,94 @@ QString BackendIOWrapper::calculateInteger(const QString &input1, const QString 
 }
 
 
-QString BackendIOWrapper::calculateFraction(const QString &input1, const QString &input2, const QString &integ,  const QString &id) {
+QString FractionToQString(Frac a) {
+    std::stringstream ss;
+    QString QS;
+    std::string std_s;
+    ss << write_Frac(a);
+    ss >> std_s;
+    QS = QString::fromStdString(std_s);
+
+    return QS;
+}
+
+
+QString BackendIOWrapper::calculateFraction(const QString &frac1, const QString &frac2, const QString &integ,  const QString &id) {
+    std::stringstream ss_for_fracs;
+    std::stringstream ss_for_int;
+    //custom string stream to read prettified input of polynomials etc
+
+    string str_fraction1 = frac1.toStdString();
+    string str_fraction2 = frac2.toStdString();
+    string str_integer = integ.toStdString();
+
+    qDebug() << "frac 1 : " << QString::fromStdString(str_fraction1);
+    qDebug() << "frac 2 : " << QString::fromStdString(str_fraction2);
+    qDebug() << "integer : " << QString::fromStdString(str_integer);
+
+    //in algo's where integer needed. Else  - 0
+ //   str_fraction1.push_back('.');
+  //  str_fraction2.push_back('.');
+
+    str_integer.push_back('.');
+
+    Frac a, b;
+    Integ z;
+
+
+    ss_for_int << str_integer;
+   // если считать сначала две дроби, а потом целое - то целое будет 0 :)) минус полчаса))
+    ss_for_int >> read_Integ(z);
+    ss_for_fracs << str_fraction1;
+    ss_for_fracs >> read_Frac(a);
+    ss_for_fracs << str_fraction2;
+    ss_for_fracs >> read_Frac(b);
+
+    qDebug() << "f1 : " << FractionToQString(a);
+    qDebug() << "f2 : " << FractionToQString(b);
+    qDebug() << "integ : " << IntegToQString(z);
+
+
     QString res = "";
+
+    int int32_id = stoi(id.toStdString());
+
+    switch(int32_id) {
+    case 1 : {
+        res = FractionToQString(RED_Q_Q(a));
+        break;
+    }
+    case 2 : {
+        res = INT_Q_B(a) == 1 ? "Да" : "Нет";
+        break;
+    }
+    case 3 : {
+        res = FractionToQString(TRANS_Z_Q(z));
+        break;
+    }
+    case 4 : {
+        res = IntegToQString(TRANS_Q_Z(a));
+        break;
+    }
+    case 5 : {
+        res = FractionToQString(ADD_QQ_Q(a, b));
+        break;
+    }
+    case 6 : {
+        res = FractionToQString(SUB_QQ_Q(a, b));
+        break;
+    }
+    case 7 : {
+        res = FractionToQString(MUL_QQ_Q(a, b));
+        break;
+    }
+    case 8 : {
+        res = FractionToQString(DIV_QQ_Q(a, b));
+        break;
+    }
+    }
+    qDebug() << res;
+
     return res;
 }
 
