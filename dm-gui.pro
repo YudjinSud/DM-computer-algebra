@@ -15,11 +15,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         BTest.cpp \
+        BackendIOWrapper.cpp \
         Frac.cpp \
         Integ.cpp \
         Manipulator.cpp \
         Natural.cpp \
-        NaturalBackendWrapper.cpp \
         Poly.cpp \
         Test.cpp \
         main.cpp
@@ -38,11 +38,11 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    BackendIOWrapper.h \
     Btest.h \
     Frac.h \
     Integ.h \
     Manipulator.h \
     Natural.h \
-    NaturalBackendWrapper.h \
     Poly.h \
     Test.h

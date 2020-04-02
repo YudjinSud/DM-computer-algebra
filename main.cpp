@@ -5,7 +5,7 @@
 #include "Btest.h"
 
 //backend wrapping
-#include "NaturalBackendWrapper.h"
+#include "BackendIOWrapper.h"
 
 // QT intrinsics
 #include <QGuiApplication>
@@ -21,8 +21,8 @@ int main(int argc, char *argv[])
     Test::showFinalResult();
 
 
-    qmlRegisterType<NaturalBackendWrapper>("io.qt.examples.NaturalBackendWrapper", 1, 0, "NaturalBackendWrapper");
-    NaturalBackendWrapper wr;
+    qmlRegisterType<BackendIOWrapper>("io.qt.examples.BackendIOWrapper", 1, 0, "BackendIOWrapper");
+    BackendIOWrapper wr;
    // wr.input()
 
 

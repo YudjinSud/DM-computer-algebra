@@ -1,5 +1,5 @@
-#ifndef NATURALBACKENDWRAPPER_H
-#define NATURALBACKENDWRAPPER_H
+#ifndef BACKENDIOWRAPPER_H
+#define BACKENDIOWRAPPER_H
 
 
 #include <QObject>
@@ -8,11 +8,12 @@
 
 #include "Natural.h"
 #include "Manipulator.h"
+#include "Integ.h"
 
 #include <cstdlib>
 
 
-class NaturalBackendWrapper : public QObject
+class BackendIOWrapper : public QObject
 {
 
     Q_OBJECT
@@ -22,7 +23,7 @@ class NaturalBackendWrapper : public QObject
 
 public:
 
-    explicit NaturalBackendWrapper(QObject *parent = nullptr);
+    explicit BackendIOWrapper(QObject *parent = nullptr);
 
     QString input1();
     QString input2();
@@ -33,7 +34,10 @@ public slots :
    void setInput1(const QString &input);
    void setInput2(const QString &input);
    void setInput3(const QString &input);
-   QString calculate(const QString &input1, const QString &input2, const QString &integ,  const QString &id);
+   QString calculateNatural(const QString &input1, const QString &input2, const QString &integ,  const QString &id);
+   QString calculateInteger(const QString &input1, const QString &input2, const QString &integ,  const QString &id);
+   QString calculateFraction(const QString &input1, const QString &input2, const QString &integ,  const QString &id);
+   QString calculatePoly(const QString &input1, const QString &input2, const QString &integ,  const QString &id);
 
 
 signals:
@@ -47,4 +51,4 @@ private:
     QString m_input3;
 };
 
-#endif // NATURALBACKENDWRAPPER_H
+#endif // BACKENDIOWRAPPER_H

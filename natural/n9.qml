@@ -1,7 +1,7 @@
 import QtQuick 2.3
 import QtQuick.Controls 1.2
 
-import io.qt.examples.NaturalBackendWrapper 1.0
+import io.qt.examples.BackendIOWrapper 1.0
 
 ApplicationWindow {
     id: n9
@@ -11,7 +11,7 @@ ApplicationWindow {
     title: qsTr("Вычитание из натурального другого натурального")
     visible: true
 
-    NaturalBackendWrapper {
+    BackendIOWrapper {
             id : backend
         }
 
@@ -35,7 +35,7 @@ ApplicationWindow {
         y: 219
         text: qsTr("Вычесть")
         onClicked: {
-                    textArea.text = backend.calculate(backend.input1, backend.input2, backend.input3, algo)
+                    textArea.text = backend.calculateNatural(backend.input1, backend.input2, backend.input3, algo)
                 }
     }
 

@@ -1,6 +1,8 @@
 import QtQuick 2.3
 import QtQuick.Controls 1.2
 
+import io.qt.examples.BackendIOWrapper 1.0
+
 ApplicationWindow {
     id: i7
     property int algo : 7
@@ -8,6 +10,10 @@ ApplicationWindow {
     color: "#00557f"
     title: qsTr("Вычитание")
     visible: true
+
+    BackendIOWrapper {
+        id : backend
+    }
 
     Text {
         id: desN1
@@ -24,9 +30,10 @@ ApplicationWindow {
         id: button
         x: 171
         y: 219
-        text: qsTr("Вычесть")
+        text: qsTr("Мне повезет!")
         onClicked: {
-
+            console.log(algo);
+            textArea.text = backend.calculateInteger(backend.input1, backend.input2, 0,  algo)
         }
     }
 
@@ -37,6 +44,9 @@ ApplicationWindow {
         width: 181
         height: 25
         placeholderText: qsTr("             Первое число")
+        text: backend.input1
+        onTextChanged: backend.input1 = text
+
     }
 
     TextField {
@@ -46,6 +56,9 @@ ApplicationWindow {
         width: 181
         height: 25
         placeholderText: qsTr("             Второе число")
+        text: backend.input2
+        onTextChanged: backend.input2 = text
+
     }
 
     TextArea {
@@ -54,5 +67,6 @@ ApplicationWindow {
         y: 250
         width: 255
         height: 44
+        readOnly: true
     }
 }
