@@ -310,7 +310,6 @@ QString BackendIOWrapper::calculateFraction(const QString &frac1, const QString 
 
 
     ss_for_int << str_integer;
-   // если считать сначала две дроби, а потом целое - то целое будет 0 :)) минус полчаса)) - грустно звучит( а ещё очень больно...
     ss_for_int >> read_Integ(z);
     ss_for_fracs << str_fraction1;
     ss_for_fracs >> read_Frac(a);
@@ -370,27 +369,15 @@ QString PolyToQString(Poly a) {
     QString QS;
     std::string std_s;
     ss << write_Poly(a);
-    ss >> std_s;
+    getline(ss, std_s);
     QS = QString::fromStdString(std_s);
 
     return QS;
 }
 
-QString intToQString(int a) {
-    std::stringstream ss;
-    QString QS;
-    std::string std_s;
-    ss << a;
-    ss >> std_s;
-    QS = QString::fromStdString(std_s);
-
-    return QS;
-}
 
 QString BackendIOWrapper::calculatePoly(const QString &input1, const QString &input2, const QString &integ, const QString &frac,  const QString &id) {
     std::stringstream s_0;
-    std::stringstream ss_for_int;
-    std::stringstream ss_for_fracs;
     //custom string stream to read prettified input of polynomials etc
 
     string s1 = input1.toStdString();
@@ -401,20 +388,29 @@ QString BackendIOWrapper::calculatePoly(const QString &input1, const QString &in
     //in algo's where integer needed. Else  - 0
     int k = stoi(integer);
 
-    s1.push_back('.');
-    s2.push_back('.');
+    //(-97)/(1)x^1 + (56)/(1)
 
-    qDebug() << "Derived integer :" << k;
+    qDebug() << "poly 1 : " << QString::fromStdString(s1);
+    qDebug() << "poly 2 : " << QString::fromStdString(s1);
+ //   qDebug() << "fraction : " << QString::fromStdString(str_fraction);
 
     Poly a, b;
-    Integ I;
+    Integ i;
     Frac f;
+
+    string tmp;
+
+
     s_0 << s1;
     s_0 >> read_Poly(a);
     s_0 << s2;
     s_0 >> read_Poly(b);
-    ss_for_fracs << str_fraction;
-    ss_for_fracs >> read_Frac(f);
+    s_0 << str_fraction;
+    s_0 >> read_Frac(f);
+
+    qDebug() << "p1 : " << PolyToQString(a);
+    qDebug() << "p2 : " << PolyToQString(b);
+  //  qDebug() << "frac: " << IntegToQString(i);
 
     QString res = "";
     int int32_id = stoi(id.toStdString());
@@ -422,42 +418,55 @@ QString BackendIOWrapper::calculatePoly(const QString &input1, const QString &in
     switch(int32_id) {
     case 1 : {
         res = PolyToQString(ADD_PP_P(a, b));
+        break;
     }
     case 2 : {
         res = PolyToQString(SUB_PP_P(a, b));
+        break;
     }
     case 3 : {
         res = PolyToQString(MUL_PQ_P(a, f));
+        break;
     }
     case 4 : {
         res = PolyToQString(MUL_Pxk_P(a, k));
+        break;
     }
     case 5 : { // Тут дроби, мой мозг пока ничего не додумал для них
         res = FractionToQString(LED_P_Q(a));
+        break;
     }
     case 6 : {
-        res = intToQString(DEG_P_N(a));
+        res = QString::number(DEG_P_N(a));
+        break;
     }
     case 7 : {
         res = PolyToQString(FAC_P_Q(a));
+        break;
     }
     case 8 : {
         res = PolyToQString(MUL_PP_P(a, b));
+        break;
     }
     case 9 : {
         res = PolyToQString(DIV_PP_P(a, b));
+        break;
     }
     case 10: {
         res = PolyToQString(MOD_PP_P(a, b));
+        break;
     }
     case 11: {
         res = PolyToQString(GCF_PP_P(a, b));
+        break;
     }
     case 12: {
         res = PolyToQString(DER_P_P(a));
+        break;
     }
     case 13: {
         res = PolyToQString(NMR_P_P(a));
+        break;
     }
     }
     qDebug() << res;

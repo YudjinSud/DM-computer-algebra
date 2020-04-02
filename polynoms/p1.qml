@@ -33,7 +33,7 @@ ApplicationWindow {
         text: qsTr("Сложить")
         onClicked: {
             console.log(algo);
-            textArea.text = backend.calculatePoly(backend.input1, backend.input2, 0, (0)/(1),  algo)
+            textArea.text = backend.calculatePoly(backend.input1, backend.input2, 0, "(1)/(1)",  algo)
         }
     }
 
@@ -44,6 +44,9 @@ ApplicationWindow {
         width: 181
         height: 25
         placeholderText: qsTr("           Первый полином")
+        text: backend.input1
+        onTextChanged: backend.input1 = text
+
     }
 
     TextField {
@@ -53,6 +56,8 @@ ApplicationWindow {
         width: 181
         height: 25
         placeholderText: qsTr("           Второй полином")
+        text: backend.input2
+        onTextChanged: backend.input2 = text
     }
 
     TextArea {
@@ -61,5 +66,6 @@ ApplicationWindow {
         y: 250
         width: 255
         height: 44
+        readOnly: true
     }
 }
