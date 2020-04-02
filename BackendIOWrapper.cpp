@@ -78,6 +78,37 @@ QString NaturalToQString(Natural a) {
 }
 
 
+int checkInputNaturals(Natural a, Natural b, string s1, string s2, int id) {
+
+    if (s1[0] == '-' || s2[0] == '-') return 0;
+
+    //a - натуральное число номер 1
+    //b - натуральное число номер 2
+    //s1 - строка, которкую ввел пользователь в окошко
+    //s2 - аналогично
+    //id - номер програмым от 1 до 14 в случае натуральных чисел
+
+    //для случая с интом  - id n 1 до 9
+    //для случая с дробаями - 1 - 8
+    // полиномы - 1 -  13
+
+    switch (id) {
+    case 5: {
+        if (COM_NN_D(a, b) == 1) return 0;
+        break;
+    }
+    case 6{
+
+    }
+    case 9: {
+         if(COM_NN_D)
+    }
+    }
+
+    return 1;
+}
+
+
 QString BackendIOWrapper::calculateNatural(const QString &input1, const QString &input2, const QString &integ,  const QString &id) {
 
     std::stringstream s_0;
@@ -104,10 +135,14 @@ QString BackendIOWrapper::calculateNatural(const QString &input1, const QString 
     QString res = "";
 
     int int32_id = stoi(id.toStdString());
+    int check = 1;
 
     switch(int32_id) {
     case 1 : {
-        res = QString::number(COM_NN_D(a, b));
+
+            res = QString::number(COM_NN_D(a, b));
+//        }
+//        else ;
         break;
     }
     case 2: {
@@ -125,8 +160,11 @@ QString BackendIOWrapper::calculateNatural(const QString &input1, const QString 
         break;
     }
     case 5: {
-        resNat = SUB_NN_N(a, b);
-        res = NaturalToQString(resNat);
+        check = checkInputNaturals(a, b, s1, s2, int32_id);
+        if(check) {
+            resNat = SUB_NN_N(a, b);
+            res = NaturalToQString(resNat);
+        }
         break;
     }
     case 6: {
@@ -175,7 +213,9 @@ QString BackendIOWrapper::calculateNatural(const QString &input1, const QString 
     }
    }
     qDebug() << res;
-
+    if(check  == 0) {
+        res = "Неправильнынй ввод!\n";
+    }
     return res;
 
 }
