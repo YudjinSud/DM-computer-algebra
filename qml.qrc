@@ -16,11 +16,6 @@
         <file>natural/n7.qml</file>
         <file>natural/n8.qml</file>
         <file>natural/n9.qml</file>
-        <file>natural/n10.qml</file>
-        <file>natural/n11.qml</file>
-        <file>natural/n12.qml</file>
-        <file>natural/n13.qml</file>
-        <file>natural/n14.qml</file>
         <file>fractions/f1.qml</file>
         <file>fractions/f2.qml</file>
         <file>fractions/f3.qml</file>
@@ -40,17 +35,12 @@
         <file>integer/i8.qml</file>
         <file>integer/i9.qml</file>
         <file>polynoms/p1.qml</file>
-        <file>polynoms/p10.qml</file>
-        <file>polynoms/p11.qml</file>
-        <file>polynoms/p12.qml</file>
-        <file>polynoms/p13.qml</file>
+        <file>natural/n10.qml</file>
+        <file>natural/n11.qml</file>
+        <file>natural/n12.qml</file>
+        <file>natural/n13.qml</file>
+        <file>natural/n14.qml</file>
         <file>polynoms/p2.qml</file>
         <file>polynoms/p3.qml</file>
-        <file>polynoms/p4.qml</file>
-        <file>polynoms/p5.qml</file>
-        <file>polynoms/p6.qml</file>
-        <file>polynoms/p7.qml</file>
-        <file>polynoms/p8.qml</file>
-        <file>polynoms/p9.qml</file>
     </qresource>
 </RCC>
