@@ -31,16 +31,17 @@ std::istream &read_Poly::read(std::istream &is) {
     is >> read_Frac(f);
     poly_->C.pop_back();
     poly_->C.push_back(f);
-    poly_->m = int(poly_->C.size()) -1;
+    poly_->m = 0;
     is >> c >> c;
     int i = 0;
     is >> c;
+    if(c == '0') return is;
     while (c >= '0' && c <= '9') {
         i *= 10;
         i += int(c) - int('0');
         is >> c;
     }
-    is>> c;
+    is >> c;
     for (; i > 0; i--){
         is>> c;
         is >> read_Frac(f);
