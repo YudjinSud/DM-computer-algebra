@@ -35,7 +35,7 @@ ApplicationWindow {
         text: qsTr("Вынести")
         onClicked: {
             console.log(algo);
-            textArea.text = backend.calculatePoly(backend.input1, 0, 0, "(1)/(1)",  algo)
+            textArea.text = backend.calculatePoly(backend.input1, backend.input1, 0, "(1)/(1)",  algo)
         }
     }
 

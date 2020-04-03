@@ -55,7 +55,7 @@ ApplicationWindow {
         y: 58
         width: 111
         height: 39
-        text: qsTr("Умножение на букву")
+        text: qsTr("Умножение на x^k")
         onClicked: {
                     var component = Qt.createComponent("polynoms/p4.qml")
             var window    = component.createObject("p4")

@@ -34,7 +34,7 @@ ApplicationWindow {
         text: qsTr("Умножить")
         onClicked: {
             console.log(algo);
-            textArea.text = backend.calculatePoly(backend.input1, 0, backend.input2, "(1)/(1)",  algo)
+            textArea.text = backend.calculatePoly(backend.input1, backend.input1, backend.input2, "(1)/(1)",  algo)
         }
     }
 

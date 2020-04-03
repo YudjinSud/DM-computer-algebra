@@ -31,10 +31,10 @@ ApplicationWindow {
         id: button
         x: 171
         y: 219
-        text: qsTr("Вчислить")
+        text: qsTr("Вычислить")
         onClicked: {
             console.log(algo);
-            textArea.text = backend.calculatePoly(backend.input1, 1, 0, backend.input2,  algo)
+            textArea.text = backend.calculatePoly(backend.input1, backend.input1, 0, "(1)/(1)",  algo)
         }
     }
 
@@ -50,16 +50,6 @@ ApplicationWindow {
 
     }
 
-    TextField {
-        id: textField1
-        x: 204
-        y: 188
-        width: 181
-        height: 25
-        placeholderText: qsTr("           Дробь")
-        text: backend.input2
-        onTextChanged: backend.input2 = text
-    }
 
     TextArea {
         id: textArea

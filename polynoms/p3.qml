@@ -5,7 +5,7 @@ import io.qt.examples.BackendIOWrapper 1.0
 
 ApplicationWindow {
     id: p1
-    property int algo : 1
+    property int algo : 3
     width: 400; height: 400
     color: "#00557f"
     title: qsTr("Умножение многочлена")
@@ -34,7 +34,7 @@ ApplicationWindow {
         text: qsTr("Умножить")
         onClicked: {
             console.log(algo);
-            textArea.text = backend.calculatePoly(backend.input1, 0, 0, backend.input2,  algo)
+            textArea.text = backend.calculatePoly(backend.input1, backend.input1, 0, backend.input2,  algo)
         }
     }
 
