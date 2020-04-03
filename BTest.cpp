@@ -50,31 +50,14 @@ void BTest::runAllTests() {
 }
 
 void BTest::test_COM_NN_D() {
-    Natural a, b;
-
-    a.n = 3;
-    a.dig = {1, 1, 1};
-    b.n = 3;
-    b.dig = {1, 1, 2};
-    DO_CHECK(COM_NN_D(a, b) == 1);
-
-    a.n = 4;
-    a.dig = {1, 1, 1, 1};
-    b.n = 3;
-    b.dig = {1, 1, 2};
-    DO_CHECK(COM_NN_D(a, b) == 2);
-
-    a.n = 2;
-    a.dig = {1, 1};
-    b.n = 3;
-    b.dig = {1, 1, 2};
-    DO_CHECK(COM_NN_D(a, b) == 1);
-
-    a.n = 2;
-    a.dig = {1, 1};
-    b.n = 2;
-    b.dig = {1, 1};
-    DO_CHECK(COM_NN_D(a, b) == 0);
+    Natural a, b;std::stringstream s_0;string s,res1;
+    s = "00.";
+    s_0 << s;
+    s_0 >> read_Nat(a);
+    s = "2.";
+    s_0 << s;
+    s_0 >> read_Nat(b);
+    DO_CHECK(COM_NN_D(a,b) == 1);
 }
 
 void BTest::test_NZER_N_B() {

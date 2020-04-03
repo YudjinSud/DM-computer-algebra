@@ -35,23 +35,23 @@ std::istream &read_Poly::read(std::istream &is) {
     is >> c >> c;
     int i = 0;
     is >> c;
-    if(c == '0') return is;
+    if (c == '0') return is;
     while (c >= '0' && c <= '9') {
         i *= 10;
         i += int(c) - int('0');
         is >> c;
     }
     is >> c;
-    for (; i > 0; i--){
-        is>> c;
+    for (; i > 0; i--) {
+        is >> c;
         is >> read_Frac(f);
         poly_->C.push_back(f);
-        if(i != 1)
-            while(c != '+')
+        if (i != 1)
+            while (c != '+')
                 is >> c;
     }
     reverse(begin(poly_->C), end(poly_->C));
-    poly_->m = int(poly_->C.size()) - 1 ;
+    poly_->m = int(poly_->C.size()) - 1;
     return is;
 }
 
@@ -129,7 +129,7 @@ std::istream &read_Integ::read(std::istream &is) {
         is >> c;
     }
     while (c >= '0' && c <= '9') {
-        integ_->dig.push_back( int(c) - int('0'));
+        integ_->dig.push_back(int(c) - int('0'));
         is >> c;
     }
     integ_->n = int(integ_->dig.size());
@@ -167,10 +167,18 @@ std::istream &read_Nat::read(std::istream &is) {
     char c;
     is >> c;
     while (c >= '0' && c <= '9') {
-        nat_->dig.push_back( int(c) - int('0'));
+        nat_->dig.push_back(int(c) - int('0'));
         is >> c;
     }
     nat_->n = int(nat_->dig.size());
+    reverse(begin(nat_->dig), end(nat_->dig));
+    while (nat_->dig[nat_->dig.size() - 1] == 0) nat_->dig.pop_back();
+    nat_->n = int(nat_->dig.size());
+    if (nat_->n == 0) {
+        nat_->n = 1;
+        nat_->dig.push_back(0);
+    }
+    reverse(begin(nat_->dig), end(nat_->dig));
     return is;
 }
 
