@@ -9,6 +9,7 @@
 #include "Natural.h"
 #include "Manipulator.h"
 #include "Integ.h"
+#include "Poly.h"
 
 #include <cstdlib>
 
@@ -37,7 +38,7 @@ public slots :
    QString calculateNatural(const QString &input1, const QString &input2, const QString &integ,  const QString &id);
    QString calculateInteger(const QString &input1, const QString &input2, const QString &integ,  const QString &id);
    QString calculateFraction(const QString &input1, const QString &input2, const QString &integ,  const QString &id);
-   QString calculatePoly(const QString &input1, const QString &input2, const QString &integ,  const QString &id);
+   QString calculatePoly(const QString &input1, const QString &input2, const QString &integ, const QString &frac1,  const QString &id);
 
 
 signals:

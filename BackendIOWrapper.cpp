@@ -78,8 +78,37 @@ QString NaturalToQString(Natural a) {
 }
 
 
-QString BackendIOWrapper::calculateNatural(const QString &input1, const QString &input2, const QString &integ,  const QString &id) {
+int checkInputNaturals(Natural a, Natural b, string s1, string s2, int id) {
 
+    if (s1[0] == '-' || s2[0] == '-') return 0;
+
+    //a - натуральное число номер 1
+    //b - натуральное число номер 2
+    //s1 - строка, которкую ввел пользователь в окошко
+    //s2 - аналогично
+    //id - номер програмым от 1 до 14 в случае натуральных чисел
+
+    //для случая с интом  - id n 1 до 9
+    //для случая с дробаями - 1 - 8
+    // полиномы - 1 -  13
+
+   switch (id) {
+    case 5: {
+        if (COM_NN_D(a, b) == 1) return 0;
+        break;
+    }
+    case 6: {
+
+    }
+    case 9: {
+
+    }
+    }
+
+    return 1;
+}
+
+QString BackendIOWrapper::calculateNatural (const QString &input1, const QString &input2, const QString &integ,  const QString &id) {
     std::stringstream s_0;
     //custom string stream to read prettified input of polynomials etc
 
@@ -104,10 +133,14 @@ QString BackendIOWrapper::calculateNatural(const QString &input1, const QString 
     QString res = "";
 
     int int32_id = stoi(id.toStdString());
+    int check = 1;
 
     switch(int32_id) {
     case 1 : {
-        res = QString::number(COM_NN_D(a, b));
+
+            res = QString::number(COM_NN_D(a, b));
+//        }
+//        else ;
         break;
     }
     case 2: {
@@ -125,8 +158,11 @@ QString BackendIOWrapper::calculateNatural(const QString &input1, const QString 
         break;
     }
     case 5: {
-        resNat = SUB_NN_N(a, b);
-        res = NaturalToQString(resNat);
+        check = checkInputNaturals(a, b, s1, s2, int32_id);
+        if(check) {
+            resNat = SUB_NN_N(a, b);
+            res = NaturalToQString(resNat);
+        }
         break;
     }
     case 6: {
@@ -175,13 +211,15 @@ QString BackendIOWrapper::calculateNatural(const QString &input1, const QString 
     }
    }
     qDebug() << res;
-
+    if(check  == 0) {
+        res = "Неправильнынй ввод!\n";
+    }
     return res;
 
 }
 
 
-QString IntegToQString(Integ a) {
+QString IntegToQString(Integ a){
     std::stringstream ss;
     QString QS;
     std::string std_s;
@@ -193,7 +231,7 @@ QString IntegToQString(Integ a) {
 }
 
 
-QString BackendIOWrapper::calculateInteger(const QString &input1, const QString &input2, const QString &integ,  const QString &id) {
+QString BackendIOWrapper::calculateInteger (const QString &input1, const QString &input2, const QString &integ,  const QString &id) {
     std::stringstream s_0;
     //custom string stream to read prettified input of polynomials etc
 
@@ -310,7 +348,6 @@ QString BackendIOWrapper::calculateFraction(const QString &frac1, const QString 
 
 
     ss_for_int << str_integer;
-   // если считать сначала две дроби, а потом целое - то целое будет 0 :)) минус полчаса))
     ss_for_int >> read_Integ(z);
     ss_for_fracs << str_fraction1;
     ss_for_fracs >> read_Frac(a);
@@ -365,9 +402,115 @@ QString BackendIOWrapper::calculateFraction(const QString &frac1, const QString 
     return res;
 }
 
+QString PolyToQString(Poly a) {
+    std::stringstream ss;
+    QString QS;
+    std::string std_s;
+    ss << write_Poly(a);
+    getline(ss, std_s);
+    QS = QString::fromStdString(std_s);
 
-QString BackendIOWrapper::calculatePoly(const QString &input1, const QString &input2, const QString &integ,  const QString &id) {
+    return QS;
+}
+
+
+QString BackendIOWrapper::calculatePoly(const QString &input1, const QString &input2, const QString &integ, const QString &frac,  const QString &id) {
+    std::stringstream s_0;
+    //custom string stream to read prettified input of polynomials etc
+
+    string s1 = input1.toStdString();
+    string s2 = input2.toStdString();
+    string str_fraction = frac.toStdString();
+    string integer = integ.toStdString();
+
+    //in algo's where integer needed. Else  - 0
+
+    //(-97)/(1)x^1 + (56)/(1)
+
+    qDebug() << "poly 1 : " << QString::fromStdString(s1);
+    qDebug() << "poly 2 : " << QString::fromStdString(s2);
+    qDebug() << "fraction : " << QString::fromStdString(str_fraction);
+    qDebug() << "integer :: " << QString::fromStdString(integer);
+    integer.push_back('.');
+    Poly a, b;
+    Integ i;
+    Frac f;
+
+    string tmp;
+
+
+    s_0 << s1;
+    s_0 >> read_Poly(a);
+    s_0 << s2;
+    s_0 >> read_Poly(b);
+    s_0 << str_fraction;
+    s_0 >> read_Frac(f);
+    s_0 << integer;
+    s_0 >> read_Integ(i);
+
+    qDebug() << "p1 : " << PolyToQString(a);
+    qDebug() << "p2 : " << PolyToQString(b);
+    qDebug() << "frac: " << FractionToQString(f);
+    qDebug() << "integer: " << IntegToQString(i);
+
     QString res = "";
+    int int32_id = stoi(id.toStdString());
+
+    switch(int32_id) {
+    case 1 : {
+        res = PolyToQString(ADD_PP_P(a, b));
+        break;
+    }
+    case 2 : {
+        res = PolyToQString(SUB_PP_P(a, b));
+        break;
+    }
+    case 3 : {
+        res = PolyToQString(MUL_PQ_P(a, f));
+        break;
+    }
+    case 4 : {
+    //    res = PolyToQString(MUL_Pxk_P(a, k));
+        break;
+    }
+    case 5 : {
+        res = FractionToQString(LED_P_Q(a));
+        break;
+    }
+    case 6 : {
+        res = QString::number(DEG_P_N(a));
+        break;
+    }
+    case 7 : {
+        res = PolyToQString(FAC_P_Q(a));
+        break;
+    }
+    case 8 : {
+        res = PolyToQString(MUL_PP_P(a, b));
+        break;
+    }
+    case 9 : {
+        res = PolyToQString(DIV_PP_P(a, b));
+        break;
+    }
+    case 10: {
+        res = PolyToQString(MOD_PP_P(a, b));
+        break;
+    }
+    case 11: {
+        res = PolyToQString(GCF_PP_P(a, b));
+        break;
+    }
+    case 12: {
+        res = PolyToQString(DER_P_P(a));
+        break;
+    }
+    case 13: {
+        res = PolyToQString(NMR_P_P(a));
+        break;
+    }
+    }
+    qDebug() << res;
     return res;
 }
 

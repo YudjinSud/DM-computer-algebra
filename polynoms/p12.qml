@@ -1,12 +1,19 @@
 import QtQuick 2.3
 import QtQuick.Controls 1.2
 
+import io.qt.examples.BackendIOWrapper 1.0
+
 ApplicationWindow {
-    id: n1
+    id: p12
+    property int algo : 12
     width: 400; height: 400
     color: "#00557f"
-    title: qsTr("Сравнение")
+    title: qsTr("Производная многочлена")
     visible: true
+
+    BackendIOWrapper {
+        id : backend
+    }
 
     Text {
         id: desN1
@@ -15,10 +22,7 @@ ApplicationWindow {
         width: 370
         height: 146
         color: "#d5f476"
-        text: qsTr("Сравнение натуральных чисел:
-0 - если числа равны,
-1 - если второе больше первого,
-2 - если первое больше второго")
+        text: qsTr("Производная многочлена")
         font.pixelSize: 20
     }
 
@@ -26,28 +30,23 @@ ApplicationWindow {
         id: button
         x: 171
         y: 219
-        text: qsTr("Сравнить")
+        text: qsTr("Вычислить")
         onClicked: {
-
+            console.log(algo);
+            textArea.text = backend.calculatePoly(backend.input1, backend.input1, 0, "(1)/(1)",  algo)
         }
     }
 
     TextField {
         id: textField
-        x: 15
+        x: 106
         y: 188
         width: 181
         height: 25
-        placeholderText: qsTr("             Первое число")
-    }
+        placeholderText: qsTr("           Полином")
+        text: backend.input1
+        onTextChanged: backend.input1 = text
 
-    TextField {
-        id: textField1
-        x: 204
-        y: 188
-        width: 181
-        height: 25
-        placeholderText: qsTr("             Второе число")
     }
 
     TextArea {
@@ -56,5 +55,6 @@ ApplicationWindow {
         y: 250
         width: 255
         height: 44
+        readOnly: true
     }
 }

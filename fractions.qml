@@ -118,4 +118,19 @@ ApplicationWindow {
             window.show()
         }
     }
+
+    Text {
+        id: element
+        x: 16
+        y: 180
+        color: "#d5f476"
+        width: 371
+        height: 207
+        text: qsTr("Как вводить дроби:
+Дробь вводится в виде
+   (числитель)/(знаменатель)
+Например, вводить 1/2 нужно как
+    (1)/(2)")
+        font.pixelSize: 20
+    }
 }

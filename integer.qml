@@ -147,4 +147,17 @@ ApplicationWindow {
             window.show()
         }
     }
+
+    Text {
+        id: element
+        x: 16
+        y: 219
+        width: 371
+        height: 159
+        color: "#d5f476"
+        text: qsTr("Ввод целых чисел
+осуществляется так же, как и всегда.
+Отличного дня!)")
+        font.pixelSize: 20
+    }
 }

@@ -14,6 +14,11 @@ ApplicationWindow {
         width: 111
         height: 39
         text: qsTr("Сложение")
+        onClicked: {
+                    var component = Qt.createComponent("polynoms/p1.qml")
+            var window    = component.createObject("p1")
+            window.show()
+        }
     }
 
     Button {
@@ -23,6 +28,11 @@ ApplicationWindow {
         width: 111
         height: 39
         text: qsTr("Вычитание")
+        onClicked: {
+                    var component = Qt.createComponent("polynoms/p2.qml")
+            var window    = component.createObject("p2")
+            window.show()
+        }
     }
 
     Button {
@@ -32,6 +42,11 @@ ApplicationWindow {
         width: 111
         height: 39
         text: qsTr("Умножение на число")
+        onClicked: {
+                    var component = Qt.createComponent("polynoms/p3.qml")
+            var window    = component.createObject("p3")
+            window.show()
+        }
     }
 
     Button {
@@ -40,7 +55,12 @@ ApplicationWindow {
         y: 58
         width: 111
         height: 39
-        text: qsTr("Умножение на букву")
+        text: qsTr("Умножение на x^k")
+        onClicked: {
+                    var component = Qt.createComponent("polynoms/p4.qml")
+            var window    = component.createObject("p4")
+            window.show()
+        }
     }
 
     Button {
@@ -51,6 +71,11 @@ ApplicationWindow {
         height: 39
         text: qsTr("Старший
 коэффициент")
+        onClicked: {
+                    var component = Qt.createComponent("polynoms/p5.qml")
+            var window    = component.createObject("p5")
+            window.show()
+        }
     }
 
     Button {
@@ -60,6 +85,11 @@ ApplicationWindow {
         width: 111
         height: 39
         text: qsTr("Степень")
+        onClicked: {
+                    var component = Qt.createComponent("polynoms/p6.qml")
+            var window    = component.createObject("p6")
+            window.show()
+        }
     }
 
     Button {
@@ -69,6 +99,11 @@ ApplicationWindow {
         width: 111
         height: 39
         text: qsTr("Вынесение НОК")
+        onClicked: {
+                    var component = Qt.createComponent("polynoms/p7.qml")
+            var window    = component.createObject("p7")
+            window.show()
+        }
     }
 
     Button {
@@ -78,6 +113,11 @@ ApplicationWindow {
         width: 111
         height: 39
         text: qsTr("Умножение")
+        onClicked: {
+                    var component = Qt.createComponent("polynoms/p8.qml")
+            var window    = component.createObject("p8")
+            window.show()
+        }
     }
 
     Button {
@@ -87,6 +127,11 @@ ApplicationWindow {
         width: 111
         height: 39
         text: qsTr("Частное")
+        onClicked: {
+                    var component = Qt.createComponent("polynoms/p9.qml")
+            var window    = component.createObject("p9")
+            window.show()
+        }
     }
 
     Button {
@@ -96,6 +141,11 @@ ApplicationWindow {
         width: 111
         height: 39
         text: qsTr("Остаток")
+        onClicked: {
+                    var component = Qt.createComponent("polynoms/p10.qml")
+            var window    = component.createObject("p10")
+            window.show()
+        }
     }
 
     Button {
@@ -105,6 +155,11 @@ ApplicationWindow {
         width: 111
         height: 39
         text: qsTr("НОД")
+        onClicked: {
+                    var component = Qt.createComponent("polynoms/p11.qml")
+            var window    = component.createObject("p11")
+            window.show()
+        }
     }
 
     Button {
@@ -114,6 +169,11 @@ ApplicationWindow {
         width: 111
         height: 39
         text: qsTr("Производная")
+        onClicked: {
+                    var component = Qt.createComponent("polynoms/p12.qml")
+            var window    = component.createObject("p12")
+            window.show()
+        }
     }
 
     Button {
@@ -123,5 +183,28 @@ ApplicationWindow {
         width: 111
         height: 39
         text: qsTr("Преобразование")
+        onClicked: {
+                    var component = Qt.createComponent("polynoms/p13.qml")
+            var window    = component.createObject("p13")
+            window.show()
+        }
+    }
+
+    Text {
+        id: element
+        x: 16
+        y: 258
+        width: 371
+        height: 127
+        color: "#d5f476"
+        text: qsTr("Ввод полиномов.
+Коэффициенты перед одночленами - дроби.
+Как вводить дроби:
+   (числитель)/(знаменатель)
+После коэффициента без пробела вводится буква,
+знак "^" и показатель степени.
+Далее знак "+" (или "-") и (без пробела) следующий одночлен.
+Пример: (1)/(2)x^2+(1)/(3)x^1+(1)/(4)")
+        font.pixelSize: 12
     }
 }
