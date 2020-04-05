@@ -9,9 +9,16 @@ write_Poly::write_Poly(Poly poly) : poly_(poly) {
 }
 
 std::ostream &write_Poly::write(std::ostream &os) const {
+
+    Frac t;
     for (int i = poly_.m; i >= 0; i--) {
-        os << write_Frac(poly_.C[i]);
-        if (i != 0) os << "x^" << i << " + ";
+        t = poly_.C[i];
+        if (t == Frac() && poly_.m != 0);
+        else {
+            os << write_Frac(t);
+            if (i != 0) os << "x^" << i << " + ";
+            if (i == 0) os << "x^" << i;
+        }
     }
     return os;
 }
@@ -28,31 +35,36 @@ read_Poly::read_Poly(Poly &poly) : poly_(&poly) {
 std::istream &read_Poly::read(std::istream &is) {
     char c;
     Frac f;
-    is >> read_Frac(f);
     poly_->C.pop_back();
-    poly_->C.push_back(f);
     poly_->m = 0;
-    is >> c >> c;
-    int i = 0;
-    is >> c;
-    if (c == '0') return is;
-    while (c >= '0' && c <= '9') {
-        i *= 10;
-        i += int(c) - int('0');
-        is >> c;
-    }
-    is >> c;
-    for (; i > 0; i--) {
-        is >> c;
+    int last = -1;
+    int stepen = 0;
+    while (true) {
         is >> read_Frac(f);
-        poly_->C.push_back(f);
-        if (i != 1)
-            while (c != '+')
+
+        is >> c >> c;
+        int i = 0;
+        is >> c;
+        if (c != '0') {
+            while (c >= '0' && c <= '9') {
+                i *= 10;
+                i += int(c) - int('0');
                 is >> c;
+            }
+        }
+        if (last == -1) stepen = i;
+        for (int _ = 0; last != -1 && _ < last - i - 1; _++)
+            poly_->C.push_back(Frac());
+        last = i;
+        poly_->C.push_back(f);
+        if (i != 0)
+            is >> c >> c;
+        else {
+            reverse(begin(poly_->C), end(poly_->C));
+            poly_->m = stepen;
+            return is;
+        }
     }
-    reverse(begin(poly_->C), end(poly_->C));
-    poly_->m = int(poly_->C.size()) - 1;
-    return is;
 }
 
 std::istream &operator>>(std::istream &is, read_Poly RP) {

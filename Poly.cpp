@@ -3,11 +3,11 @@
 Poly ADD_PP_P(Poly a, Poly b) {
     if (a.m < b.m)
         swap(a, b);
-    for (int i = 0; i <= b.m; i++)
+    for (int i = 0; i <= b.m; i++) {
         a.C[i] = ADD_QQ_Q(a.C[i], b.C[i]);
-    Frac nul;
+    }
     for (int i = a.m; i >= 0; i--) {
-        if (a.C[i] == nul) {
+        if (a.C[i] == Frac()) {
             a.C.pop_back();
             a.m--;
         } else
@@ -165,7 +165,7 @@ Poly GCF_PP_P(Poly a, Poly b) {
         return GCF_PP_P(b, MOD_PP_P(a, b));
 }
 
-Poly DER_P_P(Poly a) { //P-12
+Poly DER_P_P(Poly a) {
     for (int i = 1; i <= a.m; i++) {
         int j = i;
         Integ h;

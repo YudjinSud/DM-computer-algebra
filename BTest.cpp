@@ -2,7 +2,7 @@
 
 
 void BTest::runAllTests() {
-    test_COM_NN_D();
+    /*test_COM_NN_D();
     test_NZER_N_B();
     test_ADD_1N_N();
     test_ADD_NN_N();
@@ -33,9 +33,9 @@ void BTest::runAllTests() {
     test_ADD_QQ_Q();
     test_SUB_QQ_Q();
     test_MUL_QQ_Q();
-    test_DIV_QQ_Q();
+    test_DIV_QQ_Q();*/
     test_ADD_PP_P();
-    test_SUB_PP_P();
+    /*test_SUB_PP_P();
     test_MUL_PQ_P();
     test_MUL_Pxk_P();
     test_LED_P_Q();
@@ -46,17 +46,18 @@ void BTest::runAllTests() {
     test_GCF_PP_P();
     test_DER_P_P();
     test_NMR_P_P();
-    test_FAC_P_Q();
+    test_FAC_P_Q();*/
 }
 
 void BTest::test_COM_NN_D() {
     Natural a, b;std::stringstream s_0;string s,res1;
-    s = "00.";
+    s = "123";
     s_0 << s;
     s_0 >> read_Nat(a);
-    s = "2.";
+    s = "2";
     s_0 << s;
     s_0 >> read_Nat(b);
+    cout << write_Nat(a) << '\n';
     DO_CHECK(COM_NN_D(a,b) == 1);
 }
 
@@ -940,15 +941,16 @@ void BTest::test_DIV_QQ_Q() {
 
 void BTest::test_ADD_PP_P() {
     Poly x,y,res; std::stringstream s_0;string s,res1;
-    s = "(1)/(1)x^1 + (1)/(2)";
+    s = "(1)/(1)x^10 + (1)/(2)x^0";
     s_0 << s;
     s_0 >> read_Poly(x);
     s = "(1)/(1)x^0";
     s_0 << s;
     s_0 >> read_Poly(y);
-    res1 = "(1)/(1)x^1 + (3)/(2)";
+    res1 = "(1)/(1)x^1 + (3)/(2)x^0";
     s_0 << res1;
     s_0 >> read_Poly(res);
+    cout << write_Poly(ADD_PP_P(x,y));
     DO_CHECK(ADD_PP_P(x,y) == res);
 }
 
