@@ -601,83 +601,121 @@ QString PolyToQString(Poly a) {
 }
 
 
-int checkInputPolyByString(string s1, string s2) {
-    //(100)/(1)x^1 + (1)/(1)x^0
-    int close = 0, open = 0, ixes = 0, pluses = 0, slesh = 0;
-    for (size_t i = 0; i < s1.size(); i++) {
-        if (s1[i] == '+')
-        {
-            pluses++;
-            if ((i < 1) || (i >= s1.size() - 1)) return 0;
-            if ((s1[i - 1] != ' ') || (s1[i + 1] != ' ')) return 0;
+bool checkPolyByString(string s) {
+    string s2;
+    for (size_t _ = 0; _ < s.size(); _++) { //check na drobi
+
+        while (_ < s.size() && s[_] != 'x') {
+            s2.push_back(s[_]);
+            _++;
         }
-        else if (s1[i] == ')') {
-            close++;
-            if (i == s1.size() - 1) return 0;
-            if ((s1[i + 1] != '/') && (s1[i + 1] != 'x')) return 0;
+        //if (checkInputFracByString(s2) == 0) return false;
+        while (_ < s.size() && s[_] != '(')
+            _++;
+        s2.clear();
+        s2.push_back('(');
+    }
+    for (size_t _ = 0; _ < s.size(); _++) { //check na +, x, ^
+        if (s[_] == '+') {
+            if (_ == 0 || _ == s.size() - 1)return false;
+            if (s[_ - 1] == s[_ + 1] && s[_ - 1] == ' ');
+            else return false;
         }
-        else if (s1[i] == '(') {
-            open++;
-            if (i) {
-                if (i > s1.size() - 5) return 0;
-                if ((s1[i - 1] != '/') && (s1[i - 1] != ' ')) return 0;
+        if (s[_] == 'x') {
+            if (_ >= s.size() - 2)return false;
+            if (s[_ + 1] != '^') return false;
+        }
+        if (s[_] == '^') {
+            if(_ == 0 || s[_ - 1] != 'x') return false;
+            _++;
+            while (_ < s.size() && s[_] != ' ') {
+                if (s[_] < '0' || s[_] > '9') return false;
+                _++;
             }
         }
-        else if (s1[i] == 'x') {
-            ixes++;
-            if ((i < 1) || (i >= s1.size() - 1)) return 0;
-            if ((s1[i + 1] != '^') || (s1[i - 1] != ')')) return 0;
-        }
-        else if (s1[i] == '/') {
-            slesh++;
-            if ((i < 1) || (i > s1.size() - 6)) return 0;
-            if ((s1[i - 1] != ')') || (s1[i + 1] != '(') || (s1[i + 2] == '-') || (s1[i + 2] == '0')) return 0;
-        }
-        else if (((s1[i] > 57) || (s1[i] < 48))&&(s1[i] != '^')&&(s1[i] != ' ')&&(s1[i] != '-')) return 0;
     }
-    if (open != close) return 0;
-    if (!open % 2) return 0;
-    if ((ixes != slesh) || (ixes != open / 2)) return 0;
-    if (pluses != ixes - 1) return 0;
-
-    close = 0;
-    open = 0;
-    ixes = 0;
-    pluses = 0;
-    slesh = 0;
-
-    for (size_t i = 0; i < s2.size(); i++) {
-        if (s2[i] == '+') {
-            pluses++;
-            if ((i < 1) || (i >= s2.size() - 1)) return 0;
-            if ((s2[i - 1] != ' ') || (s2[i + 1] != ' ')) return 0;
-        } else if (s2[i] == ')') {
-            close++;
-            if (i == s2.size() - 1) return 0;
-            if ((s2[i + 1] != '/') && (s2[i + 1] != 'x')) return 0;
-        } else if (s2[i] == '(') {
-            open++;
-            if (i) {
-                if (i > s2.size() - 5) return 0;
-                if ((s2[i - 1] != '/') && (s2[i - 1] != ' ')) return 0;
-            }
-        } else if (s2[i] == 'x') {
-            ixes++;
-            if ((i < 1) || (i >= s2.size() - 1)) return 0;
-            if ((s2[i + 1] != '^') || (s2[i - 1] != ')')) return 0;
-        } else if (s2[i] == '/') {
-            slesh++;
-            if ((i < 1) || (i > s2.size() - 6)) return 0;
-            if ((s2[i - 1] != ')') || (s2[i + 1] != '(') || (s2[i + 2] == '-') || (s2[i + 2] == '0')) return 0;
-        } else if (((s2[i] > 57) || (s2[i] < 48))&&(s2[i] != '^')&&(s2[i] != ' ')&&(s2[i] != '-')) return 0;
-    }
-    if (open != close) return 0;
-    if (!open % 2) return 0;
-    if ((ixes != slesh) || (ixes != open / 2)) return 0;
-    if (pluses != ixes - 1) return 0;
-
-    return 1;
+    return true;
 }
+
+
+//Версия Вари(sinbar) - тоже рабочая!
+//int checkInputPolyByString(string s1, string s2) {
+//    //(100)/(1)x^1 + (1)/(1)x^0
+//    int close = 0, open = 0, ixes = 0, pluses = 0, slesh = 0;
+//    for (size_t i = 0; i < s1.size(); i++) {
+//        if (s1[i] == '+')
+//        {
+//            pluses++;
+//            if ((i < 1) || (i >= s1.size() - 1)) return 0;
+//            if ((s1[i - 1] != ' ') || (s1[i + 1] != ' ')) return 0;
+//        }
+//        else if (s1[i] == ')') {
+//            close++;
+//            if (i == s1.size() - 1) return 0;
+//            if ((s1[i + 1] != '/') && (s1[i + 1] != 'x')) return 0;
+//        }
+//        else if (s1[i] == '(') {
+//            open++;
+//            if (i) {
+//                if (i > s1.size() - 5) return 0;
+//                if ((s1[i - 1] != '/') && (s1[i - 1] != ' ')) return 0;
+//            }
+//        }
+//        else if (s1[i] == 'x') {
+//            ixes++;
+//            if ((i < 1) || (i >= s1.size() - 1)) return 0;
+//            if ((s1[i + 1] != '^') || (s1[i - 1] != ')')) return 0;
+//        }
+//        else if (s1[i] == '/') {
+//            slesh++;
+//            if ((i < 1) || (i > s1.size() - 6)) return 0;
+//            if ((s1[i - 1] != ')') || (s1[i + 1] != '(') || (s1[i + 2] == '-') || (s1[i + 2] == '0')) return 0;
+//        }
+//        else if (((s1[i] > 57) || (s1[i] < 48))&&(s1[i] != '^')&&(s1[i] != ' ')&&(s1[i] != '-')) return 0;
+//    }
+//    if (open != close) return 0;
+//    if (!open % 2) return 0;
+//    if ((ixes != slesh) || (ixes != open / 2)) return 0;
+//    if (pluses != ixes - 1) return 0;
+
+//    close = 0;
+//    open = 0;
+//    ixes = 0;
+//    pluses = 0;
+//    slesh = 0;
+
+//    for (size_t i = 0; i < s2.size(); i++) {
+//        if (s2[i] == '+') {
+//            pluses++;
+//            if ((i < 1) || (i >= s2.size() - 1)) return 0;
+//            if ((s2[i - 1] != ' ') || (s2[i + 1] != ' ')) return 0;
+//        } else if (s2[i] == ')') {
+//            close++;
+//            if (i == s2.size() - 1) return 0;
+//            if ((s2[i + 1] != '/') && (s2[i + 1] != 'x')) return 0;
+//        } else if (s2[i] == '(') {
+//            open++;
+//            if (i) {
+//                if (i > s2.size() - 5) return 0;
+//                if ((s2[i - 1] != '/') && (s2[i - 1] != ' ')) return 0;
+//            }
+//        } else if (s2[i] == 'x') {
+//            ixes++;
+//            if ((i < 1) || (i >= s2.size() - 1)) return 0;
+//            if ((s2[i + 1] != '^') || (s2[i - 1] != ')')) return 0;
+//        } else if (s2[i] == '/') {
+//            slesh++;
+//            if ((i < 1) || (i > s2.size() - 6)) return 0;
+//            if ((s2[i - 1] != ')') || (s2[i + 1] != '(') || (s2[i + 2] == '-') || (s2[i + 2] == '0')) return 0;
+//        } else if (((s2[i] > 57) || (s2[i] < 48))&&(s2[i] != '^')&&(s2[i] != ' ')&&(s2[i] != '-')) return 0;
+//    }
+//    if (open != close) return 0;
+//    if (!open % 2) return 0;
+//    if ((ixes != slesh) || (ixes != open / 2)) return 0;
+//    if (pluses != ixes - 1) return 0;
+
+//    return 1;
+//}
 
 
 int checkInputPoly(Poly a, Poly b, int k, int id) {
@@ -734,12 +772,13 @@ QString BackendIOWrapper::calculatePoly(const QString &input1, const QString &in
 
 
 
-    int checkPolyString = checkInputPolyByString(s1, s2);
+    int checkPolyString1 = checkPolyByString(s1);
+    int checkPolyString2 = checkPolyByString(s2);
 
-    qDebug() << "Poly string tests ::" << checkPolyString;
+    qDebug() << "Poly string tests ::" << int (checkPolyString1 && checkPolyString2);
 
 
-    if(checkPolyString) {
+    if(checkPolyString1 && checkPolyString2) {
         s_0 << s1;
         s_0 >> read_Poly(a);
         s_0 << s2;
@@ -759,7 +798,8 @@ QString BackendIOWrapper::calculatePoly(const QString &input1, const QString &in
     QString res = "";
     int int32_id = stoi(id.toStdString());
 
-    //(1)/(1)x^100 + (1)/(1)x^0 (100)/(1)x^1+(1)/(1)x^0
+    //(100)/(1)x^1 + (1)/(1)
+    // (1)/(1)x^100 + (1)/(1)
 
 
 
