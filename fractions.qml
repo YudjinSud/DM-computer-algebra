@@ -3,7 +3,14 @@ import QtQuick.Controls 1.2
 
 ApplicationWindow {
     id: f
-    width: 400; height: 400
+    width: screen.width / 2
+    height: screen.height / 3
+
+    maximumHeight: screen.height / 2
+    maximumWidth: screen.width / 3
+
+    minimumHeight: screen.height / 2
+    minimumWidth: screen.width / 3
     color: "#00557f"
     title: qsTr("Дроби")
 

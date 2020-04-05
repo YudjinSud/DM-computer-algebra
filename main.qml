@@ -1,11 +1,20 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.5
 
+import QtQuick.Window 2.0
+
 ApplicationWindow {
     id: applicationWindow
     visible: true
-    width: 640
-    height: 480
+    width: screen.width / 2
+    height: screen.height / 3
+
+    maximumHeight: screen.height / 2
+    maximumWidth: screen.width / 3
+
+    minimumHeight: screen.height / 2
+    minimumWidth: screen.width / 3
+
     color: "#00557f"
     title: qsTr("Приложение ДМ")
 
