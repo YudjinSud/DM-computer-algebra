@@ -78,33 +78,35 @@ int DEG_P_N(Poly a) {
 }
 
 Poly FAC_P_Q(Poly a) {
-    Natural NOD, NOK;
     if (a.m > 0) {
+        Natural NOD, NOK;
         NOD = TRANS_Z_N(a.C[0].p);
         NOK = a.C[0].q;
-    }
-    for (int i = 1; i <= a.m; i++) {
-        NOD = GCF_NN_N(NOD, TRANS_Z_N(a.C[i].p));
-        NOK = LCM_NN_N(NOK, a.C[i].q);
-    }
-    for (int i = 0; i <= a.m; i++) {
-        int x = a.C[i].p.b;
-        Integ nul;
-        nul.b = 0; nul.n = 1; nul.dig = {0};
-        if(a.C[i].p == nul);
-        else a.C[i].p = MUL_ZZ_Z(TRANS_N_Z(DIV_NN_N(TRANS_Z_N(a.C[i].p), NOD)), TRANS_N_Z(DIV_NN_N(NOK, a.C[i].q)));
-        a.C[i].p.b = x;
-        a.C[i].q.n = 1;
-        a.C[i].q.dig = {1};
-    }
-    if(a.C[a.m].p.b == 1){
-        Integ nul;
-        nul.b = 0;
-        nul.n = 1;
-        nul.dig = {0};
-        for(int i = 0; i <= a.m; i++)
-        if (!(nul == a.C[i].p)){
-            a.C[i].p.b = 1 - a.C[i].p.b;
+        for (int i = 1; i <= a.m; i++) {
+            NOD = GCF_NN_N(NOD, TRANS_Z_N(a.C[i].p));
+            NOK = LCM_NN_N(NOK, a.C[i].q);
+        }
+        for (int i = 0; i <= a.m; i++) {
+            int x = a.C[i].p.b;
+            Integ nul;
+            nul.b = 0;
+            nul.n = 1;
+            nul.dig = {0};
+            if (a.C[i].p == nul);
+            else a.C[i].p = MUL_ZZ_Z(TRANS_N_Z(DIV_NN_N(TRANS_Z_N(a.C[i].p), NOD)), TRANS_N_Z(DIV_NN_N(NOK, a.C[i].q)));
+            a.C[i].p.b = x;
+            a.C[i].q.n = 1;
+            a.C[i].q.dig = {1};
+        }
+        if (a.C[a.m].p.b == 1) {
+            Integ nul;
+            nul.b = 0;
+            nul.n = 1;
+            nul.dig = {0};
+            for (int i = 0; i <= a.m; i++)
+                if (!(nul == a.C[i].p)) {
+                    a.C[i].p.b = 1 - a.C[i].p.b;
+                }
         }
     }
     return a;
@@ -127,7 +129,7 @@ Poly DIV_PP_P(Poly a, Poly b) {
     Poly c;
     Frac x;
     int curr_check = DEG_P_N(a);
-    for (;curr_check >= DEG_P_N(b); --curr_check) {
+    for (; curr_check >= DEG_P_N(b); --curr_check) {
         if (a.m < curr_check) {
             c.C.push_back(Frac());
         } else {
@@ -151,13 +153,11 @@ Poly DIV_PP_P(Poly a, Poly b) {
 Poly MOD_PP_P(Poly a, Poly b) {
     int stepen_c = DEG_P_N(a) - DEG_P_N(b);
     if (stepen_c < 0) return Poly();
-    Poly c = DIV_PP_P(a,b);
-    return SUB_PP_P(a, MUL_PP_P(c,b));
+    Poly c = DIV_PP_P(a, b);
+    return SUB_PP_P(a, MUL_PP_P(c, b));
 }
 
 Poly GCF_PP_P(Poly a, Poly b) {
-    if (a.m < b.m)
-        swap(a, b);
     if (b == Poly()) {
         a = FAC_P_Q(a);
         return a;
@@ -167,6 +167,7 @@ Poly GCF_PP_P(Poly a, Poly b) {
 
 Poly DER_P_P(Poly a) {
     for (int i = 1; i <= a.m; i++) {
+        // if(a.C[i] == Frac()) continue;
         int j = i;
         Integ h;
         h.b = 0;
@@ -174,6 +175,7 @@ Poly DER_P_P(Poly a) {
             h.dig.push_back(j % 10);
             j /= 10;
         }
+        reverse(begin(h.dig), end(h.dig));
         h.n = int(h.dig.size());
         a.C[i - 1] = MUL_QQ_Q(a.C[i], TRANS_Z_Q(h));
     }

@@ -34,19 +34,19 @@ void BTest::runAllTests() {
     test_SUB_QQ_Q();
     test_MUL_QQ_Q();
     test_DIV_QQ_Q();*/
-    test_ADD_PP_P();
-    /*test_SUB_PP_P();
-    test_MUL_PQ_P();
-    test_MUL_Pxk_P();
-    test_LED_P_Q();
-    test_DEG_P_N();
-    test_MUL_PP_P();
-    test_DIV_PP_P();
-    test_MOD_PP_P();
+//    test_ADD_PP_P();
+//    test_SUB_PP_P();
+//    test_MUL_PQ_P();
+//    test_MUL_Pxk_P();
+//    test_LED_P_Q();
+//    test_DEG_P_N();
+//    test_MUL_PP_P();
+//    test_DIV_PP_P();
+//    test_MOD_PP_P();
     test_GCF_PP_P();
-    test_DER_P_P();
-    test_NMR_P_P();
-    test_FAC_P_Q();*/
+//    test_DER_P_P();
+//    test_NMR_P_P();
+  //  test_FAC_P_Q();
 }
 
 void BTest::test_COM_NN_D() {
@@ -944,13 +944,12 @@ void BTest::test_ADD_PP_P() {
     s = "(1)/(1)x^10 + (1)/(2)x^0";
     s_0 << s;
     s_0 >> read_Poly(x);
-    s = "(1)/(1)x^0";
+    s = "(1)/(1)x^1 + (1)/(2)x^0";
     s_0 << s;
     s_0 >> read_Poly(y);
-    res1 = "(1)/(1)x^1 + (3)/(2)x^0";
+    res1 = "(1)/(1)x^10 + (1)/(1)x^1 + (1)/(1)x^0";
     s_0 << res1;
     s_0 >> read_Poly(res);
-    cout << write_Poly(ADD_PP_P(x,y));
     DO_CHECK(ADD_PP_P(x,y) == res);
 }
 
@@ -1026,124 +1025,13 @@ void BTest::test_DEG_P_N() {
 }
 
 void BTest::test_FAC_P_Q() {
-    Frac a1, a2, a3, a4,b1, b2, b3, b4, res1, res2, res3,res4,res5,res6;
-    Poly x, y, res;
-    x.m = 2;
-    a1.p.b = 0;
-    a1.p.n = 1;
-    a1.p.dig = {6};
-    a1.q.n = 1;
-    a1.q.dig = {3};
-    a2.p.b = 0;
-    a2.p.n = 1;
-    a2.p.dig = {3};
-    a2.q.n = 1;
-    a2.q.dig = {3};
-    a3.p.b = 0;
-    a3.p.n = 1;
-    a3.p.dig = {3};
-    a3.q.n = 1;
-    a3.q.dig = {1};
-    x.C = {a3, a2, a1};
-    res.m = 2;
-    a1.p.b = 0;
-    a1.p.n = 1;
-    a1.p.dig = {2};
-    a1.q.n = 1;
-    a1.q.dig = {1};
-    a2.p.b = 0;
-    a2.p.n = 1;
-    a2.p.dig = {1};
-    a2.q.n = 1;
-    a2.q.dig = {1};
-    a3.p.b = 0;
-    a3.p.n = 1;
-    a3.p.dig = {3};
-    a3.q.n = 1;
-    a3.q.dig = {1};
-    res.C = {a3, a2, a1};
-//    std::cout << write_Poly(x) << std::endl;
-//    std::cout << write_Poly(res) << std::endl;
-//    std::cout << write_Poly(FAC_P_Q(x)) << std::endl;
-    DO_CHECK(FAC_P_Q(x) == res);
-
-
-    x.m = 2;
-    a1.p.b = 1;
-    a1.p.n = 1;
-    a1.p.dig = {2};
-    a1.q.n = 1;
-    a1.q.dig = {3};
-    a2.p.b = 0;
-    a2.p.n = 1;
-    a2.p.dig = {0};
-    a2.q.n = 1;
-    a2.q.dig = {1};
-    a3.p.b = 0;
-    a3.p.n = 1;
-    a3.p.dig = {1};
-    a3.q.n = 1;
-    a3.q.dig = {6};
-    x.C = {a3, a2, a1};
-    res.m = 2;
-    res1.p.b = 0;
-    res1.p.n = 1;
-    res1.p.dig = {4};
-    res1.q.n = 1;
-    res1.q.dig = {1};
-    res2.p.b = 0;
-    res2.p.n = 1;
-    res2.p.dig = {0};
-    res2.q.n = 1;
-    res2.q.dig = {1};
-    res3.p.b = 1;
-    res3.p.n = 1;
-    res3.p.dig = {1};
-    res3.q.n = 1;
-    res3.q.dig = {1};
-    res.C = {res3,res2,res1};
-//    std::cout << write_Poly(x) << std::endl;
-//    std::cout << write_Poly(res) << std::endl;
-//    std::cout << write_Poly(FAC_P_Q(x)) << std::endl;
-    DO_CHECK(FAC_P_Q(x) == res);
-
-    x.m = 2;
-    a1.p.b = 1;
-    a1.p.n = 1;
-    a1.p.dig = {2};
-    a1.q.n = 1;
-    a1.q.dig = {3};
-    a2.p.b = 0;
-    a2.p.n = 1;
-    a2.p.dig = {0};
-    a2.q.n = 1;
-    a2.q.dig = {1};
-    a3.p.b = 0;
-    a3.p.n = 1;
-    a3.p.dig = {1};
-    a3.q.n = 1;
-    a3.q.dig = {6};
-    x.C = {a3, a2, a1};
-    res.m = 2;
-    res1.p.b = 0;
-    res1.p.n = 1;
-    res1.p.dig = {4};
-    res1.q.n = 1;
-    res1.q.dig = {1};
-    res2.p.b = 0;
-    res2.p.n = 1;
-    res2.p.dig = {0};
-    res2.q.n = 1;
-    res2.q.dig = {1};
-    res3.p.b = 1;
-    res3.p.n = 1;
-    res3.p.dig = {1};
-    res3.q.n = 1;
-    res3.q.dig = {1};
-    res.C = {res3,res2,res1};
-//    std::cout << write_Poly(x) << std::endl;
-//    std::cout << write_Poly(res) << std::endl;
-//    std::cout << write_Poly(FAC_P_Q(x)) << std::endl;
+    Poly x,y,res; std::stringstream s_0;string s,res1;
+    s = "(-97)/(1)x^1 + (56)/(1)x^0";
+    s_0 << s;
+    s_0 >> read_Poly(x);
+    s = "(97)/(1)x^1 + (-56)/(1)x^0";
+    s_0 << s;
+    s_0 >> read_Poly(res);
     DO_CHECK(FAC_P_Q(x) == res);
 }
 
@@ -1353,62 +1241,32 @@ void BTest::test_MOD_PP_P() {
 
 void BTest::test_GCF_PP_P() {
     Poly x,y,res; std::stringstream s_0;string s,res1;
-    s = "(1)/(1)x^5 + (-22)/(1)x^4 + (156)/(1)x^3 + (-242)/(1)x^2 + (-1405)/(1)x^1 + (4200)/(1)";
+    s = "(-97)/(1)x^1 + (56)/(1)x^0";
     s_0 << s;
     s_0 >> read_Poly(x);
-    s = "(1)/(1)x^5 + (-24)/(1)x^4 + (190)/(1)x^3 + (-384)/(1)x^2 + (-1631)/(1)x^1 + (5880)/(1)";
+    s = "(-97)/(1)x^1 + (52)/(1)x^0";
     s_0 << s;
     s_0 >> read_Poly(y);
-    res1 = "(1)/(1)x^4 + (-17)/(1)x^3 + (71)/(1)x^2 + (113)/(1)x^1 + (-840)/(1)";
+    res1 = "(-97)/(1)x^1 + (52)/(1)x^0";
     s_0 << res1;
     s_0 >> read_Poly(res);
-
     DO_CHECK(GCF_PP_P(x,y) == res);
 }
 
 void BTest::test_DER_P_P() {
-    Frac a1, a2, a3, a4, res1, res2, res3;
-    Poly x, res;
-    x.m = 3;
-    a1.p.b = 0;
-    a1.p.n = 1;
-    a1.p.dig = {2};
-    a1.q.n = 1;
-    a1.q.dig = {1};
-    a2.p.b = 1;
-    a2.p.n = 1;
-    a2.p.dig = {3};
-    a2.q.n = 1;
-    a2.q.dig = {1};
-    a3.p.b = 0;
-    a3.p.n = 1;
-    a3.p.dig = {0};
-    a3.q.n = 1;
-    a3.q.dig = {1};
-    a4.p.b = 0;
-    a4.p.n = 1;
-    a4.p.dig = {1};
-    a4.q.n = 1;
-    a4.q.dig = {1};
-    x.C = {a1, a2, a3, a4};
-    res.m = 2;
-    res1.p.b = 1;
-    res1.p.n = 1;
-    res1.p.dig = {3};
-    res1.q.n = 1;
-    res1.q.dig = {1};
-    res2.p.b = 0;
-    res2.p.n = 1;
-    res2.p.dig = {0};
-    res2.q.n = 1;
-    res2.q.dig = {1};
-    res3.p.b = 0;
-    res3.p.n = 1;
-    res3.p.dig = {3};
-    res3.q.n = 1;
-    res3.q.dig = {1};
-    res.C = {res1, res2, res3};
+    //(1)/(1)x^100 + (1)/(1)x^0
+    Poly x,y,res; std::stringstream s_0;string s,res1;
+    s = "(1)/(1)x^100 + (1)/(1)x^0";
+    s_0 << s;
+    s_0 >> read_Poly(x);
+    s = "(100)/(1)x^99 + (0)/(1)x^0";
+    s_0 << s;
+    s_0 >> read_Poly(res);
+    cout << write_Poly(x) << '\n';
+    cout << write_Poly(res) << '\n';
+    cout << write_Poly(DER_P_P(x)) << '\n';
     DO_CHECK(DER_P_P(x) == res);
+
 }
 
 void BTest::test_NMR_P_P() {
