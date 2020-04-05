@@ -88,4 +88,14 @@ ApplicationWindow {
         fillMode: Image.PreserveAspectFit
     }
 
+    Image {
+        id: image1
+        x: 0
+        y: 381
+        width: 100
+        height: 98
+        source: "../../../Downloads/photo_2020-04-05_17-15-08.jpg"
+        fillMode: Image.PreserveAspectFit
+    }
+
 }
