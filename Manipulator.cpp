@@ -11,13 +11,17 @@ write_Poly::write_Poly(Poly poly) : poly_(poly) {
 std::ostream &write_Poly::write(std::ostream &os) const {
 
     Frac t;
+    bool flag = false;
     for (int i = poly_.m; i >= 0; i--) {
         t = poly_.C[i];
         if (t == Frac() && poly_.m != 0);
         else {
+            if(flag) {
+                os <<  " + ";
+            }
             os << write_Frac(t);
-            if (i != 0) os << "x^" << i << " + ";
-            if (i == 0) os << "x^" << i;
+            os << "x^" << i;
+            flag = true;
         }
     }
     return os;

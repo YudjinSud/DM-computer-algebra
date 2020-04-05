@@ -11,6 +11,8 @@ int POZ_Z_D(Integ a) {
     return 2 - a.b;
 }
 
+
+
 Integ MUL_ZM_Z(Integ a) {
     if(NZER_N_B(TRANS_Z_N(ABS_Z_N(a)))) {
         a.b = 0;

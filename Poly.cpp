@@ -167,6 +167,7 @@ Poly GCF_PP_P(Poly a, Poly b) {
 
 Poly DER_P_P(Poly a) {
     for (int i = 1; i <= a.m; i++) {
+       // if(a.C[i] == Frac()) continue;
         int j = i;
         Integ h;
         h.b = 0;
@@ -174,6 +175,7 @@ Poly DER_P_P(Poly a) {
             h.dig.push_back(j % 10);
             j /= 10;
         }
+        reverse(begin(h.dig), end(h.dig));
         h.n = int(h.dig.size());
         a.C[i - 1] = MUL_QQ_Q(a.C[i], TRANS_Z_Q(h));
     }
