@@ -46,3 +46,5 @@ HEADERS += \
     Natural.h \
     Poly.h \
     Test.h
+
+DISTFILES +=

@@ -602,31 +602,38 @@ QString PolyToQString(Poly a) {
 
 
 int checkInputPolyByString(string s1, string s2) {
+    //(100)/(1)x^1 + (1)/(1)x^0
     int close = 0, open = 0, ixes = 0, pluses = 0, slesh = 0;
     for (size_t i = 0; i < s1.size(); i++) {
-        if (s1[i] == '+') {
+        if (s1[i] == '+')
+        {
             pluses++;
             if ((i < 1) || (i >= s1.size() - 1)) return 0;
             if ((s1[i - 1] != ' ') || (s1[i + 1] != ' ')) return 0;
-        } else if (s1[i] == ')') {
+        }
+        else if (s1[i] == ')') {
             close++;
             if (i == s1.size() - 1) return 0;
             if ((s1[i + 1] != '/') && (s1[i + 1] != 'x')) return 0;
-        } else if (s1[i] == '(') {
+        }
+        else if (s1[i] == '(') {
             open++;
-            if (!i) {
+            if (i) {
                 if (i > s1.size() - 5) return 0;
                 if ((s1[i - 1] != '/') && (s1[i - 1] != ' ')) return 0;
             }
-        } else if (s1[i] == 'x') {
+        }
+        else if (s1[i] == 'x') {
             ixes++;
             if ((i < 1) || (i >= s1.size() - 1)) return 0;
             if ((s1[i + 1] != '^') || (s1[i - 1] != ')')) return 0;
-        } else if (s1[i] == '/') {
+        }
+        else if (s1[i] == '/') {
             slesh++;
             if ((i < 1) || (i > s1.size() - 6)) return 0;
             if ((s1[i - 1] != ')') || (s1[i + 1] != '(') || (s1[i + 2] == '-') || (s1[i + 2] == '0')) return 0;
-        } else if ((s1[i] > 57) || (s1[i] < 48)) return 0;
+        }
+        else if (((s1[i] > 57) || (s1[i] < 48))&&(s1[i] != '^')&&(s1[i] != ' ')&&(s1[i] != '-')) return 0;
     }
     if (open != close) return 0;
     if (!open % 2) return 0;
@@ -650,7 +657,7 @@ int checkInputPolyByString(string s1, string s2) {
             if ((s2[i + 1] != '/') && (s2[i + 1] != 'x')) return 0;
         } else if (s2[i] == '(') {
             open++;
-            if (!i) {
+            if (i) {
                 if (i > s2.size() - 5) return 0;
                 if ((s2[i - 1] != '/') && (s2[i - 1] != ' ')) return 0;
             }
@@ -662,7 +669,7 @@ int checkInputPolyByString(string s1, string s2) {
             slesh++;
             if ((i < 1) || (i > s2.size() - 6)) return 0;
             if ((s2[i - 1] != ')') || (s2[i + 1] != '(') || (s2[i + 2] == '-') || (s2[i + 2] == '0')) return 0;
-        } else if ((s2[i] > 57) || (s2[i] < 48)) return 0;
+        } else if (((s2[i] > 57) || (s2[i] < 48))&&(s2[i] != '^')&&(s2[i] != ' ')&&(s2[i] != '-')) return 0;
     }
     if (open != close) return 0;
     if (!open % 2) return 0;
@@ -671,8 +678,6 @@ int checkInputPolyByString(string s1, string s2) {
 
     return 1;
 }
-
-
 
 
 int checkInputPoly(Poly a, Poly b, int k, int id) {
@@ -692,7 +697,6 @@ switch (id) {
     }
     return 1;
 }
-
 
 QString BackendIOWrapper::calculatePoly(const QString &input1, const QString &input2, const QString &integ, const QString &frac,  const QString &id) {
     std::stringstream s_0;
@@ -719,6 +723,7 @@ QString BackendIOWrapper::calculatePoly(const QString &input1, const QString &in
 
     string tmp;
 
+
     s1.push_back('x');
     s1.push_back('^');
     s1.push_back('0');
@@ -727,9 +732,12 @@ QString BackendIOWrapper::calculatePoly(const QString &input1, const QString &in
     s2.push_back('^');
     s2.push_back('0');
 
+
+
     int checkPolyString = checkInputPolyByString(s1, s2);
 
     qDebug() << "Poly string tests ::" << checkPolyString;
+
 
     if(checkPolyString) {
         s_0 << s1;
