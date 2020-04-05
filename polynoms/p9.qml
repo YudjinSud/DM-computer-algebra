@@ -17,8 +17,8 @@ ApplicationWindow {
 
     Text {
         id: desN1
-        x: 15
-        y: 13
+        x: 18
+        y: 11
         width: 370
         height: 146
         color: "#d5f476"
@@ -41,9 +41,9 @@ ApplicationWindow {
 
     TextField {
         id: textField
-        x: 15
-        y: 188
-        width: 181
+        x: 35
+        y: 145
+        width: 324
         height: 25
         placeholderText: qsTr("           Первый полином")
         text: backend.input1
@@ -53,9 +53,9 @@ ApplicationWindow {
 
     TextField {
         id: textField1
-        x: 204
+        x: 35
         y: 188
-        width: 181
+        width: 324
         height: 25
         placeholderText: qsTr("           Второй полином")
         text: backend.input2
@@ -64,10 +64,10 @@ ApplicationWindow {
 
     TextArea {
         id: textArea
-        x: 80
+        x: 35
         y: 250
-        width: 255
-        height: 44
+        width: 324
+        height: 106
         readOnly: true
     }
 }

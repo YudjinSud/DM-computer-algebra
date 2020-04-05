@@ -41,22 +41,23 @@ ApplicationWindow {
 
     TextField {
         id: textField
-        x: 106
-        y: 188
-        width: 181
+        x: 35
+        y: 145
+        width: 324
         height: 25
-        placeholderText: qsTr("           Полином")
+        placeholderText: qsTr("            Полином")
         text: backend.input1
         onTextChanged: backend.input1 = text
 
     }
 
+
     TextArea {
         id: textArea
-        x: 80
+        x: 35
         y: 250
-        width: 255
-        height: 44
+        width: 324
+        height: 106
         readOnly: true
     }
 }
