@@ -165,7 +165,7 @@ Poly GCF_PP_P(Poly a, Poly b) {
         return GCF_PP_P(b, MOD_PP_P(a, b));
 }
 
-Poly DER_P_P(Poly a) { //P-12
+Poly DER_P_P(Poly a) {
     for (int i = 1; i <= a.m; i++) {
         int j = i;
         Integ h;
