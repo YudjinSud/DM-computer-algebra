@@ -202,4 +202,3 @@ std::istream &operator>>(std::istream &is, read_Nat RN) {
     assert(is);
     return RN.read(is);
 }
-
