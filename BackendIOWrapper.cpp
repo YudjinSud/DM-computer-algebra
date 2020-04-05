@@ -152,6 +152,9 @@ QString BackendIOWrapper::calculateNatural (const QString &input1, const QString
     Natural a, b, resNat;
 
     int checkToManip = checkInputNaturalByString(s1, s2);
+
+    qDebug() << "Natural string test:: " << checkToManip;
+
     if(checkToManip) {
         //перед тем, как засылать в манипулятор, нужно проверить просто строки.
         //Например, если это хотя бы число. isnumeric() тоже неплохая фукнция для этого
@@ -178,6 +181,9 @@ QString BackendIOWrapper::calculateNatural (const QString &input1, const QString
     int int32_id = stoi(id.toStdString());
 
     int check = checkInputNaturals(a, b, k, int32_id);
+
+    qDebug() << "Naturals switch tests :: " << check;
+
     //проверки на логику. Техническая правильность ввода уже не проверяется.
 
     if(check) {
@@ -325,6 +331,9 @@ QString BackendIOWrapper::calculateInteger (const QString &input1, const QString
     Natural n;
 
     int checkToManip = checkInputIntegerToManip(s1, s2);
+
+    qDebug() << "Iteger string tests :: " << checkToManip;
+
     if(checkToManip) {
         s1.push_back('.');
         s2.push_back('.');
@@ -344,6 +353,9 @@ QString BackendIOWrapper::calculateInteger (const QString &input1, const QString
     int int32_id = stoi(id.toStdString());
 
     int check = checkInputInteger(a, b, int32_id);
+
+    qDebug() << "Intger switch tests :: " << check;
+
     if(check) {
         switch(int32_id) {
         case 1 : {
@@ -416,20 +428,52 @@ QString FractionToQString(Frac a) {
 
 
 int checkInputFracByString(string s) {
+
+    stack<int> pars; // стек для проверки скобок
+
     for (size_t i = 0; i < s.size(); i++)
     {
         if(!((s[i] >= '0' && s[i] <= '9') || (s[i] == '/') || (s[i] == '(') || (s[i] == ')') || (s[i] == '-') || (s[i] == ' '))) {
             qDebug() << s[i];
             return 0;
         }
+        if(s[i] == '(') {
+            if (pars.empty() == false) {
+                return 0;
+            }
+            pars.push(1);
+        }
+        else if(s[i] == ')') {
+            if (pars.empty() == true) {
+                return 0;
+            }
+            pars.pop();
+        }
         if (s[i] == '/')
         {
             i++;
-            while ((s[i] == ' ') || (s[i] == '('))
+            if(s[i] == '(') {
+                if (pars.empty() == false) {
+                    return 0;
+                }
+                pars.push(1);
+            }
+            while ((s[i] == ' ') || (s[i] == '(')) {
                 i++;
+                if(s[i] == '(') {
+                    if (pars.empty() == false) {
+                        return 0;
+                    }
+                    pars.push(1);
+                }
+            }
             if (((s[i] == '-')||(s[i] == '0')) || !((s[i] >= '0' && s[i] <= '9') || (s[i] == '/') || (s[i] == '(') || (s[i] == ')') || (s[i] == '-') || (s[i] == ' ')))
                 return 0;
         }
+    }
+    if (pars.empty() == false) {
+        qDebug() << "from there 3";
+        return 0;
     }
     return 1;
 }
@@ -474,6 +518,7 @@ QString BackendIOWrapper::calculateFraction(const QString &frac1, const QString 
 
     //(9)/(3)
 
+    qDebug() << "Frack string tests :: " << ( int) (checkFracStr1 && checkFracStr2);
 
     if(checkFracStr1 && checkFracStr2) {
         ss << str_fraction1;
@@ -495,6 +540,9 @@ QString BackendIOWrapper::calculateFraction(const QString &frac1, const QString 
     int int32_id = stoi(id.toStdString());
 
     int check = checkInputFrac(a,b,int32_id);
+
+    qDebug() << "Frack switch tests :: " << check;
+
     if(check) {
         switch(int32_id) {
         case 1 : {
@@ -554,75 +602,93 @@ QString PolyToQString(Poly a) {
 
 
 int checkInputPolyByString(string s1, string s2) {
-    for (size_t i = 0; i < s1.size(); i++)
-    {
+    int close = 0, open = 0, ixes = 0, pluses = 0, slesh = 0;
+    for (size_t i = 0; i < s1.size(); i++) {
+        if (s1[i] == '+') {
+            pluses++;
+            if ((i < 1) || (i >= s1.size() - 1)) return 0;
+            if ((s1[i - 1] != ' ') || (s1[i + 1] != ' ')) return 0;
+        } else if (s1[i] == ')') {
+            close++;
+            if (i == s1.size() - 1) return 0;
+            if ((s1[i + 1] != '/') && (s1[i + 1] != 'x')) return 0;
+        } else if (s1[i] == '(') {
+            open++;
+            if (!i) {
+                if (i > s1.size() - 5) return 0;
+                if ((s1[i - 1] != '/') && (s1[i - 1] != ' ')) return 0;
+            }
+        } else if (s1[i] == 'x') {
+            ixes++;
+            if ((i < 1) || (i >= s1.size() - 1)) return 0;
+            if ((s1[i + 1] != '^') || (s1[i - 1] != ')')) return 0;
+        } else if (s1[i] == '/') {
+            slesh++;
+            if ((i < 1) || (i > s1.size() - 6)) return 0;
+            if ((s1[i - 1] != ')') || (s1[i + 1] != '(') || (s1[i + 2] == '-') || (s1[i + 2] == '0')) return 0;
+        } else if ((s1[i] > 57) || (s1[i] < 48)) return 0;
+    }
+    if (open != close) return 0;
+    if (!open % 2) return 0;
+    if ((ixes != slesh) || (ixes != open / 2)) return 0;
+    if (pluses != ixes - 1) return 0;
 
-        if(!((s1[i] >= '0' && s1[i] <= '9') || (s1[i] == '/') || (s1[i] == '(') || (s1[i] == ')') || (s1[i] == '-') || (s1[i] == ' ')) && (s1[i] != 'x')) {
-            qDebug() << s1[i];
-            return 0;
-        }
-        if (s1[i] == '/')
-        {
-            i++;
-            while ((s1[i] == ' ') || (s1[i] == '('))
-                i++;
-            if ((s1[i] == '-')||(s1[i] == '0')) return 0;
-        }
+    close = 0;
+    open = 0;
+    ixes = 0;
+    pluses = 0;
+    slesh = 0;
+
+    for (size_t i = 0; i < s2.size(); i++) {
+        if (s2[i] == '+') {
+            pluses++;
+            if ((i < 1) || (i >= s2.size() - 1)) return 0;
+            if ((s2[i - 1] != ' ') || (s2[i + 1] != ' ')) return 0;
+        } else if (s2[i] == ')') {
+            close++;
+            if (i == s2.size() - 1) return 0;
+            if ((s2[i + 1] != '/') && (s2[i + 1] != 'x')) return 0;
+        } else if (s2[i] == '(') {
+            open++;
+            if (!i) {
+                if (i > s2.size() - 5) return 0;
+                if ((s2[i - 1] != '/') && (s2[i - 1] != ' ')) return 0;
+            }
+        } else if (s2[i] == 'x') {
+            ixes++;
+            if ((i < 1) || (i >= s2.size() - 1)) return 0;
+            if ((s2[i + 1] != '^') || (s2[i - 1] != ')')) return 0;
+        } else if (s2[i] == '/') {
+            slesh++;
+            if ((i < 1) || (i > s2.size() - 6)) return 0;
+            if ((s2[i - 1] != ')') || (s2[i + 1] != '(') || (s2[i + 2] == '-') || (s2[i + 2] == '0')) return 0;
+        } else if ((s2[i] > 57) || (s2[i] < 48)) return 0;
     }
-    for (size_t i = 0; i < s2.size(); i++)
-    {
-        if(!((s2[i] >= '0' && s2[i] <= '9') || (s2[i] == '/') || (s2[i] == '(') || (s2[i] == ')') || (s2[i] == '-') || (s2[i] == ' ')) && (s2[i] != 'x')) {
-            qDebug() << s2[i];
-            return 0;
-        }
-        if (s2[i] == '/')
-        {
-            i++;
-            while ((s2[i] == ' ') || (s2[i] == '('))
-                i++;
-            if ((s2[i] == '-')||(s2[i] == '0')) return 0;
-        }
-    }
+    if (open != close) return 0;
+    if (!open % 2) return 0;
+    if ((ixes != slesh) || (ixes != open / 2)) return 0;
+    if (pluses != ixes - 1) return 0;
+
+    return 1;
 }
 
 
-int checkInputPoly(Poly a, Poly b, int k, string s1, string s2, int id) {
-
-    bool is = false;
-    if (!a.m)
-    {
-        for (size_t i = 0; i < s1.size(); i++)
-        {
-            if (s1[i] == 'x')
-                is = true;
-        }
-    }
-    if (!is) return 0;
-    is = false;
-    if (!b.m)
-    {
-        for (size_t i = 0; i < s2.size(); i++)
-        {
-            if (s2[i] == 'x')
-                is = true;
-        }
-    }
-    if (!is) return 0;
 
 
-    switch (id) {
-    case 4:
-        if (k < 0) return 0;
-        break;
-    case 9:
-        if ((b.C[0].p.dig[0] == 0)&&(!b.m)) return 0;
-        break;
-    case 10:
-        if ((b.C[0].p.dig[0] == 0)&&(!b.m)) return 0;
-        break;
-    case 11:
-        if (((a.C[0].p.dig[0] == 0)&&(!a.m))|| ((b.C[0].p.dig[0] == 0)&&(!b.m))) return 0;
-        break;
+int checkInputPoly(Poly a, Poly b, int k, int id) {
+switch (id) {
+        case 4:
+            if (k < 0) return 0;
+            break;
+        case 9:
+            if ((b.C[0].p.dig[0] == 0)&&(b.C.size() == 1)) return 0;
+            break;
+        case 10:
+            if ((b.C[0].p.dig[0] == 0)&&(b.C.size() == 1)) return 0;
+            break;
+        case 11:
+            if (((a.C[0].p.dig[0] == 0)&&(a.C.size() == 1))||((b.C[0].p.dig[0] == 0)&&(b.C.size() == 1))) return 0;
+            break;
     }
     return 1;
 }
@@ -662,7 +728,10 @@ QString BackendIOWrapper::calculatePoly(const QString &input1, const QString &in
     s2.push_back('0');
 
     int checkPolyString = checkInputPolyByString(s1, s2);
-    if(checkPolyString == 0) {
+
+    qDebug() << "Poly string tests ::" << checkPolyString;
+
+    if(checkPolyString) {
         s_0 << s1;
         s_0 >> read_Poly(a);
         s_0 << s2;
@@ -686,8 +755,11 @@ QString BackendIOWrapper::calculatePoly(const QString &input1, const QString &in
 
 
 
-    int check = checkInputPoly(a, b, k, s1, s2, int32_id);
-    if(1) {
+    int check = checkInputPoly(a, b, k, int32_id);
+
+    qDebug() << "Poly switch tests ::" << check;
+
+    if(check) {
         switch(int32_id) {
         case 1 : {
             res = PolyToQString(ADD_PP_P(a, b));

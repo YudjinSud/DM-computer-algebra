@@ -35,7 +35,7 @@ ApplicationWindow {
         text: qsTr("Проверить")
         onClicked: {
             backend.input2 = text;
-            textArea.text = backend.calculateNatural(backend.input1, backend.input2, 0, algo)
+            textArea.text = backend.calculateNatural(backend.input1, backend.input1, 0, algo)
         }
     }
 
