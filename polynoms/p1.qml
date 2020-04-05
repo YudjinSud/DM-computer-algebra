@@ -40,9 +40,9 @@ ApplicationWindow {
     TextField {
         id: textField
         x: 15
-        y: 188
+        y: 134
         width: 181
-        height: 25
+        height: 54
         placeholderText: qsTr("           Первый полином")
         text: backend.input1
         onTextChanged: backend.input1 = text
@@ -52,9 +52,9 @@ ApplicationWindow {
     TextField {
         id: textField1
         x: 204
-        y: 188
+        y: 134
         width: 181
-        height: 25
+        height: 54
         placeholderText: qsTr("           Второй полином")
         text: backend.input2
         onTextChanged: backend.input2 = text
@@ -62,10 +62,10 @@ ApplicationWindow {
 
     TextArea {
         id: textArea
-        x: 80
-        y: 250
-        width: 255
-        height: 44
+        x: 49
+        y: 259
+        width: 297
+        height: 89
         readOnly: true
     }
 }

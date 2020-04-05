@@ -24,7 +24,7 @@ ApplicationWindow {
         width: 370
         height: 146
         color: "#d5f476"
-        text: qsTr("Преобразование натурального в целоео")
+        text: qsTr("Преобразование натурального в целое")
         font.pixelSize: 20
     }
 
@@ -35,7 +35,7 @@ ApplicationWindow {
         text: qsTr("Мне повезет!")
         onClicked: {
             console.log(algo);
-            textArea.text = backend.calculateInteger(backend.input1, backend.input2, 0,  algo)
+            textArea.text = backend.calculateInteger(backend.input1, backend.input1, 0,  algo)
         }
     }
     TextField {

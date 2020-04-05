@@ -34,7 +34,7 @@ ApplicationWindow {
         onClicked: {
             console.log(algo);
             backend.input2 = "(1)/(1)";
-            textArea.text = backend.calculateFraction(backend.input1, backend.input2, 0,  algo)
+            textArea.text = backend.calculateFraction(backend.input1, backend.input1, 0,  algo)
         }
     }
 

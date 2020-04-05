@@ -35,7 +35,7 @@ ApplicationWindow {
         text: qsTr("Мне повезет!")
         onClicked: {
             console.log(algo);
-            textArea.text = backend.calculateInteger(backend.input1, backend.input2, 0,  algo)
+            textArea.text = backend.calculateInteger(backend.input1, backend.input1, 0,  algo)
         }
     }
 

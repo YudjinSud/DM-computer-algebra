@@ -5,7 +5,15 @@ ApplicationWindow {
     color: "#00557f"
     title: qsTr("Натуральные числа")
     id: n
-    width: 400; height: 400
+    width: screen.width / 2
+    height: screen.height / 3
+
+    maximumHeight: screen.height / 2
+    maximumWidth: screen.width / 3
+
+    minimumHeight: screen.height / 2
+    minimumWidth: screen.width / 3
+
 
     Button {
         id: n1

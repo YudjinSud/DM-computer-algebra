@@ -31,7 +31,7 @@ ApplicationWindow {
         y: 219
         text: qsTr("Умножение")
         onClicked: {
-                    textArea.text = backend.calculateNatural(backend.input1, backend.input2, backend.input3,  algo)
+                    textArea.text = backend.calculateNatural(backend.input1, backend.input1, backend.input3,  algo)
                 }
     }
 

@@ -16,9 +16,9 @@
 int main(int argc, char *argv[])
 {
 
-    BTest bt;
-    bt.runAllTests();
-    Test::showFinalResult();
+//    BTest bt;
+//    bt.runAllTests();
+//    Test::showFinalResult();
 
 
     qmlRegisterType<BackendIOWrapper>("io.qt.examples.BackendIOWrapper", 1, 0, "BackendIOWrapper");

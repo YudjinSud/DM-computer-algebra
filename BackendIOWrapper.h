@@ -12,6 +12,7 @@
 #include "Poly.h"
 
 #include <cstdlib>
+#include <stack>
 
 
 class BackendIOWrapper : public QObject
