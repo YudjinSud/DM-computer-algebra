@@ -16,8 +16,8 @@ std::ostream &write_Poly::write(std::ostream &os) const {
         t = poly_.C[i];
         if (t == Frac() && poly_.m != 0);
         else {
-            if(flag) {
-                os <<  " + ";
+            if (flag) {
+                os << " + ";
             }
             os << write_Frac(t);
             os << "x^" << i;
@@ -45,7 +45,6 @@ std::istream &read_Poly::read(std::istream &is) {
     int stepen = 0;
     while (true) {
         is >> read_Frac(f);
-
         is >> c >> c;
         int i = 0;
         is >> c;

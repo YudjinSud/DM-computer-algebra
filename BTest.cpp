@@ -12,7 +12,7 @@ void BTest::runAllTests() {
 //    test_MUL_NN_N();
 //    test_SUB_NDN_N();
 //    test_DIV_NN_Dk();
-    test_DIV_NN_N();
+   // test_DIV_NN_N();
 //    test_MOD_NN_N();
 //    test_GCF_NN_N();
 //    test_LCM_NN_N();
@@ -25,8 +25,8 @@ void BTest::runAllTests() {
 //    test_SUB_ZZ_Z();
 //    test_MUL_ZZ_Z();
 //    test_DIV_ZZ_Z();
-//    test_MOD_ZZ_Z();
-    test_RED_Q_Q();
+    test_MOD_ZZ_Z();
+   // test_RED_Q_Q();
 //    test_INT_Q_B();
 //    test_TRANS_Z_Q();
 //    test_TRANS_Q_Z();
@@ -37,7 +37,7 @@ void BTest::runAllTests() {
 //    test_ADD_PP_P();
 //    test_SUB_PP_P();
 //    test_MUL_PQ_P();
-//    test_MUL_Pxk_P();
+ //   test_MUL_Pxk_P();
 //    test_LED_P_Q();
 //    test_DEG_P_N();
 //    test_MUL_PP_P();
@@ -552,37 +552,19 @@ void BTest::test_DIV_ZZ_Z() {
 }
 
 void BTest::test_MOD_ZZ_Z() {
-    Integ a, res;
-    Natural b;
-    a.b = 1;
-    a.n = 2;
-    a.dig = {2, 5};
-    b.n = 2;
-    b.dig = {2, 2};
-    res.b = 0;
-    res.n = 2;
-    res.dig = {1, 9};
-    DO_CHECK(MOD_ZZ_Z(a, b) == res);
-
-    a.b = 1;
-    a.n = 1;
-    a.dig = {7};
-    b.n = 1;
-    b.dig = {6};
-    res.b = 0;
-    res.n = 1;
-    res.dig = {5};
-    DO_CHECK(MOD_ZZ_Z(a, b) == res);
-
-    a.b = 0;
-    a.n = 1;
-    a.dig = {0};
-    b.n = 10;
-    b.dig = {5, 9, 5, 9, 5, 9, 5, 9, 5, 9};
-    res.b = 0;
-    res.n = 1;
-    res.dig = {0};
-    DO_CHECK(MOD_ZZ_Z(a, b) == res);
+    Integ a,res; std::stringstream s_0;string s,res1; Natural b;
+    s = "3.";
+    s_0 << s;
+    s_0 >> read_Integ(a);
+    s = "1.";
+    s_0 << s;
+    s_0 >> read_Nat(b);
+    s = "0.";
+    s_0 << s;
+    s_0 >> read_Integ(res);
+    //cout << write_Integ(a) <<  " + " << write_Integ(b) << " = " << write_Integ(ADD_ZZ_Z(a,b)) << '\n';
+    // cout << write_Integ(res) << '\n';
+    DO_CHECK(MOD_ZZ_Z(a,b) == res);
 }
 
 void BTest::test_RED_Q_Q() {
@@ -786,7 +768,16 @@ void BTest::test_MUL_PQ_P() {
 }
 
 void BTest::test_MUL_Pxk_P() {
-
+    Poly x,res; std::stringstream s_0;string s,res1;
+    int y = 7;
+    s = "(-97)/(1)x^123 + (56)/(1)x^0";
+    s_0 << s;
+    s_0 >> read_Poly(x);
+    s = "(-97)/(1)x^130 + (56)/(1)x^7 + (0)/(1)x^0";
+    s_0 << s;
+    s_0 >> read_Poly(res);
+  //  cout << write_Poly(MUL_Pxk_P(x,y)) << '\n';
+    DO_CHECK(MUL_Pxk_P(x,y) == res);
 }
 
 void BTest::test_LED_P_Q() {

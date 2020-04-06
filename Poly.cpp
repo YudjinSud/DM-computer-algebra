@@ -50,10 +50,9 @@ Poly MUL_PQ_P(Poly a, Frac r) {
 }
 
 Poly MUL_Pxk_P(Poly a, int k) {
-    Frac nul;
     reverse(a.C.begin(), a.C.end());
     for (int i = 0; i < k; i++)
-        a.C.push_back(nul);
+        a.C.push_back(Frac());
     a.m += k;
     reverse(a.C.begin(), a.C.end());
     return a;
