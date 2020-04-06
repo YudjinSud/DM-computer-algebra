@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Natural.h"
 #include "Integ.h"
 #include "Frac.h"
@@ -10,7 +11,7 @@ Frac RED_Q_Q(Frac a) {
     nul.dig = {0};
     Integ p = a.p;
     Natural q = a.q;
-    if(nul == p){
+    if (nul == p) {
         a.q.n = 1;
         a.q.dig = {1};
         return a;
@@ -18,7 +19,15 @@ Frac RED_Q_Q(Frac a) {
     int x = p.b;
     Natural p1 = TRANS_Z_N(p);
     Natural gcd = GCF_NN_N(p1, q);
-    p = TRANS_N_Z(DIV_NN_N(p1, gcd));
+//    for(int i : p1.dig) std::cout << i;
+//    std::cout << '/';
+//    for(int i : gcd.dig) std::cout << i;
+//    std::cout << '\n';
+    p1 = DIV_NN_N(p1, gcd);
+//    for(int i : p1.dig) std::cout << i;
+//    std::cout << '\n';
+    p = TRANS_N_Z(p1);
+
     q = DIV_NN_N(q, gcd);
     p.b = x;
     a.p = p;
@@ -56,6 +65,7 @@ Frac ADD_QQ_Q(Frac a, Frac b) {
     a = RED_Q_Q(a);
     b = RED_Q_Q(b);
     Natural lcm = LCM_NN_N(a.q, b.q);
+
     a.p = MUL_ZZ_Z(TRANS_N_Z(DIV_NN_N(lcm, a.q)), a.p);
     b.p = MUL_ZZ_Z(TRANS_N_Z(DIV_NN_N(lcm, b.q)), b.p);
     a.p = ADD_ZZ_Z(a.p, b.p);
@@ -68,7 +78,7 @@ Frac SUB_QQ_Q(Frac a, Frac b) {
     nul.b = 0;
     nul.n = 1;
     nul.dig = {0};
-    if (!(nul == b.p)){
+    if (!(nul == b.p)) {
         b.p.b = 1 - b.p.b;
     }
 
@@ -98,3 +108,4 @@ Frac DIV_QQ_Q(Frac a, Frac b) {
 bool Frac::operator==(const Frac &other) {
     return p == other.p && q == other.q;
 }
+//aaa
