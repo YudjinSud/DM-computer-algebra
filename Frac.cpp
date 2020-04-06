@@ -108,3 +108,4 @@ Frac DIV_QQ_Q(Frac a, Frac b) {
 bool Frac::operator==(const Frac &other) {
     return p == other.p && q == other.q;
 }
+//aaa

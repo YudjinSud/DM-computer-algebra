@@ -21,7 +21,7 @@ void BTest::runAllTests() {
 //    test_MUL_ZM_Z();
 //    test_TRANS_N_Z();
 //    test_TRANS_Z_N();
-   // test_ADD_ZZ_Z();
+    // test_ADD_ZZ_Z();
 //    test_SUB_ZZ_Z();
 //    test_MUL_ZZ_Z();
 //    test_DIV_ZZ_Z();
@@ -30,7 +30,7 @@ void BTest::runAllTests() {
 //    test_INT_Q_B();
 //    test_TRANS_Z_Q();
 //    test_TRANS_Q_Z();
-  //  test_ADD_QQ_Q();
+    //  test_ADD_QQ_Q();
     //    test_SUB_QQ_Q();
 //    test_MUL_QQ_Q();
 //    test_DIV_QQ_Q();
@@ -43,10 +43,10 @@ void BTest::runAllTests() {
 //    test_MUL_PP_P();
 //    test_DIV_PP_P();
 //    test_MOD_PP_P();
-   // test_GCF_PP_P();
+    // test_GCF_PP_P();
 //    test_DER_P_P();
 //    test_NMR_P_P();
-  //  test_FAC_P_Q();
+    //  test_FAC_P_Q();
 }
 
 void BTest::test_COM_NN_D() {
@@ -450,7 +450,7 @@ void BTest::test_ADD_ZZ_Z() {
     s_0 << s;
     s_0 >> read_Integ(res);
     //cout << write_Integ(a) <<  " + " << write_Integ(b) << " = " << write_Integ(ADD_ZZ_Z(a,b)) << '\n';
-   // cout << write_Integ(res) << '\n';
+    // cout << write_Integ(res) << '\n';
     DO_CHECK(ADD_ZZ_Z(a,b) == res);
 }
 
@@ -593,8 +593,8 @@ void BTest::test_RED_Q_Q() {
     s = "(10000000001)/(10000000000)";
     s_0 << s;
     s_0 >> read_Frac(res);
-  //  cout << write_Frac(a)  << " => " << write_Frac(RED_Q_Q(a)) << '\n';
-  //  cout << write_Frac(res) << '\n';
+    //  cout << write_Frac(a)  << " => " << write_Frac(RED_Q_Q(a)) << '\n';
+    //  cout << write_Frac(res) << '\n';
     DO_CHECK(RED_Q_Q(a) == res);
 }
 
@@ -668,7 +668,7 @@ void BTest::test_ADD_QQ_Q() {
     s_0 << s;
     s_0 >> read_Frac(res);
     cout << write_Frac(a) <<  " + " << write_Frac(b) << " = " << write_Frac(ADD_QQ_Q(a,b)) << '\n';
-   // cout << write_Frac(res) << '\n';
+    // cout << write_Frac(res) << '\n';
     DO_CHECK(ADD_QQ_Q(a,b) == res);
 }
 
@@ -1137,3 +1137,4 @@ void BTest::test_NMR_P_P() {
     res.C = {res1, res2, res3};
     DO_CHECK(NMR_P_P(x) == res);
 }
+//aaaa

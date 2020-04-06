@@ -182,6 +182,7 @@ Natural DIV_NN_N(Natural a, Natural b) {
 //        for (int i: c.dig) cout << i;
 //        cout << '\n';
         a = u;
+        //aaaa
 //        bool flag = false;
 //        while (COM_NN_D(a, v) != 1) {
 //            v.dig.push_back(0);
