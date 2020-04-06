@@ -112,7 +112,7 @@ int checkInputNaturals(Natural a, Natural b, int k,int id) {
         if (COM_NN_D(a, b) == 1) return 0;
         break;
     case 6:
-        if (k < 0) return 0;
+        if (k < 0 || k > 9) return 0;
         break;
     case 7:
         if (k < 0) return 0;
@@ -311,7 +311,7 @@ int checkInputInteger(Integ a, Integ b, int id) {
 
     switch (id) {
     case 4:
-        if (a.b) return 0;
+        if (a.b == 1) return 0;
         break;
     // Z-5
     case 5:
@@ -339,15 +339,15 @@ QString BackendIOWrapper::calculateInteger (const QString &input1, const QString
     //in algo's where integer needed. Else  - 0
 
 
-    int k = 0;
-    try {
-        k = stoi(integer);
-    }
-    catch (...){
-        return "Неправильный ввод!\n";
-    }
+//    int k = 0;
+//    try {
+//        k = stoi(integer);
+//    }
+//    catch (...){
+//        return "Неправильный ввод!\n";
+//    }
 
-    qDebug() << "Derived integer :" << k;
+//    qDebug() << "Derived integer :" << k;
 
     Integ a, b;
     Natural n;
@@ -385,7 +385,7 @@ QString BackendIOWrapper::calculateInteger (const QString &input1, const QString
 
     int check = checkInputInteger(a, b, int32_id);
 
-    qDebug() << "Intger switch tests :: " << check;
+    qDebug() << "Integer switch tests :: " << check;
 
     if(check) {
         switch(int32_id) {
@@ -559,6 +559,12 @@ QString BackendIOWrapper::calculateFraction(const QString &frac1, const QString 
         ss >> read_Frac(b);
         ss << str_integer;
         ss >> read_Integ(z);
+        if(a.p.b == 1 && a.p.dig[0] == 0)
+            a.p.b = 0;
+        if(b.p.b == 1 && b.p.dig[0] == 0)
+            b.p.b = 0;
+        if(z.b == 1 && z.dig[0] == 0)
+            z.b = 0;
     } else {
         return "Неправильный ввод\n";
     }
@@ -591,6 +597,7 @@ QString BackendIOWrapper::calculateFraction(const QString &frac1, const QString 
             break;
         }
         case 3 : {
+
             res = FractionToQString(TRANS_Z_Q(z));
             break;
         }
