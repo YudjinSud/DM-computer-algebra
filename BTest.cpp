@@ -2,38 +2,38 @@
 
 
 void BTest::runAllTests() {
-    /*test_COM_NN_D();
-    test_NZER_N_B();
-    test_ADD_1N_N();
-    test_ADD_NN_N();
-    test_SUB_NN_N();
-    test_MUL_ND_N();
-    test_MUL_Nk_N();
-    test_MUL_NN_N();
-    test_SUB_NDN_N();
-    test_DIV_NN_Dk();
+//    test_COM_NN_D();
+//    test_NZER_N_B();
+//    test_ADD_1N_N();
+//    test_ADD_NN_N();
+//    test_SUB_NN_N();
+//    test_MUL_ND_N();
+//    test_MUL_Nk_N();
+//    test_MUL_NN_N();
+//    test_SUB_NDN_N();
+//    test_DIV_NN_Dk();
     test_DIV_NN_N();
-    test_MOD_NN_N();
-    test_GCF_NN_N();
-    test_LCM_NN_N();
-    test_ABS_Z_N();
-    test_POZ_Z_D();
-    test_MUL_ZM_Z();
-    test_TRANS_N_Z();
-    test_TRANS_Z_N();
-    test_ADD_ZZ_Z();
-    test_SUB_ZZ_Z();
-    test_MUL_ZZ_Z();
-    test_DIV_ZZ_Z();
-    test_MOD_ZZ_Z();
+//    test_MOD_NN_N();
+//    test_GCF_NN_N();
+//    test_LCM_NN_N();
+//    test_ABS_Z_N();
+//    test_POZ_Z_D();
+//    test_MUL_ZM_Z();
+//    test_TRANS_N_Z();
+//    test_TRANS_Z_N();
+   // test_ADD_ZZ_Z();
+//    test_SUB_ZZ_Z();
+//    test_MUL_ZZ_Z();
+//    test_DIV_ZZ_Z();
+//    test_MOD_ZZ_Z();
     test_RED_Q_Q();
-    test_INT_Q_B();
-    test_TRANS_Z_Q();
-    test_TRANS_Q_Z();
-    test_ADD_QQ_Q();
-    test_SUB_QQ_Q();
-    test_MUL_QQ_Q();
-    test_DIV_QQ_Q();*/
+//    test_INT_Q_B();
+//    test_TRANS_Z_Q();
+//    test_TRANS_Q_Z();
+  //  test_ADD_QQ_Q();
+    //    test_SUB_QQ_Q();
+//    test_MUL_QQ_Q();
+//    test_DIV_QQ_Q();
 //    test_ADD_PP_P();
 //    test_SUB_PP_P();
 //    test_MUL_PQ_P();
@@ -43,7 +43,7 @@ void BTest::runAllTests() {
 //    test_MUL_PP_P();
 //    test_DIV_PP_P();
 //    test_MOD_PP_P();
-    test_GCF_PP_P();
+   // test_GCF_PP_P();
 //    test_DER_P_P();
 //    test_NMR_P_P();
   //  test_FAC_P_Q();
@@ -257,121 +257,19 @@ void BTest::test_DIV_NN_Dk() {
 }
 
 void BTest::test_DIV_NN_N() {
-
-    Natural a, b, res;
-    a.n = 3;
-    a.dig = {2, 0, 4};
-    b.n = 1;
-    b.dig = {2};
-    res.n = 3;
-    res.dig = {1, 0, 2};
-    DO_CHECK(DIV_NN_N(a, b) == res);
-
-    a.n = 2;
-    a.dig = {9, 9};
-    b.n = 3;
-    b.dig = {3, 2, 9};
-    res.n = 1;
-    res.dig = {3};
-    DO_CHECK(DIV_NN_N(a, b) == res);
-
-    a.n = 4;
-    a.dig = {1, 0, 0, 2};
-    b.n = 1;
-    b.dig = {9};
-    res.n = 3;
-    res.dig = {1, 1, 1};
-    DO_CHECK(DIV_NN_N(a, b) == res);
-
-    a.n = 3;
-    a.dig = {1, 2, 4};
-    b.n = 2;
-    b.dig = {3, 1};
-    res.n = 1;
-    res.dig = {4};
-    DO_CHECK(DIV_NN_N(a, b) == res);
-
-    a.n = 3;
-    a.dig = {1, 2, 4};
-    b.n = 2;
-    b.dig = {3, 1};
-    res.n = 1;
-    res.dig = {4};
-    DO_CHECK(DIV_NN_N(a, b) == res);
-
-    a.n = 3;
-    a.dig = {1, 1, 1};
-    b.n = 3;
-    b.dig = {1, 1, 0};
-    res.n = 1;
-    res.dig = {1};
-    DO_CHECK(DIV_NN_N(a, b) == res);
-
-    b.n = 3;
-    b.dig = {1, 0, 0};
-    a.n = 2;
-    a.dig = {1, 0};
-    res.n = 2;
-    res.dig = {1, 0};
-    DO_CHECK(DIV_NN_N(a, b) == res);
-
-    b.n = 3;
-    b.dig = {2, 2, 0};
-    a.n = 2;
-    a.dig = {2, 0};
-    res.n = 2;
-    res.dig = {1, 1};
-    DO_CHECK(DIV_NN_N(a, b) == res);
-
-    res.n = 10;
-    res.dig = {5, 1, 1, 1, 2, 2, 2, 2, 2, 2};
-    b.n = 2;
-    b.dig = {1, 2};
-    a.n = 11;
-    a.dig = {6, 1, 3, 3, 4, 6, 6, 6, 6, 6, 4};
-    DO_CHECK(DIV_NN_N(a, b) == res);
-
-    a.n = 5;
-    a.dig = {6, 1, 3, 3, 4};
-    b.n = 2;
-    b.dig = {1, 3};
-    res.n = 4;
-    res.dig = {4, 7, 1, 8};
-    DO_CHECK(DIV_NN_N(a, b) == res);
-
-    res.n = 6;
-    res.dig = {4, 7, 1, 8, 0, 5};
-    b.n = 2;
-    b.dig = {1, 3};
-    a.n = 7;
-    a.dig = {6, 1, 3, 3, 4, 6, 6};
-    DO_CHECK(DIV_NN_N(a, b) == res);
-
-    res.n = 11;
-    res.dig = {4, 7, 1, 8, 0, 5, 1, 2, 8, 1, 8};
-    b.n = 2;
-    b.dig = {1, 3};
-    a.n = 12;
-    a.dig = {6, 1, 3, 3, 4, 6, 6, 6, 6, 6, 4, 3};
-    DO_CHECK(DIV_NN_N(a, b) == res);
-
-    b.n = 10;
-    b.dig = {6, 6, 6, 9, 9, 9, 8, 8, 8, 8};
-    a.n = 8;
-    a.dig = {6, 6, 6, 5, 5, 5, 1, 2};
-    res.n = 3;
-    res.dig = {1, 0, 0};
-    DO_CHECK(DIV_NN_N(a, b) == res);
-
-
-    b.n = 10;
-    b.dig = {6, 6, 6, 9, 9, 9, 8, 8, 8, 8};
-    res.n = 7;
-    res.dig = {1, 1, 9, 0, 2, 7, 7};
-    a.n = 16;
-    a.dig = {7, 9, 3, 9, 1, 4, 6, 2, 6, 6, 4, 1, 1, 9, 7, 6};
-    DO_CHECK(DIV_NN_N(a, b) == res);
-
+    Natural a,b,res; std::stringstream s_0;string s,res1;
+    s = "1002.";
+    s_0 << s;
+    s_0 >> read_Nat(a);
+    s = "2.";
+    s_0 << s;
+    s_0 >> read_Nat(b);
+    s = "501.";
+    s_0 << s;
+    s_0 >> read_Nat(res);
+    //cout << write_Nat(a) <<  " / " << write_Nat(b) << " = " << write_Nat(DIV_NN_N(a,b)) << '\n';
+    // cout << write_Nat(res) << '\n';
+    DO_CHECK(DIV_NN_N(a,b) == res);
 
 }
 
@@ -541,50 +439,19 @@ void BTest::test_TRANS_Z_N() {
 }
 
 void BTest::test_ADD_ZZ_Z() {
-    Integ a, b, res;
-    a.b = 1;
-    a.n = 2;
-    a.dig = {2, 5};
-    b.b = 0;
-    b.n = 2;
-    b.dig = {2, 5};
-    res.b = 0;
-    res.n = 1;
-    res.dig = {0};
-    DO_CHECK(ADD_ZZ_Z(a, b) == res);
-
-    a.b = 1;
-    a.n = 2;
-    a.dig = {2, 2};
-    b.b = 1;
-    b.n = 2;
-    b.dig = {2, 5};
-    res.b = 1;
-    res.n = 2;
-    res.dig = {4, 7};
-    DO_CHECK(ADD_ZZ_Z(a, b) == res);
-
-    a.b = 0;
-    a.n = 2;
-    a.dig = {2, 2};
-    b.b = 1;
-    b.n = 2;
-    b.dig = {2, 5};
-    res.b = 1;
-    res.n = 1;
-    res.dig = {3};
-    DO_CHECK(ADD_ZZ_Z(a, b) == res);
-
-    a.b = 0;
-    a.n = 1;
-    a.dig = {0};
-    b.b = 1;
-    b.n = 2;
-    b.dig = {2, 5};
-    res.b = 0;
-    res.n = 1;
-    res.dig = {0};
-    DO_CHECK(MUL_ZZ_Z(a, b) == res);
+    Integ a,b,res; std::stringstream s_0;string s,res1;
+    s = "1.";
+    s_0 << s;
+    s_0 >> read_Integ(a);
+    s = "10000000000.";
+    s_0 << s;
+    s_0 >> read_Integ(b);
+    s = "10000000001.";
+    s_0 << s;
+    s_0 >> read_Integ(res);
+    //cout << write_Integ(a) <<  " + " << write_Integ(b) << " = " << write_Integ(ADD_ZZ_Z(a,b)) << '\n';
+   // cout << write_Integ(res) << '\n';
+    DO_CHECK(ADD_ZZ_Z(a,b) == res);
 }
 
 void BTest::test_SUB_ZZ_Z() {
@@ -719,17 +586,15 @@ void BTest::test_MOD_ZZ_Z() {
 }
 
 void BTest::test_RED_Q_Q() {
-    Frac a, res;
-    a.p.b = 1;
-    a.p.n = 3;
-    a.p.dig = {1, 2, 5};
-    a.q.n = 2;
-    a.q.dig = {5, 0};
-    res.p.b = 1;
-    res.p.n = 1;
-    res.p.dig = {5};
-    res.q.n = 1;
-    res.q.dig = {2};
+    Frac a,b,res; std::stringstream s_0;string s,res1;
+    s = "(10000000001)/(10000000000)";
+    s_0 << s;
+    s_0 >> read_Frac(a);
+    s = "(10000000001)/(10000000000)";
+    s_0 << s;
+    s_0 >> read_Frac(res);
+  //  cout << write_Frac(a)  << " => " << write_Frac(RED_Q_Q(a)) << '\n';
+  //  cout << write_Frac(res) << '\n';
     DO_CHECK(RED_Q_Q(a) == res);
 }
 
@@ -792,77 +657,36 @@ void BTest::test_TRANS_Q_Z() {
 }
 
 void BTest::test_ADD_QQ_Q() {
-    Frac a, b, res;
-    a.p.b = 1;
-    a.p.n = 3;
-    a.p.dig = {1, 2, 5};
-    a.q.n = 2;
-    a.q.dig = {5, 0};
-    b.p.b = 1;
-    b.p.n = 2;
-    b.p.dig = {3, 4};
-    b.q.n = 1;
-    b.q.dig = {6};
-    res.p.b = 1;
-    res.p.n = 2;
-    res.p.dig = {4, 9};
-    res.q.n = 1;
-    res.q.dig = {6};
-    DO_CHECK(ADD_QQ_Q(a, b) == res);
-
-    a.p.b = 1;
-    a.p.n = 4;
-    a.p.dig = {7, 5, 6, 2};
-    a.q.n = 1;
-    a.q.dig = {4};
-    b.p.b = 0;
-    b.p.n = 1;
-    b.p.dig = {0};
-    b.q.n = 1;
-    b.q.dig = {5};
-    res.p.b = 1;
-    res.p.n = 4;
-    res.p.dig = {3, 7, 8, 1};
-    res.q.n = 1;
-    res.q.dig = {2};
-    DO_CHECK(ADD_QQ_Q(a, b) == res);
+    Frac a,b,res; std::stringstream s_0;string s,res1;
+    s = "(1)/(1)";
+    s_0 << s;
+    s_0 >> read_Frac(a);
+    s = "(1)/(10000000000)";
+    s_0 << s;
+    s_0 >> read_Frac(b);
+    s = "(10000000001)/(10000000000)";
+    s_0 << s;
+    s_0 >> read_Frac(res);
+    cout << write_Frac(a) <<  " + " << write_Frac(b) << " = " << write_Frac(ADD_QQ_Q(a,b)) << '\n';
+   // cout << write_Frac(res) << '\n';
+    DO_CHECK(ADD_QQ_Q(a,b) == res);
 }
 
 void BTest::test_SUB_QQ_Q() {
-    Frac a, b, res;
-    a.p.b = 1;
-    a.p.n = 3;
-    a.p.dig = {1, 2, 5};
-    a.q.n = 2;
-    a.q.dig = {5, 0};
-    b.p.b = 1;
-    b.p.n = 2;
-    b.p.dig = {3, 4};
-    b.q.n = 1;
-    b.q.dig = {6};
-    res.p.b = 0;
-    res.p.n = 2;
-    res.p.dig = {1, 9};
-    res.q.n = 1;
-    res.q.dig = {6};
-    DO_CHECK(SUB_QQ_Q(a, b) == res);
+    Frac a,b,res; std::stringstream s_0;string s,res1;
+    s = "(1)/(1)";
+    s_0 << s;
+    s_0 >> read_Frac(a);
+    s = "(-1)/(10000000000)";
+    s_0 << s;
+    s_0 >> read_Frac(b);
+    s = "(10000000001)/(10000000000)";
+    s_0 << s;
+    s_0 >> read_Frac(res);
+    cout << write_Frac(a) <<  " - " << write_Frac(b) << " = " << write_Frac(SUB_QQ_Q(a,b)) << '\n';
+    cout << write_Frac(res) << '\n';
+    DO_CHECK(SUB_QQ_Q(a,b) == res);
 
-    a.p.b = 1;
-    a.p.n = 4;
-    a.p.dig = {7, 5, 6, 2};
-    a.q.n = 1;
-    a.q.dig = {4};
-    b.p.b = 0;
-    b.p.n = 1;
-    b.p.dig = {0};
-    b.q.n = 1;
-    b.q.dig = {5};
-    res.p.b = 1;
-    res.p.n = 4;
-    res.p.dig = {3, 7, 8, 1};
-    res.q.n = 1;
-    res.q.dig = {2};
-    DO_CHECK(SUB_QQ_Q(a, b) == res);
 }
 
 void BTest::test_MUL_QQ_Q() {
