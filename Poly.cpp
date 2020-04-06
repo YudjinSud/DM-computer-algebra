@@ -186,6 +186,7 @@ Poly DER_P_P(Poly a) {
 
 Poly NMR_P_P(Poly a) { //P-13
     Poly b = DER_P_P(a);
-    return DIV_PP_P(a, GCF_PP_P(a, b));
+
+    return FAC_P_Q(DIV_PP_P(a, GCF_PP_P(a, b)));
 }
 

@@ -142,8 +142,14 @@ QString BackendIOWrapper::calculateNatural (const QString &input1, const QString
 
     string integer = integ.toStdString();
     //in algo's where integer needed. Else  - 0
-    int k = stoi(integer);
 
+    int k = 0;
+    try {
+        k = stoi(integer);
+    }
+    catch (...){
+        return "Неправильный ввод!\n";
+    }
 
     qDebug() << "String 1 : " << QString::fromStdString(s1);
     qDebug() << "String 2 : " << QString::fromStdString(s2);
@@ -155,6 +161,7 @@ QString BackendIOWrapper::calculateNatural (const QString &input1, const QString
 
     qDebug() << "Natural string test:: " << checkToManip;
 
+    try {
     if(checkToManip) {
         //перед тем, как засылать в манипулятор, нужно проверить просто строки.
         //Например, если это хотя бы число. isnumeric() тоже неплохая фукнция для этого
@@ -167,6 +174,10 @@ QString BackendIOWrapper::calculateNatural (const QString &input1, const QString
         s_0 >> read_Nat(b);
     }
     else {
+        return "Неправильный ввод\n";
+    }
+    }
+    catch(...) {
         return "Неправильный ввод\n";
     }
 
@@ -299,15 +310,18 @@ int checkInputIntegerToManip(string s1, string s2) {
 int checkInputInteger(Integ a, Integ b, int id) {
 
     switch (id) {
+    case 4:
+        if (a.b) return 0;
+        break;
     // Z-5
     case 5:
         if (a.b) return 0;
         break;
     case 9:
-        if((b.dig[0] == 0)||(COM_NN_D(TRANS_Z_N(ABS_Z_N(a)), TRANS_Z_N(ABS_Z_N(b)))) != 1) return 0;
+        if((b.dig[0] == 0)||(COM_NN_D(TRANS_Z_N(ABS_Z_N(a)), TRANS_Z_N(ABS_Z_N(b)))) == 1 || (b.b == 1)) return 0;
         break;
     case 10:
-        if((b.dig[0] == 0)||(COM_NN_D(TRANS_Z_N(ABS_Z_N(a)), TRANS_Z_N(ABS_Z_N(b)))) != 1) return 0;
+        if((b.dig[0] == 0)||(COM_NN_D(TRANS_Z_N(ABS_Z_N(a)), TRANS_Z_N(ABS_Z_N(b)))) == 1 || (b.b == 1)) return 0;
         break;
     }
     return 1;
@@ -323,7 +337,15 @@ QString BackendIOWrapper::calculateInteger (const QString &input1, const QString
 
     string integer = integ.toStdString();
     //in algo's where integer needed. Else  - 0
-    int k = stoi(integer);
+
+
+    int k = 0;
+    try {
+        k = stoi(integer);
+    }
+    catch (...){
+        return "Неправильный ввод!\n";
+    }
 
     qDebug() << "Derived integer :" << k;
 
@@ -334,17 +356,26 @@ QString BackendIOWrapper::calculateInteger (const QString &input1, const QString
 
     qDebug() << "Iteger string tests :: " << checkToManip;
 
+    try {
     if(checkToManip) {
         s1.push_back('.');
         s2.push_back('.');
+        integer.push_back('.');
         s_0 << s1;
         s_0 >> read_Integ(a);
         s_0 << s2;
         s_0 >> read_Integ(b);
+        s_0 << integer;
+        s_0 >> read_Nat(n);
     }
     else {
         return "Неправильный ввод\n";
     }
+    }
+    catch(...) {
+        return "Неправильный ввод\n";
+    }
+
     QString res = "";
 
     qDebug() << "Integer 1 : " << IntegToQString(a) << "Sign :: " << a.b;
@@ -520,6 +551,7 @@ QString BackendIOWrapper::calculateFraction(const QString &frac1, const QString 
 
     qDebug() << "Frack string tests :: " << ( int) (checkFracStr1 && checkFracStr2);
 
+    try {
     if(checkFracStr1 && checkFracStr2) {
         ss << str_fraction1;
         ss >> read_Frac(a);
@@ -530,6 +562,11 @@ QString BackendIOWrapper::calculateFraction(const QString &frac1, const QString 
     } else {
         return "Неправильный ввод\n";
     }
+    }
+    catch (...) {
+        return "Неправильный ввод\n";
+    }
+
     qDebug() << "f1 : " << FractionToQString(a);
     qDebug() << "f2 : " << FractionToQString(b);
     //    qDebug() << "integ : " << IntegToQString(z);
@@ -592,9 +629,17 @@ QString PolyToQString(Poly a) {
     std::string std_s;
     ss << write_Poly(a);
     getline(ss, std_s);
-    std_s.pop_back();
-    std_s.pop_back();
-    std_s.pop_back();
+    int size = std_s.size();
+    if(size >= 10) {
+    if(std_s[size - 1] == '0' && std_s[size - 2] == '^') {
+        std_s.pop_back();
+        std_s.pop_back();
+        std_s.pop_back();
+    }
+    }
+    else {
+        return "неправильный ввод!\n";
+    }
     QS = QString::fromStdString(std_s);
 
     return QS;
@@ -609,7 +654,7 @@ bool checkPolyByString(string s) {
             s2.push_back(s[_]);
             _++;
         }
-        //if (checkInputFracByString(s2) == 0) return false;
+        if (checkInputFracByString(s2) == 0) return false;
         while (_ < s.size() && s[_] != '(')
             _++;
         s2.clear();
@@ -749,8 +794,14 @@ QString BackendIOWrapper::calculatePoly(const QString &input1, const QString &in
 
     //(-97)/(1)x^1 + (56)/(1)x^0
 
-    int k = stoi(integer);
 
+    int k = 0;
+    try {
+        k = stoi(integer);
+    }
+    catch (...){
+        return "Неправильный ввод!\n";
+    }
 
     qDebug() << "poly 1 : " << QString::fromStdString(s1);
     qDebug() << "poly 2 : " << QString::fromStdString(s2);
@@ -777,7 +828,7 @@ QString BackendIOWrapper::calculatePoly(const QString &input1, const QString &in
 
     qDebug() << "Poly string tests ::" << int (checkPolyString1 && checkPolyString2);
 
-
+    try {
     if(checkPolyString1 && checkPolyString2) {
         s_0 << s1;
         s_0 >> read_Poly(a);
@@ -787,6 +838,10 @@ QString BackendIOWrapper::calculatePoly(const QString &input1, const QString &in
         s_0 >> read_Frac(f);
     }
     else {
+        return "Неправильный ввод!\n";
+    }
+    }
+    catch(...) {
         return "Неправильный ввод!\n";
     }
 

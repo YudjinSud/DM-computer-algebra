@@ -28,7 +28,7 @@ std::ostream &write_Poly::write(std::ostream &os) const {
 }
 
 std::ostream &operator<<(std::ostream &os, write_Poly WP) {
-    assert(os);
+   // assert(os);
     return WP.write(os);
 }
 
@@ -72,7 +72,7 @@ std::istream &read_Poly::read(std::istream &is) {
 }
 
 std::istream &operator>>(std::istream &is, read_Poly RP) {
-    assert(is);
+   // assert(is);
     is.unsetf(ios_base::skipws);
     return RP.read(is);
 }
@@ -89,7 +89,7 @@ std::ostream &write_Frac::write(std::ostream &os) const {
 }
 
 std::ostream &operator<<(std::ostream &os, write_Frac WF) {
-    assert(os);
+   // assert(os);
     return WF.write(os);
 }
 
@@ -111,7 +111,7 @@ std::istream &read_Frac::read(std::istream &is) {
 }
 
 std::istream &operator>>(std::istream &is, read_Frac RF) {
-    assert(is);
+ //   assert(is);
     return RF.read(is);
 }
 
@@ -128,7 +128,7 @@ std::ostream &write_Integ::write(std::ostream &os) const {
 }
 
 std::ostream &operator<<(std::ostream &os, write_Integ WI) {
-    assert(os);
+    //assert(os);
     return WI.write(os);
 }
 
@@ -153,7 +153,7 @@ std::istream &read_Integ::read(std::istream &is) {
 }
 
 std::istream &operator>>(std::istream &is, read_Integ RI) {
-    assert(is);
+//    assert(is);
     return RI.read(is);
 }
 
@@ -170,7 +170,7 @@ std::ostream &write_Nat::write(std::ostream &os) const {
 }
 
 std::ostream &operator<<(std::ostream &os, write_Nat WN) {
-    assert(os);
+   //assert(os);
     return WN.write(os);
 }
 
@@ -188,17 +188,21 @@ std::istream &read_Nat::read(std::istream &is) {
     }
     nat_->n = int(nat_->dig.size());
     reverse(begin(nat_->dig), end(nat_->dig));
+
+    if(nat_->dig.size() != 0) {
     while (nat_->dig[nat_->dig.size() - 1] == 0) nat_->dig.pop_back();
+
     nat_->n = int(nat_->dig.size());
     if (nat_->n == 0) {
         nat_->n = 1;
         nat_->dig.push_back(0);
     }
     reverse(begin(nat_->dig), end(nat_->dig));
+    }
     return is;
 }
 
 std::istream &operator>>(std::istream &is, read_Nat RN) {
-    assert(is);
+  //  assert(is);
     return RN.read(is);
 }
