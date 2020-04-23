@@ -114,6 +114,8 @@ Natural MUL_NN_N(Natural a, Natural b) {
 }
 
 Natural SUB_NDN_N(Natural a, Natural b, int n) {
+    if(!n)
+        return a;
     if (COM_NN_D(a, b) == 1)
         swap(a, b);
     b = MUL_ND_N(b, n);

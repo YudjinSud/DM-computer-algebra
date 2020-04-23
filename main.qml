@@ -89,10 +89,10 @@ ApplicationWindow {
 
     Image {
         id: image
-        x: 296
-        y: 0
-        width: 322
-        height: 356
+        x: 328
+        y: 52
+        width: 126
+        height: 93
         source: "leti_logo_krug-eng_2019.png"
         fillMode: Image.PreserveAspectFit
     }
@@ -100,7 +100,7 @@ ApplicationWindow {
     Image {
         id: image1
         x: 0
-        y: 380
+        y: 286
         width: 100
         height: 100
         fillMode: Image.PreserveAspectFit
